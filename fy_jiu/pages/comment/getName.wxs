@@ -1,0 +1,23 @@
+var getName = function (name) {
+    var newStr;
+    if(name.length === 2) {
+        newStr = name[0] + '*';
+    } else if (name.length > 2) {
+        // var char = '';
+        var len = name.length - 2;
+        var char = '';
+        for (var i = 0;i<len;i++) {
+            char+="*"
+        }
+        newStr = name[0] + char + name[name.length-1];
+    } else {
+        newStr = name;
+    }
+
+    return newStr;
+
+}
+
+module.exports = {
+    getName: getName,
+};

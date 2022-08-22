@@ -1,0 +1,364 @@
+/* pages/hotel_details/hotel_details.wxss */
+page {
+  padding-top: 98rpx;
+  padding-bottom: 130rpx;
+}
+
+scroll-view {
+  height: calc(100vh - 212rpx);
+}
+
+.hotel_details_tab {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  border-bottom: 1rpx solid #ddd;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 1rpx solid #eeeeee;
+  border-bottom: 1rpx solid #eeeeee;
+  height: 98rpx;
+  padding: 0 10rpx;
+}
+
+.hotel_details_tab>view {
+  width: 20%;
+  font-size: 20rpx;
+  line-height: 98rpx;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hotel_details_tab>view image {
+  display: inline-block;
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 8rpx;
+  position: relative;
+  opacity: 0;
+}
+
+.hotel_details_tab>view.on text {
+  color: var(--main-color);
+}
+
+.hotel_details_tab>view.on image {
+  opacity: 1;
+}
+
+.hotel_details {
+  background-color: #fff;
+  padding: 0 30rpx
+}
+
+.hotel_details_list {
+  border-bottom: 1rpx solid #ddd;
+  padding: 50rpx 0 40rpx;
+}
+
+.hotel_details_list:last-child {
+  border-bottom: 0;
+}
+
+.hotel_details_tit {
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #000000;
+  line-height: 40rpx;
+}
+
+.hotel_details_lx {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #666666;
+  line-height: 36rpx;
+  margin-top: 40rpx;
+}
+
+.hotel_details_lx_info {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #666666;
+  line-height: 36rpx;
+}
+
+.facilities {
+  overflow: hidden;
+}
+
+.facilities_list {
+  float: left;
+  width: 20%;
+  text-align: center;
+  padding-top: 30rpx;
+}
+
+.facilities_list image {
+  width: 36rpx;
+  height: 32rpx;
+  margin: 0 auto;
+}
+
+.facilities_list view {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #666666;
+  line-height: 36rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.Checkin_time {
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+
+.Checkin_time>image {
+  float: left;
+  width: 40rpx;
+  height: 40rpx;
+  margin: 14rpx 24rpx 0 0;
+}
+
+.Checkin_time>text {
+  float: left;
+  font-size: 26rpx;
+  line-height: 70rpx;
+  margin-right: 34rpx;
+  color: #121212;
+}
+
+.hotel_tips {
+  font-size: 22rpx;
+  line-height: 40rpx;
+  color: #505050;
+  padding-left: 40rpx;
+}
+
+.hotel_mumber {
+  border-bottom: 1rpx solid #ddd;
+  display: flex;
+  padding: 10rpx 0;
+}
+
+.hotel_mumber view {
+  flex: 1;
+  font-size: 26rpx;
+  line-height: 98rpx;
+  color: var(--main-color);
+}
+
+.hotel_mumber image {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 16rpx 0;
+}
+
+.hotel_js {
+  overflow: hidden;
+}
+
+.hotel_js view {
+  float: left;
+  width: 50%;
+  font-size: 26rpx;
+  line-height: 52rpx;
+  color: #555;
+}
+
+.hotel_js_txt {
+  font-size: 24rpx;
+  line-height: 36rpx;
+  color: #666666;
+  margin-top: 30rpx;
+}
+
+.hotel_details_tit>view {
+  float: right;
+  font-size: 22rpx;
+  color: #666;
+}
+
+.score {
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+
+.score_num {
+  float: left;
+  font-size: 40rpx;
+  line-height: 64rpx;
+  color: #f23632;
+  margin-right: 14rpx;
+}
+
+.score_tit {
+  float: left;
+  font-size: 22rpx;
+  line-height: 64rpx;
+  color: #f23632;
+  margin-right: 24rpx;
+}
+
+.score_txt {
+  float: left;
+  padding-left: 24rpx;
+  border-left: 1rpx solid #ddd;
+  font-size: 24rpx;
+  line-height: 64rpx;
+  color: #000;
+}
+
+.score_info {
+  margin-top: 30rpx;
+  display: flex;
+}
+
+.score_info view {
+  font-size: 20rpx;
+  line-height: 54rpx;
+  height: 54rpx;
+  width: 54rpx;
+  border-radius: 50%;
+  border: 1rpx solid #fadfe1;
+  color: #f53a34;
+  margin-right: 16rpx;
+  text-align: center;
+}
+
+.score_info text {
+  flex: 1;
+  font-size: 22rpx;
+  line-height: 54rpx;
+  color: #414141;
+}
+
+.published_tit {
+  font-size: 22rpx;
+  line-height: 80rpx;
+  color: #535353;
+}
+
+.published_con {
+  font-size: 26rpx;
+  line-height: 44rpx;
+  color: #151515;
+}
+
+.map {
+  border-radius: 10rpx;
+  overflow: hidden;
+  background-color: #fff;
+  border: 1rpx solid #ddd;
+  margin: 30rpx 0;
+}
+
+.map map {
+  width: 100%;
+  height: 270rpx;
+}
+
+.map_txt {
+  font-size: 24rpx;
+  line-height: 40rpx;
+  color: #666666;
+  padding: 24rpx 32rpx;
+  padding-top: 0rpx;
+}
+
+.traffic {
+  padding-bottom: 30rpx;
+}
+
+.traffic_tit {
+  padding: 0 40rpx;
+  font-size: 26rpx;
+  line-height: 42rpx;
+  color: #3e3e3e;
+  position: relative;
+  margin-top: 20rpx;
+}
+
+.traffic_tit image {
+  width: 30rpx;
+  height: 32rpx;
+  position: absolute;
+  top: 4rpx;
+  left: 0;
+}
+
+.traffic_txt {
+  padding: 0 40rpx;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  color: #545454;
+}
+
+.footer {
+  width: 100%;
+  background-color: #fff;
+  border-top: 1rpx solid #ddd;
+  padding: 20rpx 20rpx 20rpx 0;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.footer_sc {
+  width: 150rpx;
+  text-align: center;
+  padding-top: 8rpx;
+}
+
+.footer_sc image {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 auto;
+}
+
+.footer_sc view {
+  font-size: 22rpx;
+  line-height: 24rpx;
+  margin-top: 10rpx;
+  color: #626974;
+}
+
+.footer_btn {
+  flex: 1;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  color: #fff;
+  border-radius: 10rpx;
+  background-color: var(--main-color);
+  text-align: center;
+  margin-right: 15rpx;
+}
+
+
+.map_layout{
+  background:white;
+  width: 95%;
+  height: 490rpx;
+  margin:  0 auto;
+  /* padding-bottom: 15rpx; */
+}
+.faci{
+  display: flex;
+  justify-content: space-between;
+  width: 94%;
+  margin: 0 auto;
+  margin-top: 20rpx;
+}
+.faci image{ width: 50rpx; height:50rpx; display: flex; text-align: center;}
+.faci text{
+  font-size: 28rpx;
+  color: #333333;
+}

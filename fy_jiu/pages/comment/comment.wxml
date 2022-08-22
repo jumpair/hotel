@@ -1,0 +1,68 @@
+<wxs src="./getName.wxs" module="wxs"></wxs>
+
+
+<view class="box">
+	<view class="info">
+		<!-- <view class="total">共{{commentTotal}}条评价</view> -->
+		<view class="score">
+			综合评分 {{score}}分
+		</view>
+		<view class="star">
+			<block wx:for="{{scoreList}}" wx:for-item="item2" wx:key="uniaci" wx:for-index="nid">
+				<image src="../../resource/images/xing01.svg" wx:if="{{nid+1<=starNum}}" mode="widthFix"></image>
+			</block>
+		</view>
+		<!-- <view class="lab">
+			<view>交通便利</view>
+			<view>环境很好</view>
+		</view> -->
+	</view>
+	<!-- <view class="count">
+		<view>描述 4.9分</view>
+		<view>沟通 5分</view>
+		<view>卫生 4.9分</view>
+		<view>位置 5分</view>
+	</view> -->
+</view>
+<view class="list">
+	<view class="item" wx:for="{{list}}" wx:key="uniaci" wx:for-index="kid">
+		<view class="user">
+			<view class="l_">
+				<view class="head">
+					<image mode="widthFix" src="{{item.avatar}}"></image>
+				</view>
+				<view class="name">
+					<text>{{wxs.getName(item.nickname)}}</text>
+					<view>{{item.date}} | 入住2晚</view>
+				</view>
+			</view>
+			<view class="r_">
+				<view>{{item.score}}分</view>
+				<view>
+					<block wx:for="{{scoreList}}" wx:for-item="item2" wx:key="uniaci" wx:for-index="nid">
+						<image src="../../resource/images/xing01.svg" wx:if="{{nid+1<=item.score}}" mode="widthFix"></image>
+					</block>
+				</view>
+			</view>
+		</view>
+		<view class="info">
+			<text>{{item.content}}</text>
+			<view>
+				<view class="list__">
+					<view class="img" wx:if="{{item.thumb1!=''}}">
+						<image mode="aspectFill" src="{{item.thumb1}}" data-src="{{item.thumb1}}"
+						bindtap="showImg" data-id="{{kid}}"></image>
+					</view>
+					<view class="img" wx:if="{{item.thumb2!=''}}">
+						<image mode="aspectFill" src="{{item.thumb2}}" data-src="{{item.thumb2}}"
+						bindtap="showImg" data-id="{{kid}}"></image>
+					</view>
+					<view class="img" wx:if="{{item.thumb3!=''}}">
+						<image mode="aspectFill" src="{{item.thumb3}}"  data-src="{{item.thumb3}}"
+						bindtap="showImg" data-id="{{kid}}"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

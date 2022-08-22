@@ -1,0 +1,56 @@
+<view class="top">
+    <view class="top_bg">
+        <image src="../../../resource/images/member_bg.jpg"></image>
+        <view class="fixed_" style="height: {{jnInfo.top+jnInfo.height+4}}px;">
+            <view style="height: {{jnInfo.top}}px;"></view>
+            <view class="index_h1" style="line-height: {{jnInfo.height}}px;height: {{jnInfo.height}}px;">会员中心
+                <view class="img" bindtap="navBack">
+                    <image src="../../../resource/images/back_white.svg"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class='user_div'>
+    <view class="member member1">
+        <image src="../../../resource/images/member_bg1.png"></image>
+        <view class="cont">
+            <view class="t1">当前等级</view>
+            <view class="t2">
+                <view class="l_">
+                    <view>{{levelname}}</view>
+                    <text>到期时间：{{end_time}}</text>
+                </view>
+
+                <view class="r_" bindtap="upgrade" wx:if="{{showRenewal}}">去续费</view>
+            </view>
+        </view>
+    </view>
+    <block wx:for="{{levellist}}" wx:key="index">
+    <view class="member member2 height_" wx:if="{{item.id == 1}}">
+        <image src="../../../resource/images/huiyuan_bg.png"></image>
+        <view class="cont">
+            <view class="l_">
+                <view>{{item.name}}</view>
+                  <text>普通会员</text>
+            </view>
+          
+        </view>
+    </view>
+    <view class="member member3 height_" wx:else>
+        <image src="../../../resource/images/huiyuan_bg.png"></image>
+        <view class="cont">
+            <view class="l_">
+                <view>{{item.name}}</view>
+                <text>会员每年交费{{item.cost}}元</text>
+            </view>
+            <block wx:if="{{item.id != 2 && item.id != userlevel}}">
+              <view class="r_" bindtap="upgrade">去升级</view>
+            </block>
+         
+        </view>
+    </view>
+    </block>
+  
+    
+</view>

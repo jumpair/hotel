@@ -1,0 +1,74 @@
+<view class="PlaceOrder_list_all">
+
+  <view class="preferential_list">
+    <view class="preferential_list_tit">房型名称</view>
+    <view class="preferential_list_mj" >
+      <text> {{room.name}}</text>
+    </view>
+  </view>
+
+  <view class="preferential_list">
+    <view class="preferential_list_tit">维护房量</view>
+    <view class="preferential_list_mj orange" bindtap='showNums'>
+      <text> 红色代表周五、六、日</text>
+      <image src="../../../resource/images/more_right.svg" bindtap='showNums'></image>
+    </view>
+    
+  </view>
+
+  <view class="preferential_list">
+    <view class="preferential_list_tit">维护房价</view>
+    <view class="preferential_list_mj orange" bindtap='showPrice'>
+      <text> 红色代表周五、六、日</text>
+      <image src="../../../resource/images/more_right.svg" bindtap='showPrice'></image>
+    </view>
+    
+  </view>
+  <view class="preferential_list" >
+		<view class="preferential_list_tit">房间上架</view>
+		<view style="text-align:right; margin-top:15rpx;">
+			<switch bindchange="hideRoomChange" checked='{{isshow}}' color='#F1A100' class="switch_"/>
+		</view>
+	</view>
+
+  <view class="maintin" wx:if="{{maintin==true}}">
+    <view bindtap="maintin" class="ab"></view>
+    <view class="ab udlr">
+      <view class="close2" bindtap="maintin">
+        <image mode="aspectFill" src="../../../resource/images/close_white.svg" />
+      </view>
+      <scroll-view scroll-y style="height:100%;">
+        <view wx:for="{{room.pricelist}}">
+          <view class="date {{item.week ? 'week' :''}}">{{item.dateday}}</view>
+
+          <view style="height:104rpx;">
+            <input bindblur="modify_price" data-index="{{index}}" placeholder="" value="{{item.mprice}}"
+              style="height:104rpx;"></input>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <view class="maintin" wx:if="{{maintin_num==true}}">
+    <view bindtap="maintin_num" class="ab"></view>
+    <view class="ab udlr">
+      <view class="close2" bindtap="maintin_num">
+        <image mode="aspectFill" src="../../../resource/images/close_white.svg" />
+      </view>
+      <scroll-view scroll-y style="height:100%;">
+        <view wx:for="{{room.numlist}}">
+          <view class="date {{item.week ? 'week' :''}}">{{item.dateday}}</view>
+
+          <view style="height:104rpx;">
+            <input bindblur="modify_nums" data-index="{{index}}" placeholder="" value="{{item.nums}}"
+              style="height:104rpx;"></input>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+
+
+</view>

@@ -1,0 +1,141 @@
+<view class="hotel_details_tab">
+	<view class="{{current==1?'on':''}}" data-index="1" bindtap="tabbtn">
+		<image src="../../../resource/images/6.svg"></image>
+		<text>推荐理由</text>
+	</view>
+	<view class="{{current==2?'on':''}}" data-index="2" bindtap="tabbtn">
+		<image src="../../../resource/images/6.svg"></image>
+		<text>设施政策</text>
+	</view>
+	<view class="{{current==3?'on':''}}" data-index="3" bindtap="tabbtn">
+		<image src="../../../resource/images/6.svg"></image>
+		<text>订房必读</text>
+	</view>
+	<view class="{{current==4?'on':''}}" data-index="4" bindtap="tabbtn">
+		<image src="../../../resource/images/6.svg"></image>
+		<text>商家介绍</text>
+	</view>
+	<view class="{{current==5?'on':''}}" data-index="4" bindtap="tabbtn">
+		<image src="../../../resource/images/6.svg"></image>
+		<text>交通信息</text>
+	</view>
+</view>
+<scroll-view scroll-y scroll-top="{{top}}" scroll-with-animation bindscroll="scrollchange">
+	<view class="hotel_details">
+		<view class="hotel_details_list">
+			<view class="hotel_details_tit">{{hotel.title}}</view>
+			<view class="hotel_details_lx">{{hotel.hotel_kind}}</view>
+			<view class="hotel_details_lx_info">{{hotel.hotel_kind_desc}}</view>
+		</view>
+		<view class="hotel_details_list">
+			<view class="hotel_details_tit">设施服务</view>
+			<view class="facilities">
+				<view class="facilities_list" wx:for="{{hardarr}}" wx:key="un">
+					<image src="{{item.thumb}}"></image>
+					<view>{{item.title}}</view>
+				</view>
+
+			</view>
+		</view>
+		<view class="hotel_details_list">
+			<view class="hotel_details_tit">订房必读</view>
+			<view class="Checkin_time">
+				<image src="../../../resource/images/enter_img.svg"></image>
+				<text>预定时间: {{hotel.enter_time}}之前</text>
+				<image src="../../../resource/images/leave_img.svg"></image>
+				<text>离店时间: {{hotel.leave_time}}之前</text>
+			</view>
+			<!-- <view class="Checkin_time">
+				<image src="../../images/15.png"></image>
+				<text>酒店提示</text>
+			</view> -->
+			<!-- <view class="hotel_tips">一、根据北京市相关要求: 1、 宾馆酒店不接受14天内从外省区
+				市中高风险地区进(返) 京人员入住。武汉市进(返)京人员，
+				须持核酸检测阴性证明入住宾馆酒店。低风险地区进(返)京人
+				员，可持北京健康宝“未见异常”入住宾馆酒店。2、 对入境进
+				京人员，全部实行14天集中观察,并进行核酸检测，请您妥善安
+				排出行计划。二、根据《北京市宾馆不得主动提供的一次性用品
+				目录》相关规定，自2020年5月1日起，宾馆不得主动提供一次
+				性用品，目录含:牙刷、梳子、浴擦、剃须刀、指甲锉、鞋擦。
+				如您需要可联系酒店索取。
+			</view> -->
+			<view class="Checkin_time">
+				<image src="../../../resource/images/pet.svg"></image>
+				<text>{{hotel.pet}}</text>
+			</view>
+		</view>
+		<view class="hotel_mumber" bindtap="tel">
+			<view>商家电话: {{hotel.phone}}</view>
+			<image src="../../../resource/images/17.svg"></image>
+		</view>
+
+		<view class="hotel_details_list">
+			<view class="hotel_details_tit">商家介绍</view>
+			<!-- <view class="hotel_js">
+				<view>装修时间2018年</view>
+				<view>开业时间2018年</view>
+				<view>楼层高度3层</view>
+				<view>客房总量98间</view>
+			</view> -->
+			<view class="hotel_js_txt">{{hotel.content}}
+			</view>
+		</view>
+		<!-- <view class="hotel_details_list" bindtap="navComment">
+			<view class="hotel_details_tit">网友点评 <view>{{commentTotal}}条评论></view>
+			</view>
+			<view class="score">
+				<view class="score_num">{{score}}</view>
+				<view class="score_tit">棒</view>
+				<view class="score_txt">{{hotel.comment_say}}</view>
+			</view>
+			<block wx:for="{{commentList}}" wx:key="unique" wx:for-index="kid">
+				<view class="score_info">
+					<view>{{item.score}}</view>
+					<text>{{item.nickname}}</text>
+				</view>
+				<view class="published_tit">{{item.date}}发表</view>
+				<view class="published_con">{{item.content}}
+				</view>
+			</block>
+		</view> -->
+		<view class="hotel_details_list">
+			<view class="hotel_details_tit">交通信息</view>
+			<view class="map">
+				<view class="map_layout" style="margin-top:10rpx;">
+					<map bindmarkertap="poitap" id="map" latitude="{{markers[0]['latitude']}}" longitude="{{markers[0]['longitude']}}" markers="{{markers}}" scale="15" style="width: 100%; height: 350rpx;"></map>
+					<view class="faci">
+						<view bindtap="navMap" data-tab='0'>
+							<image src="../../../resource/images/icon_jiaotong.png"></image><text>交通</text>
+						</view>
+
+						<view bindtap="navMap" data-tab='4'>
+							<image src="../../../resource/images/icon_canyin.png"></image><text>餐饮</text>
+						</view>
+						<view bindtap="navMap" data-tab='3'>
+							<image src="../../../resource/images/icon_gouwu.png"></image><text>购物</text>
+						</view>
+						<view bindtap="navMap" data-tab='1'>
+							<image src="../../../resource/images/icon_xuexiao.png"></image><text>教育</text>
+						</view>
+						<view bindtap="navMap" data-tab='2'>
+							<image src="../../../resource/images/icon_yiliao.png"></image><text>医疗</text>
+						</view>
+
+					</view>
+				</view>
+				<view class="map_txt">地址:{{hotel.address}}</view>
+			</view>
+
+
+		</view>
+	</view>
+</scroll-view>
+<view class="footer">
+ <view class="footer_sc">
+
+		<image wx:if="{{!follow}}" src='../../../resource/images/xing02.svg' bindtap="follow" data-op='add'></image>
+      <image wx:if="{{follow}}" src='../../../resource/images/xing01.svg' bindtap="follow" data-op='cancel'></image>
+		<view>收藏</view>
+	</view> 
+	<view class="footer_btn" bindtap="navBack">查看房型</view>
+</view>

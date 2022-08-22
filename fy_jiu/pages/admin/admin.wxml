@@ -1,0 +1,95 @@
+<!-- <button bindtap="getMessage" class="meesageBtn">允许接收订阅消息</button> -->
+<view class="order" wx:for="{{list}}" wx:key="{{index}}">
+  <view class="order_item">
+    <view class="c1">
+      <view data-oid='{{item.oid}}' bindtap='navOrderInfo'>{{item.roomname}}（{{item.roomnum}}间）—— {{item.status_str}}</view>
+      <text>¥{{item.total}}</text>
+    </view>
+    <view class="c2">
+      <view class="item item1 between">
+        <text>订单编号：{{item.oid}}</text>
+        <view data-oid='{{item.oid}}' bindtap='navOrderInfo'>处理订单</view>
+      </view>
+      <block wx:if="{{item.room_kind=='0'}}">
+        <view class="item item2 between">
+          <view>
+            <text>入住日期</text>
+            <view>{{item.start_m}}月{{item.start_d}}日</view>
+          </view>
+          <view>
+            <view>共{{item.diffday}}晚</view>
+          </view>
+          <view>
+            <text>入住日期</text>
+            <view>{{item.end_m}}月{{item.end_d}}日</view>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{item.room_kind=='1'}}">
+        <view class="item item2 between">
+          <view>
+            <text>入住日期</text>
+            <view>{{item.start_m}}月{{item.start_d}}日{{item.cometime}}</view>
+          </view>
+          <view>
+            <view>共{{item.room_time}}小时</view>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{item.room_kind=='0'}}">
+      <view class="item item3">
+        <view>姓名：{{item.username}}</view>
+        <view>电话：{{item.phone}}</view>
+      </view>
+    </block>
+    <block wx:if="{{item.room_kind=='1'}}">
+      <view class="item item3 between">
+        <view>姓名：{{item.username}}</view>
+        <view>电话：{{item.phone}}</view>
+      </view>
+    </block>
+    </view>
+  </view>
+</view>
+
+<view class="shade {{isShow ? 'show' : 'hide'}}"></view>
+<view class="room {{isShow ? 'show' : 'hide'}}">
+  <view class='room_div'>
+    <view class='room_content_div'>
+      <image src='../../resource/images/2.png' class='orderCode'></image>
+      <text>酒店客服扫码进行核销</text>
+    </view>
+
+    <view class="close" bindtap="closeRoom">
+      <image mode="aspectFill" src="../../resource/images/close.png" />
+    </view>
+  </view>
+</view>
+
+<!-- <view class="order_div">
+      <view class="order_left">
+        <dl wx:if="{{item.room_kind=='0'}}">
+          <dt>{{item.roomname}} <text>{{item.status_str}}</text></dt>
+          <dd>订单号：{{item.oid}}</dd>
+          <dd>姓名：{{item.username}} <text>电话：{{item.phone}}</text></dd>
+
+          <dd>{{item.start_m}}月{{item.start_d}}号入住，{{item.end_m}}月{{item.end_d}}号离店，共{{item.diffday}}晚</dd>
+
+          <dd><span>房间数量：{{item.roomnum}}间</span><span>押金：{{item.deposit_total}}元</span></dd>
+        </dl>
+        <dl wx:if="{{item.room_kind=='1'}}">
+          <dt>{{item.roomname}} <text>{{item.status_str}}</text></dt>
+          <dd>订单号：{{item.oid}}</dd>
+          <dd>姓名：{{item.username}} <text>电话：{{item.phone}}</text></dd>
+
+          <dd>{{item.start_m}}月{{item.start_d}}号{{item.cometime}}入住，共{{item.room_time}}小时</dd>
+
+          <dd><span>房间数量：{{item.roomnum}}间</span><span>押金：{{item.deposit_total}}元</span></dd>
+        </dl>
+      </view>
+      <view class="order_right">
+        <view class="price"><text>¥</text>{{item.total}}</view>
+        <view class="code" data-oid='{{item.oid}}' bindtap='navOrderInfo'>处理订单</view>
+        <view class="" data-oid='{{item.oid}}' bindtap='navOrderInfo'>{{item.status_str}}</view>
+      </view>
+    </view> -->

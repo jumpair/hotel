@@ -1,0 +1,68 @@
+<!-- <view class='modle_1_nav'>
+  <view style='width:{{nav_width}}%' bindtap='ActiveClick' wx:for="{{table}}" data-index='{{index}}' class="modle_1_nav_modle {{activeIndex==index?'modle_1_nav_active':''}}">{{item}}
+    <view wx:if="{{activeIndex==index}}" class="modle_1_nav_modle_border"></view>
+  </view>
+</view>
+<view class='interval'></view> -->
+
+<view class="top_">
+  <view class="l_">
+    <view>总收益</view>
+    <text> <text>￥</text> {{money}}</text>
+  </view>
+  <view class="r_" bindtap="backCashTap">申请提现</view>
+</view>
+
+<view class="list_">
+  <block wx:for="{{list}}" wx:key="drlist">
+  <view class="box">
+    <view class="rebate-content">
+      <image src="../../resource/images/fanli.svg"></image>
+      <view class="mid">
+        <view>
+          返利金额
+        </view>
+        <view>
+          <text class="rebate-name">时间：</text>
+          <text class="rebate-bit">{{item.createtime}}</text>
+        </view>
+        <view>
+          <text class="rebate-name">来源：邀请{{item.buyername}}成为平台会员</text>
+          <text class="rebate-bit"></text>
+        </view>
+      </view>
+      
+      <!-- <block wx:if="{{item.status == 0}}">
+      <view class="wait-pass" bindtap="backCashTap" data-id="{{item.id}}">返利方式</view>
+      </block> -->
+      <view class="">+{{item.money}}</view>
+    </view>
+
+  </view>
+</block>
+
+
+</view>
+
+
+<!-- <view>
+        <text class="rebate-name">收益状态：</text>
+        <text class="rebate-bit" wx:if="{{item.status == 0}}">待选择返利方式</text>
+        <text class="rebate-bit" wx:if="{{item.status == 1}}">待后台审核通过返利到 余额</text>
+        <text class="rebate-bit" wx:if="{{item.status == 2}}">待后台审核通过返利到 账户{{item.account}}</text>
+        <text class="rebate-bit" wx:if="{{item.status == 3}}">已返利到 余额</text>
+        <text class="rebate-bit" wx:if="{{item.status == 4}}">已返利到 账户{{item.account}}</text>
+      </view> -->
+
+
+
+
+
+
+
+
+
+
+<view class="tips" wx:if="{{getMoney==''}}">
+  <view>您暂无收益哟</view>
+</view>

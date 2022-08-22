@@ -1,0 +1,582 @@
+page{
+  background-color: #fff;
+}
+.index_top{
+  background-color: #fff;
+  
+}
+.index_top .fixed_{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99999;
+  background-color: #fff;
+}
+.index_h1{
+  padding-left: 30rpx;
+}
+.banner {
+  margin-top: 20rpx;
+  padding: 0 30rpx;
+  position: relative;
+}
+
+.banner swiper {
+  height: 300rpx;
+}
+.banner swiper-item{
+  border-radius: 12rpx;
+  overflow: hidden;
+  height: 300rpx;
+}
+.banner swiper image {
+  width: 100%;
+  height: 300rpx;
+}
+
+.banner .dots {
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 370rpx;
+}
+
+.banner .dots view {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 12rpx;
+  background: #fff;
+  margin: 0 8rpx;
+}
+
+.banner .dots view.on {
+  width: 24rpx;
+  background: #ffd819;
+}
+
+.box {
+  background: #fff;
+  margin: 20rpx 30rpx 0;
+  border-radius: 30rpx;
+  position: relative;
+  z-index: 99;
+  padding: 12rpx 40rpx;
+  box-shadow: 0px 4px 4px rgba(176, 176, 176, 0.15);
+}
+
+.box .location {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 96rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.box .location .city {
+  display: flex;
+  align-items: flex-end;
+}
+
+.box .location .city view {
+  font-size: 32rpx;
+  color: #000;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.box .location .city text {
+  font-size: 20rpx;
+  margin-left: 20rpx;
+  line-height: 30rpx;
+  color: #BE9C58;
+}
+
+
+
+.box .location .search image {
+  width: 36rpx;
+  margin: 0 auto;
+  height: 36rpx;
+}
+
+.box .location .search view {
+  text-align: center;
+  font-size: var(--fontSize12);
+  color: #999999;
+  margin-top: 7rpx;
+}
+
+
+
+.box .date {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 16rpx 0;
+}
+.box .date .left__{
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.box .date .item {
+  text-align: left;
+}
+
+.box .date .item view {
+  font-size: var(--fontSize12);
+  color: #7e7e7e;
+}
+
+.box .date .item text {
+  font-size: 28rpx;
+  margin-top: 20rpx;
+  font-weight: 400;
+  line-height: 40rpx;
+}
+.box .date .h_{
+  height: 40rpx;
+  width: 88rpx;
+  position: relative;
+}
+.box .date .h_:after{
+  content: '';
+  width: 30rpx;
+  height: 1rpx;
+  background-color: #cccccc;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.box .date .left__ .img{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2rpx;
+}
+.box .date .left__ .img image{
+  width: 28rpx;
+  height: 28rpx;
+}
+.box .date .count {
+  line-height: 30rpx;
+  font-size: 24rpx;
+  height: 40rpx;
+  color: #333;
+}
+.box .keyword{
+ border-top: 1rpx solid #eee;
+ border-bottom: 1rpx solid #eeeeee;
+ padding: 16rpx 0;
+}
+.box .keyword input{
+  font-size: 24rpx;
+  color: #999999;
+  line-height: 40rpx;
+  padding: 16rpx 0;
+}
+.box .btn {
+  background: #BE9C58;
+  line-height: 92rpx;
+  border-radius: 46rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40rpx;
+  height: 84rpx;
+}
+.box .btn image{
+  width: 40rpx;
+}
+.box .btn text{
+  font-size: 36rpx;
+  color: #ffffff;
+  margin-left: 20rpx;
+}
+.box .tip {
+  padding-top: 26rpx;
+  padding-bottom: 22rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+.box .tip:after{
+  content: '';
+  clear: both;
+  display: block
+}
+.box .tip .img {
+  float: left;
+  width: 22rpx;
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+}
+.box .tip .img image{
+  width: 100%;
+}
+.box .tip .news_box{
+  float: right;
+  width: calc(100% - 32rpx);
+  font-size: 22rpx;
+  line-height: 50rpx;
+}
+.box .tip .news_box swiper{
+  height: 50rpx;
+  width: 100%;
+}
+.box .tip .news_box swiper swiper-item{
+  width: 100%;
+  height: 50rpx;
+}
+.box .tip .news_box swiper swiper-item text{
+  display: block;
+  width: 100%;
+  height: 50rpx;
+  line-height: 50rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+
+/* 处理底部 */
+
+.title10{
+  overflow: hidden;
+  padding: 0 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.title10 .h_{
+  height: 50rpx;
+  width: 100%;
+  position: relative;
+}
+.title10 .h_:after{
+  content: '';
+  height: 1rpx;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  background-color: #dddddd;
+}
+.title_tit{
+  float: left;
+  font-size: 36rpx;
+  line-height: 50rpx;
+  color: #000000;
+  white-space: nowrap;
+  padding: 0 30rpx;
+}
+
+
+
+/* 推荐商家大图列表样式开始 */
+.store_list{
+  padding: 0 30rpx;
+  height: auto;
+  padding-top: 40rpx;
+}
+.store_item{
+  background: white;
+  width: 100%;
+  border-radius: 20rpx;
+  margin-bottom: 32rpx;
+  box-shadow: var(--box-shadow);
+}
+
+.store_img{
+  width: 100%;
+  height: 380rpx;
+  position: relative;
+  overflow: hidden;
+}
+.store_img image{
+  width: 100%;
+  height: 420rpx;
+  border-radius: 20rpx 20rpx 0 0;
+}
+.store_img .recommended_list_top_read{
+  width: 100%;
+  height: 60rpx;
+  box-sizing:  border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0rpx 18rpx;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5100) 33%, #000000 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.store_img .recommended_list_top_read .l_ {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.store_img .recommended_list_top_read .l_ image{
+  width: 24rpx;
+  height: 24rpx;
+}
+.store_img .recommended_list_top_read .l_ text{
+  min-width: 38px;
+  height: 24px;
+  font-size: 16rpx;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 24px;
+  margin-left: 12rpx;
+}
+.store_img .recommended_list_top_read .r_{
+  height: 28rpx;
+  font-size: 20rpx;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 28rpx;
+}
+.sore_bottom{
+  border-radius: 0 0 20rpx 20rpx;
+  background-color: #fff;
+  padding: 18rpx;
+}
+.store_title{
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #000000;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.sore_bottom .browse_con_tab {
+  overflow: hidden;
+  margin-top: 14rpx;
+}
+
+.sore_bottom .browse_con_tab view {
+  float: left;
+  font-size: 20rpx;
+  line-height: 32rpx;
+  color: #A88A4D;
+  background-color: #F5F0E6;
+  border-radius: 8rpx;
+  text-align: center;
+  margin-right: 10rpx;
+  height: 36rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 4rpx 10rpx;
+  box-sizing: border-box;
+}
+.browse_con_tab view.orange {
+  color: #ff5500;
+  background-color: #f0f7ff;
+}
+.browse_con_tab view.blue {
+  color: #5281b2;
+  background-color: #f0f7ff;
+}
+.store_layout{
+  
+  display: flex;
+  justify-content: space-between;
+}
+.store_price{
+  display: flex;
+ 
+  color: #f97318;
+  align-items:center;
+}
+.store_price_icon{
+  font-size: 13px;
+  margin-top: 12rpx;
+  margin-right: 3rpx;
+}
+.store_price_num{
+  font-size: 20px;
+}
+.store_price_other{
+  color: #a9a9a9;
+  font-size: 12px;
+  margin-top: 12rpx;
+  margin-left: 5rpx;
+}
+.store_order{
+  font-size: 12px;
+  color: #a9a9a9;
+  margin-top: 22rpx;
+}
+/* 推荐商家大图列表样式结束 */
+
+
+
+
+.recommended{
+  padding: 0 30rpx;
+  height: auto;
+  padding-top: 40rpx;
+  /* min-height: 500rpx; */
+  /* padding-bottom: 350rpx; */
+}
+.recommended:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.recommended_list{
+  float: left;
+  width: 332rpx;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 30rpx;
+  border-radius: 12rpx;
+}
+.recommended_list:nth-child(2n){
+  float: right;
+}
+.recommended_list_top{
+  height: 212rpx;
+  position: relative;
+}
+.recommended_list_top>image{
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 12rpx;
+  border-top-right-radius: 12rpx;
+}
+.recommended_list_top .recommended_list_top_read{
+  width: 100%;
+  height: 60rpx;
+  box-sizing:  border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0rpx 18rpx;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5100) 33%, #000000 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.recommended_list_top .recommended_list_top_read .l_ {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.recommended_list_top .recommended_list_top_read .l_ image{
+  width: 24rpx;
+  height: 24rpx;
+}
+.recommended_list_top .recommended_list_top_read .l_ text{
+  min-width: 38px;
+  height: 24px;
+  font-size: 16rpx;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 24px;
+  margin-left: 12rpx;
+}
+.recommended_list_top .recommended_list_top_read .r_{
+  height: 28rpx;
+  font-size: 20rpx;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 28rpx;
+}
+.recommended_list_bottom{
+  height: 120rpx;
+  padding: 16rpx 18rpx 0;
+  border-radius: 0px 0px 12px 12px;
+  overflow: hidden;
+}
+.recommended_list_name{
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #000000;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.recommended_list_m{
+  font-size: 24rpx;
+  line-height: 48rpx;
+  color: #ee3d40;
+}
+.recommended_list_tab{
+  overflow: hidden;
+  margin-top: 18rpx;
+}
+.recommended_list_tab text{
+  float: left;
+  font-size: 20rpx;
+  line-height: 32rpx;
+  color: #A88A4D;
+  background-color: #F5F0E6;
+  border-radius: 8rpx;
+  width: 94rpx;
+  text-align: center;
+  margin-right: 4rpx;
+  height: 36rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 4rpx;
+  box-sizing: border-box;
+}
+.recommended_list_dw{
+  font-size: 24rpx;
+  line-height: 74rpx;
+  color: #bbb;
+}
+.recommended_list_dw image{
+  float: left;
+  width: 22rpx;
+  height: 28rpx;
+  margin: 24rpx 18rpx 0 0;
+}
+
+/* 首页热门城市 */
+
+.hot_city{
+  padding: 30rpx 30rpx 0rpx;
+}
+.hot_city .list_{
+  margin: -5rpx;
+}
+.hot_city .list_:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.hot_city .hot_city_item{
+  float: left;
+  width: 25%;
+  height: 120rpx;
+  position: relative;
+  padding: 5rpx;
+  box-sizing: border-box;
+}
+.hot_city text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  font-weight: bold;
+  color: white;
+  font-size: 32rpx;
+  transform: translate(-50%, -50%);
+
+}
+.hot_city image{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}

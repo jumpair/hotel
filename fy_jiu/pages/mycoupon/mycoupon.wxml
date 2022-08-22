@@ -1,0 +1,81 @@
+<block wx:if="{{isnull=='0'}}">
+  <view class="coupons_tab">
+    <view class="{{currentTab==0?'on':''}}" data-current="0" bindtap="clickTab">待使用</view>
+    <view class="{{currentTab==1?'on':''}}" data-current="1" bindtap="clickTab">已过期</view>
+    <view class="{{currentTab==2?'on':''}}" data-current="2" bindtap="clickTab">已使用</view>
+  </view>
+  <view class="coupons_list_all coupons_list_all2 {{currentTab == 0 ? 'show':'hidden'}}">
+    <view class="coupons_list" wx:for="{{list}}" wx:key="{{index}}" wx:if="{{item.kind=='0'}}">
+      <view class="coupons_list_top">
+        <view class="coupons_list_top_price"><block wx:if="{{item.type=='0'}}">￥</block><text>{{item.showsale}}</text>
+              <text style="font-size:26rpx; margin-left:5rpx;"  wx:if="{{item.type=='1'}}">折</text></view>
+        <view class="coupons_list_top_con">
+          <view class="coupons_list_top_con_tit"> {{item.title}}</view>
+          <view class="coupons_list_top_con_txt">{{item.info}}</view>
+          <view class="coupons_list_top_con_txt">每人最多领取{{item.receive_num}}张</view>
+        </view>
+      </view>
+      <view class="coupons_list_bottom">
+        <view class="coupons_list_bottom_sygz">有效日期：{{item.active_starttime}}至{{item.active_endtime}}
+        </view>
+    
+      </view>
+    </view>
+  </view>
+
+  <view class="coupons_list_all coupons_list_all2 {{currentTab == 1 ? 'show':'hidden'}}">
+    <view class="coupons_list" wx:for="{{list}}" wx:key="{{index}}" wx:if="{{item.kind=='1'}}">
+      <view class="coupons_list_top">
+        <view class="coupons_list_top_price ysx"><block wx:if="{{item.type=='0'}}">￥</block><text>{{item.showsale}}</text>
+              <text style="font-size:26rpx; margin-left:5rpx;"  wx:if="{{item.type=='1'}}">折</text></view>
+        <view class="coupons_list_top_con ysx">
+          <view class="coupons_list_top_con_tit"> {{item.title}}</view>
+          <view class="coupons_list_top_con_txt">{{item.info}}</view>
+          <!-- <view class="coupons_list_top_con_txt">每人最多领取{{item.receive_num}}张</view> -->
+          <image src="../../resource/images/ysx.png"></image>
+        </view>
+      </view>
+      <view class="coupons_list_bottom">
+        <view class="coupons_list_bottom_sygz">有效日期：{{item.active_starttime}}至{{item.active_endtime}}
+        </view>
+     
+      </view>
+    </view>
+  </view>
+  <view class="coupons_list_all coupons_list_all2 {{currentTab == 2 ? 'show':'hidden'}}">
+    <view class="coupons_list" wx:for="{{list}}" wx:key="{{index}}" wx:if="{{item.kind=='2'}}">
+      <view class="coupons_list_top">
+        <view class="coupons_list_top_price ysx"><block wx:if="{{item.type=='0'}}">￥</block><text>{{item.showsale}}</text>
+              <text style="font-size:26rpx; margin-left:5rpx;"  wx:if="{{item.type=='1'}}">折</text></view>
+        <view class="coupons_list_top_con">
+          <view class="coupons_list_top_con_tit"> {{item.title}}</view>
+          <view class="coupons_list_top_con_txt">{{item.info}}</view>
+          <!-- <view class="coupons_list_top_con_txt">每人最多领取{{item.receive_num}}张</view> -->
+          <image src="../../resource/images/ysy.png"></image>
+        </view>
+      </view>
+      <view class="coupons_list_bottom">
+        <view class="coupons_list_bottom_sygz">有效日期：{{item.active_starttime}}至{{item.active_endtime}}
+        </view>
+    
+      </view>
+    </view>
+  </view>
+</block>
+<block wx:if="{{isnull=='1'}}">
+<view class='nodata'>
+  <image src="../../resource/images/nodata.png"/>
+</view>
+</block>
+
+
+<!--这里是底部菜单  -->
+<view class="copyright {{blist.copyright.copyright=='' ? 'mt0' : ''}}">
+  <block wx:if="{{blist.copyright.copyright!=''}}">
+    <import src="../public/copy.wxml" />
+    <template is="copy" data="{{blist}}" /></block>
+</view>
+<import src="../public/foot.wxml" />
+<template is="foot" data="{{blist}}" />
+
+<view style="height: 100rpx;"></view>

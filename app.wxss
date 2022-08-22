@@ -1,0 +1,322 @@
+@import 'we7/resource/style/weui.wxss';
+
+page {
+  background: #f3f3f3;
+  --fontSize10:20rpx;
+  --fontSize12:24rpx;
+  --box-shadow:0px 8rpx 8rpx 0px rgba(176,176,176,0.15);
+  --main-color:#BE9C58
+}
+
+image {
+  display: block;
+}
+.hide{
+  display: none;
+}
+/* 底部菜单样式开始 */
+.page__hd {
+  padding: 40px;
+}
+
+.page__bd {
+  padding-bottom: 40px;
+}
+
+.page__bd_spacing {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.page__ft {
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.page__title {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.page__desc {
+  margin-top: 5px;
+  color: #888;
+  text-align: left;
+  font-size: 14px;
+}
+.we7-bottom-placeholder {
+    width: 100%;
+    height: 134rpx;
+    position: relative;
+    bottom: 0;
+    z-index: -1
+}
+.we7-bottom {
+    display: flex;
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10rpx 3rpx;
+    box-shadow: 0 -2px 2rpx -1px #eee;
+    background-color: #fff;
+    z-index:99;
+}
+.we7-bottom.active {
+    background-color: #fff;
+}
+.we7-bottom.active navigatorurl {
+    background-color: #fff
+}
+.we7-bottom .we7-bottom-item {
+    flex: 1;
+    padding: 0rpx;
+    text-align: center;
+    position: relative;
+}
+.we7-bottom .item-img {
+    width: 42rpx;
+    height: 42rpx;
+    display: inline-block
+}
+.we7-bottom .item-text {
+    display: block;
+    font-size: 12px;
+    line-height:1;
+    /* position: absolute;
+    top: 35rpx; */
+  
+}
+.goHome {
+    position: fixed;
+    bottom: 150rpx;
+    right: 30rpx;
+    width: 50rpx;
+    height: 50rpx;
+    background-color: #1ba9ba;
+    padding: 30rpx;
+    border-radius: 50%
+}
+.goHome>image {
+    width: 100%
+}
+.text-right {
+    text-align: right;
+}
+
+.we7-bottom-item button,.we7-bottom-item web-view{
+  position: absolute;
+  top:5px;
+  left: 30%;
+  background: red;
+  width: 80rpx;
+  height: 80rpx;
+   opacity: 0.0; 
+  z-index: 100;
+}
+.we7-bottom-item navigator{
+  position: absolute;
+  display: block;
+  top:5rpx;
+  left: 30%;
+  background: red;
+  width: 80rpx;
+  height: 80rpx;
+   opacity: 0.0; 
+  z-index: 100;
+  
+}
+.we7-bottom-item .aview{
+  position: absolute;
+  display: block;
+  top:5px;
+  left: 30%;
+  background: red;
+  width: 100rpx;
+  height: 100rpx;
+  opacity: 0.0; 
+  z-index: 100;
+  
+}
+
+/* 底部菜单样式结束 */
+
+/* 版权开始 */
+.copyright{
+  text-align: center;
+  margin-top: 20rpx;
+  font-size: 12px;
+  color: #aaa;
+  display: flex;
+  justify-content: center;
+}
+.copyright image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.copyright_text{
+  margin: 1rpx 0 0 5rpx;
+}
+/* 版权结束 */
+
+
+.nodata{
+  width: 130px;
+  height: 130px;
+  margin: 150px auto;
+}
+.nodata image{
+  width: 130px;
+  height: 130px;
+}
+
+
+.loginBox {
+  width: 440rpx;
+  height: 88rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 34rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  position: fixed;
+  left: 155rpx;
+  bottom: 136rpx;
+  z-index: 1000;
+  background: #f29800;
+  border: none;
+  opacity: 0.8;
+  border-radius: 50rpx;
+}
+
+.loginBox image {
+  width: 440rpx;
+  height: 88rpx;
+}
+
+.loginBox text {
+  position: absolute;
+  top: 20rpx;
+  left: 51rpx;
+}
+
+
+.updateUserInfo{
+background: #55c8c9;
+color: white;
+border: 1px solid white;
+width: 100%;
+}
+
+
+
+/* 新版优惠券样式 */
+
+.coupons_list_all {
+  padding: 0 30rpx;
+}
+
+.coupons_list {
+  margin-top: 32rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  padding: 0 30rpx;
+  box-shadow: var(--box-shadow);
+}
+
+.coupons_list_top {
+  display: flex;
+  padding-left: 12rpx;
+}
+
+.coupons_list_top_price {
+  font-size: 22rpx;
+  line-height: 178rpx;
+  color: var(--main-color);
+  width: 156rpx;
+}
+
+.coupons_list_top_price text {
+  font-size: 54rpx;
+  font-weight: bold;
+}
+
+.coupons_list_top_con {
+  flex: 1;
+  position: relative;
+  padding: 28rpx 0 24rpx;
+}
+
+.coupons_list_top_con_tit {
+  font-size: 32rpx;
+  line-height: 56rpx;
+  width: 360rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 6rpx;
+  font-weight: 400;
+  color: #333333;
+}
+
+.coupons_list_top_con_txt {
+  font-size: 24rpx;
+  line-height: 36rpx;
+  color: #666666;
+  width: 360rpx;
+}
+
+.coupons_list_top_con>image {
+  height: 112rpx;
+  width: 116rpx;
+  position: absolute;
+  top: 0;
+  right: -30rpx;
+}
+
+.coupons_list_bottom {
+  border-top: 2rpx solid #f5f5f5;
+  overflow: hidden;
+}
+
+.coupons_list_bottom_sygz {
+  float: left;
+  font-size: 24rpx;
+  line-height: 96rpx;
+  color: #666666;
+}
+
+.coupons_list_bottom_sygz image {
+  width: 12rpx;
+  height: 8rpx;
+  margin-left: 10rpx;
+  position: relative;
+  top: -4rpx;
+}
+
+.coupons_list_bottom_btn {
+  float: right;
+  margin-top: 22rpx;
+  font-size: 24rpx;
+  line-height: 52rpx;
+  width: 112rpx;
+  text-align: center;
+  color: #fff;
+  border-radius: 100rpx;
+  background-color: var(--main-color);
+}
+
+/*  */
+
+.container{
+  padding: 0 30rpx;
+}
+.nodata{
+  text-align: center;
+  padding-top: 50rpx;
+}
+/* 新版优惠券样式结束 */

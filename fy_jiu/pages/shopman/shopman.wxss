@@ -1,0 +1,181 @@
+page{
+    background: #f1f0f8;
+   font-size: 14px;
+   color: #333; 
+   position: relative;
+}
+.order{
+  background: white;
+  padding: 10rpx 0;
+  padding-bottom: 30rpx;
+  width: 96%;
+  margin: 0 auto;
+  margin-top: 15rpx;
+  border-radius: 10rpx;
+}
+.order_div{
+  display: flex;
+  width: 94%;
+  margin: 0rpx auto;
+}
+.order_left{
+  width: 75%;
+}
+.order_right{
+  width:25%;
+  text-align: right;
+}
+.order .price{
+ font-size: 18px;
+  font-weight: bold;
+  color:#f37b25;
+}
+.order .price1{
+  font-size: 13px;
+   color:#f37b25;
+   margin-top:10rpx;
+ }
+.code{
+  color:#099fde;
+  margin-top: 30rpx;
+  font-size: 15px;
+}
+
+dl dd,dt{
+  width: 90%;
+  display: block;
+}
+dt{
+  margin-bottom:0rpx;
+  font-size: 14px
+}
+dd{
+  color: #666;
+  font-size: 12px;
+}
+
+.order_status{
+  border-top:1px solid #eee;
+  margin-top: 5rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.order_status_left{
+  margin: 18rpx 25rpx;
+  color:#099fde;
+}
+.order_status_right{
+  padding-top: 13rpx;
+  margin-right: 10rpx;
+  display: flex;
+}
+.order_status_button{
+  border:1px solid #dddddd;
+  height: 50rpx;
+  width: 150rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  color:#555555;
+  margin-right: 10rpx;
+}
+.blank{
+  width: 100%;
+  height: 60rpx;
+}
+.cate_bg{
+  width: 100%;
+  height: 50rpx;
+
+}
+.cate{
+  border-bottom: 1px solid #f3f3f3;
+  display: flex;
+  font-size: 14px;
+  background: white;
+  flex-wrap: wrap;
+  color: #666;
+  position: absolute;
+  top:20rpx;
+  width: 96%;
+  left: 2%;
+  border-radius: 10rpx;
+ 
+}
+.cate-item{
+  text-align: center;
+  width:20%;
+  margin-top:20rpx;
+  padding-bottom: 20rpx;
+}
+  
+.hover{
+  /* font-weight: bold; */
+  color: #099fde;
+  border-bottom: 2px solid #099fde;
+  padding-bottom: 20rpx;
+}
+
+.order_left dl dd span{
+  margin-right: 30rpx;
+}
+
+.shade{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: #333;
+  z-index:77;
+  top:0;
+  left: 0;
+  opacity: 0.8;
+}
+
+.room{
+  width: 80%; height: 50%;
+  top:20%;
+  left: 10%;
+  position:fixed;
+  z-index:99;
+  background: white;
+  border-radius: 10rpx;
+}
+.room_div{
+  position: relative;
+}
+.close{
+  position: absolute;
+  top:0rpx;
+  right: 10rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.close image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.room_content_div{
+  width: 450rpx;
+  text-align: center;
+  margin: 20rpx auto;
+}
+.room_content_div text{
+  font-size: 16px;
+  color:#099fde;
+  margin-top:15rpx;
+}
+.orderCode{
+  width: 450rpx;
+  height: 450rpx;
+  margin-bottom: 15rpx;
+}
+
+.orderpro{
+  margin-top: 10rpx;
+  display: flex;
+  font-size: 12px;
+}
+.orderpro view{
+  
+}

@@ -1,0 +1,79 @@
+{
+  "pages": [
+    "fy_jiu/pages/index/index",
+    "fy_jiu/pages/man/man_detail",
+    "fy_jiu/pages/admin/tixian/tixian",
+    "fy_jiu/pages/admin/index",
+    "fy_jiu/pages/admin/room/room",
+    "fy_jiu/pages/admin/room/roomDetail",
+    "fy_jiu/pages/admin/admin",
+    "fy_jiu/pages/admin/orderinfo/orderinfo",
+    "fy_jiu/pages/settlein/settlein",
+    "fy_jiu/pages/order/order",
+    "fy_jiu/pages/tixian/tixian",
+    "fy_jiu/pages/records/records",
+    "fy_jiu/pages/cashrecords/cashrecords",
+    "fy_jiu/pages/aboutus/aboutus",
+    "fy_jiu/pages/lower/lower",
+    "fy_jiu/pages/mycoupon/mycoupon",
+    "fy_jiu/pages/man/man",
+    "fy_jiu/pages/coupon/coupon",
+    "fy_jiu/pages/hotel/hotel_detail/hotel_detail",
+    "fy_jiu/pages/hotel/hotel",
+    "fy_jiu/pages/comment/comment",
+    "fy_jiu/pages/city/city",
+    "fy_jiu/pages/calendar/index",
+    "fy_jiu/pages/list/list",
+    "fy_jiu/pages/map/map",
+    "fy_jiu/pages/order/ordercoupon/ordercoupon",
+    "fy_jiu/pages/man/upcomment/upcomment",
+    "fy_jiu/pages/follow/follow",
+    "fy_jiu/pages/shop/shop",
+    "fy_jiu/pages/product/detail",
+    "fy_jiu/pages/cart/cart",
+    "fy_jiu/pages/shopman/shopman",
+    "fy_jiu/pages/next/next",
+    "fy_jiu/pages/orderingfood/orderingfood",
+    "fy_jiu/pages/webview/webview",
+    "fy_jiu/pages/test/test"
+  ],
+  "subPackages": [
+    {
+      "root": "fy_jiu/pages/user/",
+      "pages": [
+        "user",
+        "myscore/myscore",
+        "userinfo/userinfo",
+        "recharge/recharge",
+        "usermember/usermember"
+      ]
+    },
+    {
+      "root": "fy_jiu/pages/shoporder/",
+      "pages": [
+        "pay",
+        "address/address",
+        "ordercoupon/ordercoupon"
+      ]
+    }
+  ],
+  "requiredPrivateInfos":[
+ 
+    "getLocation",
+ 
+    "chooseAddress"
+ 
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取位置可以快速定位到离你最近的商家哦!"
+    }
+  }
+}

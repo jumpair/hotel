@@ -1,0 +1,96 @@
+<view class="cate_bg" style='background-color:{{blist.tcolor}}'></view>
+<view class="cate">
+  <view class="cate-item {{currentTabsIndex==10?'hover':''}}" bindtap="catClick" data-sid='10'>
+    全部
+  </view>
+  <view class="cate-item {{currentTabsIndex==0?'hover':''}}" bindtap="catClick" data-sid='0'>
+    未付款
+  </view>
+  <view class="cate-item {{currentTabsIndex==1?'hover':''}}" bindtap="catClick" data-sid='1'>
+    已付款
+  </view>
+  <view class="cate-item {{currentTabsIndex==2?'hover':''}}" bindtap="catClick" data-sid='2'>
+    待收货
+  </view>
+  <view class="cate-item {{currentTabsIndex==3?'hover':''}}" bindtap="catClick" data-sid='3'>
+    已完成
+  </view>
+</view>
+
+
+<view class='blank'></view>
+<view class="order" wx:for="{{list}}" wx:key="{{index}}">
+  <view class="order_item">
+    <view class="order_div">
+      <view class="order_left">
+        <dl>
+          <dt>编号：{{item.oid}}</dt>
+          <dd>门店：{{item.stores_title}}</dd>
+          <view class='orderpro' wx:for="{{item.list}}" wx:key="{{index1}}" bindtap="navProduct" data-id="{{item.pid}}"data-kind="{{item.kind}}" data-sid="{{item.sid}}">
+            <block wx:for="{{item.pro}}" wx:key="{{index1}}" >
+              <view><span>{{item}}</span></view>
+            </block>
+          </view>
+        </dl>
+      </view>
+      <view class="order_right">
+        <view class="price"><text>¥</text>{{item.actualtotal}}</view>
+        <view class="price1">{{item.kind=='1' ? '餐厅': '商城'}}</view>
+      </view>
+    </view>
+    <view class="order_status">
+      <view class="order_status_left">{{item.status_str}}</view>
+      <view class="order_status_right" wx:if="{{item.arrival=='0'}}">
+        <block wx:if="{{item.status=='0'}}">
+          <view class="order_status_button" bindtap="buttonClick" data-sid='pay' data-oid='{{item.oid}}'
+            data-id='{{index}}'>
+            立即付款
+          </view>
+          <view class="order_status_button" bindtap="buttonClick" data-sid='cancel' data-oid='{{item.oid}}'>
+            取消订单
+          </view>
+        </block>
+
+
+        <block wx:if="{{item.status=='2'}}">
+          <view class="order_status_button" bindtap="buttonClick" data-sid='shouhuo' data-oid='{{item.oid}}'
+            data-id='{{index}}'>
+            确认收货
+          </view>
+        </block>
+
+        <block wx:if="{{item.status=='6'}}">
+          <view class="order_status_button" bindtap="buttonClick" data-sid='{{item.status}}'>
+            已完成
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="shade {{isShow ? 'show' : 'hide'}}"></view>
+<view class="room {{isShow ? 'show' : 'hide'}}">
+  <view class='room_div'>
+    <view class='room_content_div'>
+      <image src='{{orderCode}}' class='orderCode'></image>
+      <text>请出示给商家客服人员</text>
+    </view>
+
+    <view class="close" bindtap="closeRoom">
+      <image mode="aspectFill" src="../../resource/images/close.png" />
+    </view>
+  </view>
+</view>
+
+
+
+<!--这里是底部菜单  -->
+<view class="copyright {{blist.copyright.copyright=='' ? 'mt0' : ''}}">
+  <block wx:if="{{blist.copyright.copyright!=''}}">
+    <import src="../public/copy.wxml" />
+    <template is="copy" data="{{blist}}" />
+  </block>
+</view>
+<import src="../public/foot.wxml" />
+<template is="foot" data="{{blist}}" />

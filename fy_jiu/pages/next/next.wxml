@@ -1,0 +1,29 @@
+<view class="box">
+  <block wx:for="{{lowerList}}">
+    <view class="header-content">
+      <image class="header-img" src="{{item.avatar}}"></image>
+      <view class="content">
+        <view class="header-name">
+          <view>昵称：{{item.nickname}}</view>
+          <view class="date-day">{{item.addtime}}</view>
+        </view>
+        <!-- <view>真实姓名：{{item.realname}}</view> -->
+        <view class='info'>
+          <view class='info-item'>
+            电话：{{item.phone}}
+          </view>
+
+           
+        
+        </view>
+      </view>
+    </view>
+  </block>
+
+
+</view>
+
+
+ <view class='nodata' wx:if="{{lowerList==''}}">
+		<image src="../../resource/images/nodata.png"/>
+	</view>

@@ -1,0 +1,208 @@
+{
+  "setting": {
+    "compileHotReLoad": false,
+    "urlCheck": true
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "city",
+          "pathName": "fy_jiu/pages/city/city",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "list",
+          "pathName": "fy_jiu/pages/list/list",
+          "query": "inDate=2022-01-07&inDate2=01月07日&outDate=2022-01-08&outDate2=01月08日&cid=3&city=北京&diffDay=1",
+          "scene": null
+        },
+        {
+          "name": "hotel",
+          "pathName": "fy_jiu/pages/hotel/hotel",
+          "query": "id=5",
+          "scene": null
+        },
+        {
+          "name": "hotel_detail",
+          "pathName": "fy_jiu/pages/hotel/hotel_detail/hotel_detail",
+          "query": "id=5",
+          "scene": null
+        },
+        {
+          "name": "fy_jiu/pages/order/order",
+          "pathName": "fy_jiu/pages/order/order",
+          "query": "start=2020-07-31&end=2020-08-1&diffDay=1&rid=12&sid=5",
+          "scene": null
+        },
+        {
+          "name": "user",
+          "pathName": "fy_jiu/pages/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "man",
+          "pathName": "fy_jiu/pages/man/man",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "recharge",
+          "pathName": "fy_jiu/pages/user/recharge/recharge",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "userinfo",
+          "pathName": "fy_jiu/pages/user/userinfo/userinfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "upcomment",
+          "pathName": "fy_jiu/pages/man/upcomment/upcomment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "comment",
+          "pathName": "fy_jiu/pages/comment/comment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "follow",
+          "pathName": "fy_jiu/pages/follow/follow",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "calendar",
+          "pathName": "fy_jiu/pages/calendar/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "shop",
+          "pathName": "fy_jiu/pages/shop/shop",
+          "query": "sid=3",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "detail",
+          "pathName": "fy_jiu/pages/product/detail",
+          "query": "productId=4",
+          "scene": null
+        },
+        {
+          "name": "detail",
+          "pathName": "fy_jiu/pages/product/detail",
+          "query": "productId=3&sid=5",
+          "scene": null
+        },
+        {
+          "name": "shopman",
+          "pathName": "fy_jiu/pages/shopman/shopman",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "admin",
+          "pathName": "fy_jiu/pages/admin/admin",
+          "query": "sid=5",
+          "scene": null
+        },
+        {
+          "name": "test",
+          "pathName": "fy_jiu/pages/test/test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "lower",
+          "pathName": "fy_jiu/pages/lower/lower",
+          "query": "id=5",
+          "scene": null
+        },
+        {
+          "name": "records",
+          "pathName": "fy_jiu/pages/records/records",
+          "query": "id=5",
+          "scene": null
+        },
+        {
+          "name": "orderingfood",
+          "pathName": "fy_jiu/pages/orderingfood/orderingfood",
+          "query": "sid=5",
+          "scene": null
+        },
+        {
+          "name": "settlein",
+          "pathName": "fy_jiu/pages/settlein/settlein",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "manDetail",
+          "pathName": "fy_jiu/pages/man/man_detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "calendar",
+          "pathName": "fy_jiu/pages/calendar/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "mycoupon",
+          "pathName": "fy_jiu/pages/mycoupon/mycoupon",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "coupon",
+          "pathName": "fy_jiu/pages/coupon/coupon",
+          "query": "sid=5",
+          "scene": null
+        },
+        {
+          "name": "admin/index",
+          "pathName": "fy_jiu/pages/admin/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "room/room",
+          "pathName": "fy_jiu/pages/admin/room/room",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "room/roomDetail",
+          "pathName": "fy_jiu/pages/admin/room/roomDetail",
+          "query": "id=13",
+          "scene": null
+        },
+        {
+          "name": "提现",
+          "pathName": "fy_jiu/pages/tixian/tixian",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "test",
+          "pathName": "fy_jiu/pages/test/test",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "projectname": "%E9%85%92%E5%BA%97",
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "libVersion": "2.24.7"
+}

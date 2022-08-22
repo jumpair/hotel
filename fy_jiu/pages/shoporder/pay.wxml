@@ -1,0 +1,146 @@
+<block wx:if="{{!closeAddress}}">
+<view class='address_div' bindtap='choiceAddressAction' wx:if="{{address.isnull!='1'}}">
+  <view class='address_ico'>
+    <image src="../../resource/images/address_position.png" />
+  </view>
+  <view class='address_info'>
+    <view class='address_info_top'>
+      <view class='address_info_top_username'>姓名：{{address.username}}</view>
+      <view class='address_info_top_phone'>电话：{{address.phone}}</view>
+    </view>
+    <view class='address_info_bottom'>
+      地址：{{address.province}}{{address.city}}{{address.county}}{{address.address}}
+    </view>
+  </view>
+  <view class='address_ico'>
+    <image src="../../resource/images/address_right.png" />
+  </view>
+</view>
+<view class='add_adress_button' bindtap='choiceAddressAction' wx:if="{{address.isnull=='1'}}">
+  <button>添加收货地址</button>
+</view>
+<view class='address_line' style="background:url('../../resource/images/address_line.jpg') no-repeat">
+</view>
+</block>
+
+<view class="w100">
+  <view class="title1" >
+    <view>
+      <image src='../../resource/images/order_title.png' />
+    </view>
+    <view>商品详情</view>
+  </view>
+  <view class='carts-view2' wx:for="{{productData}}" wx:key="{{index}}" id="{{item.id}}">
+    <!--勾-->
+    <view class="carts-item">
+      <!--img-->
+      <view>
+        <image class="carts-image" src="{{item.thumb}}" mode="aspectFill" />
+      </view>
+      <!--文字-->
+      <view class='pro-name'>
+        <text>{{item.name}}</text>
+      </view>
+      <view class="carts-text">
+        <view class="carts-subtitle">
+          <text class="carts-price">¥ {{item.price}}</text>
+        </view>
+      </view>
+      <!--右边-->
+      <view class="title">
+        <view class="stepper">
+          数量：{{item.num}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='pro_info'>
+      <text wx:if="{{productData[0]['startscore']=='1'}}">兑换需使用{{productData[0]['scoretotal']}}积分</text><text wx:else>共{{numtotal}}件商品</text><text style='margin-left:55rpx;'>合计：</text>
+      <text style='color: #f60; margin-right:35rpx;'>{{total}}</text>
+  </view>
+  <view class='order_item_div' wx:if="{{productData[0]['startscore']=='1'}}">
+      <view class='order_item1'>
+        <view>积分兑换</view>
+        <view class="info" >
+            剩余：{{score}}分
+        </view>
+        <view> <switch bindchange="exchangeScoreAction" checked='{{exchange}}' color='#099fde'/></view>
+      </view> 
+  </view>
+   <view class='order_item_div' wx:if="{{show_balance=='1'}}">
+      <view class='order_item1'>
+        <view>余额支付</view>
+        <view class="info" >
+            余额：{{balance}}元
+        </view>
+        <view> <switch bindchange="balanceChange" checked='{{check_balance}}' color='#099fde'/></view>
+      </view> 
+  </view>
+
+  <view class='order_item_div' wx:if="{{!exchange}}">
+      <view class='order_item1'>
+           <view>会员折扣</view>
+          <view>已优惠{{saletotal}}元</view>
+      </view> 
+  </view>
+  
+  <view class='order_item_div' wx:if="{{!exchange}}">
+    <view class="order_item" bindtap='navCoupon'>
+      <view class="order_title">
+        <view class="title">优惠券</view>
+        <view class="info" >
+          {{coupon.title}}
+        </view>
+      </view>
+      <view class="right_img">
+        <image src="../../resource/images/right2.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class='order_item_div'>
+      <view class='order_item1'>
+           <view>送到{{food_where}}</view>
+          <view> <switch bindchange="sendRoom" color='#099fde' checked='{{sendRoom}}' /></view>
+      </view> 
+  </view>
+ 
+  <view class='order_item_div'>
+    <view class="order_item">
+      <view class="order_title">
+        <view class="title">{{markName}}号</view>
+        <view class="info" >
+          <input type='text' bindinput="markAction" value='{{mark}}' placeholder-class='pclass' placeholder='商品备注。如果送到{{food_where}}，在这里输入{{food_where}}号'></input>
+        </view>
+      </view>
+     
+    </view>
+  </view>
+
+  <view class='order_item_div' wx:if="{{kind==1}}">
+    <view class="order_item">
+      <view class="order_title" style="width:100%;z-index:99;">
+        <view class="title" style="width:120rpx;">送达时间</view>
+        <view class="info" style="width:80%">
+          <picker bindchange="sendTimeChange" range="{{hourList}}" mode="selector">
+				  <view class="picker">{{currentHour}}时</view>
+			</picker>
+        </view>
+      </view>
+      <view class="right_img" >
+        <image src="../../resource/images/right2.png"></image>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+
+
+<view class="price_div">
+  <view class="price" bindtap="checkPrice"><text style='font-size:14px;margin-right:10rpx;font-weight:normail'>¥</text>{{actualTotal}} </view>
+  <view class="price_btn">
+    <view class="price_button" bindtap="submitOrder">
+      提交订单
+    </view>
+  </view>
+</view>

@@ -1,0 +1,96 @@
+<view class="top_">
+  <view class="l_">
+    <view>总收益</view>
+    <text> <text>￥</text> {{money}}</text>
+  </view>
+</view>
+
+<view class="list_">
+  <view class="title">提现金额</view>
+  <view class="item tixian">
+    <input type="text" bindblur="moneychange" type="number" value="{{tixian}}"	confirm-type="next"/>
+    <view>￥</view>
+    <text bindtap="allIn">全部提现</text>
+  </view>
+  <view class="item">
+    <input type="text" placeholder="请输入姓名" bindinput="bindInputName"/>
+  </view>
+  <view class="item">
+    <input type="text" placeholder="请输入开户行" bindinput="bindInputKaihuhang"/>
+  </view>
+  <view class="item">
+    <input class="wechat_money" id="price" type="text" name="wx_num" placeholder-class='price_money' placeholder="请输入提现账号" bindinput="bindInputYinHangka" />
+  </view>
+  <view class="btn_" bindtap="fanli2where">提交申请</view>
+</view>
+
+<!-- <view class="box">
+    <view class="rebate-content">
+      <view>
+        <text class="rebate-name">返利内容：</text>
+        <text class="rebate-bit">{{record.content}}</text>
+      </view>
+      <view>
+        <text class="rebate-name">收益时间：</text>
+        <text class="rebate-bit">{{record.createtime}}</text>
+      </view>
+      <view>
+        <text class="rebate-name">收益金额：</text>
+        <text class="rebate-bit">￥{{record.money}}</text>
+      </view>
+      
+      <view class=""></view>
+    </view>
+
+  </view>
+
+
+<view class="box" wx:if="{{id}}">
+  <text> 请选择到账方式 </text>
+  <form bindsubmit='fanli2where'>
+
+
+    <view class='content'>
+      <view class="header">
+        <view class="header-price">
+          <text class='reach'>提现到:</text>
+        </view>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio" wx:for="{{items}}" wx:key="txlist">
+            <radio value="{{item.name}}" checked="{{item.checked}}" name='draw_way' class='radio_sex' />{{item.value}}
+          </label>
+        </radio-group>
+      </view>
+
+      <view class="header" wx:if="{{draw_way}}">
+        <view class="header-price">
+          <text class='reach'>微信号:</text>
+        </view>
+        <input class="wechat_money" id="price" type="text" name="wx_num" placeholder-class='price_money' placeholder="请输入提现账号" bindinput="bindInputWeinXin" />
+      </view>
+      <view class="header" wx:if="{{draw_way1}}">
+        <view class="header-price">
+          <text class='reach'>支付宝账号:</text>
+        </view>
+        <input class="wechat_money" id="price" type="text" name="wx_num" placeholder-class='price_money' placeholder="请输入提现账号" bindinput="bindInputZhiFubao" />
+      </view>
+
+      <view class="header" wx:if="{{draw_way2}}">
+        <view class="header-price">
+          <text class='reach'>银行卡号:</text>
+        </view>
+        <input class="wechat_money" id="price" type="text" name="wx_num" placeholder-class='price_money' placeholder="请输入提现账号" bindinput="bindInputYinHangka" />
+      </view>
+      <view class="header">
+        <view class="header-price">
+          <text class='reach'>手机号:</text>
+        </view>
+        <input class="wechat_money" id="price" type="text" name="wx_num" placeholder-class='price_money' placeholder="请输入手机号方便转账" bindinput="bindInputPhone"  />
+      </view>
+    </view>
+    <button class="submit" form-type="submit">提交申请</button>
+
+  </form>
+
+
+</view> -->

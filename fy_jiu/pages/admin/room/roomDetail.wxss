@@ -1,0 +1,154 @@
+
+page{
+  font-size: 12px;
+  background-color: #f9f9f9;
+}
+.PlaceOrder_list_all{
+  box-sizing: border-box;
+  margin: 32rpx;
+  background-color: #ffffff;
+  border-radius: 12rpx;
+  box-shadow: var(--box-shadow);
+  padding: 0 25rpx 40rpx;
+}
+.preferential_list{
+  height: 78rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.preferential_list_tit{
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #666666;
+}
+.preferential_list_mj text{
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #333333;
+}
+.preferential_list_mj.orange{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.preferential_list_mj.orange>image{
+  width: 28rpx;
+  height: 28rpx;
+  margin-left: 18rpx;
+}
+.preferential_list_mj.orange text{
+  color: #F1A100;
+}
+.switch_{
+  transform: scale(0.6);
+  top: -8rpx;
+  position: relative;
+  transform-origin: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.udlr {
+  top: 100rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.ab {
+  position: absolute;
+}
+
+.date{
+  background-color: #76aef8;
+}
+.maintin {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  z-index: 500000000;
+  left: 0;
+  top: 0;
+}
+
+.maintin>view:nth-child(1) {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+}
+
+.maintin>view:nth-child(2) {
+  width: 95%;
+  height: 1000rpx;
+  background: #fff;
+
+
+}
+
+.maintin>view view {
+  width: 14.28571%;
+  /* height: 100rpx; */
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.maintin>view view view {
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.maintin>view view view:nth-child(1) {
+  background: var(--main-color);
+  border-right: 2rpx solid #f9f9f9;
+  color:#fff;
+}
+
+.maintin>view view view:nth-child(2) {
+  border-bottom: 2rpx solid #f9f9f9;
+  border-right: 2rpx solid #eeeeee;
+}
+
+
+.close2{
+  position: absolute;
+  top:-50rpx;
+  right: -70rpx;
+  width: 50rpx;
+  height: 50rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.close2 image{
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.maintin>view view view.week:nth-child(1) {
+  background-color: #f1a100;
+}
+
+
+.preferential_list {
+  border-bottom: 1rpx solid #f2f2f2;
+  padding: 0 32rpx;
+  display: flex;
+  position: relative;
+}

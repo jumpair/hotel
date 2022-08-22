@@ -1,0 +1,27 @@
+<view class="member-box">
+  <image src="../../../resource/images/manager_bg.png"></image>
+  <view class="nav2">
+    <view class="fixed_" style="height: {{jnInfo.top+jnInfo.height+4}}px;">
+      <view style="height: {{jnInfo.top}}px;"></view>
+      <view class="index_h1" style="line-height: {{jnInfo.height}}px;height: {{jnInfo.height}}px;">提现信息
+        <view class="img" bindtap="navBack">
+          <image src="../../../resource/images/back_white.svg"></image>
+        </view>
+      </view>
+    </view>
+    <view class="user">
+      <view>请完善提现信息</view>
+      <text>提现需要完善商户信息，请及时完善</text>
+    </view>
+  </view>
+ 
+</view>
+
+
+<view class="cont_">
+  <view class="box_">
+    <input type="text" placeholder="请输入银联商户号" value="{{ssh}}" bindinput="changeShh"/>
+    <input type="text" placeholder="请输入姓名" value="{{name}}" bindinput="changeName"/>
+    <view class="btn" bindtap="submit">提交</view>
+  </view>
+</view>

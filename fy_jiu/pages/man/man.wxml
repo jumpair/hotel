@@ -1,0 +1,185 @@
+<view class="cate_bg" style='background-color:#ffffff'></view>
+<!-- <view class="cate_bg" style='background-color:{{blist.tcolor}}'></view> -->
+<view class="cate">
+  <view class="cate-item {{currentTabsIndex==10?'hover':''}}" bindtap="catClick" data-sid='10'>
+    全部
+  </view>
+  <view class="cate-item {{currentTabsIndex==0?'hover':''}}" bindtap="catClick" data-sid='0'>
+    未付款
+  </view>
+  <view class="cate-item {{currentTabsIndex==2?'hover':''}}" bindtap="catClick" data-sid='2'>
+    已入住
+  </view>
+  <view class="cate-item {{currentTabsIndex==5?'hover':''}}" bindtap="catClick" data-sid='5'>
+    待退款
+  </view>
+  <view class="cate-item {{currentTabsIndex=='3'?'hover':''}}" bindtap="catClick" data-sid='3'>
+    已完成
+  </view>
+</view>
+
+<view class='blank'></view>
+<view class="order" wx:for="{{list}}" wx:key="{{index}}">
+  <view class="order_item">
+    <view class="order_n_up">
+      <view class="order_left">
+        <view class="room_name">{{item.roomname}}</view>
+        <view class="hotel_name">{{item.hotel_name}}</view>
+      </view>
+      <view class="order_right">
+        <view class="room_num">{{item.roomnum}}间</view>
+        <view class="room_price"><text>¥</text>{{item.total}}</view>
+      </view>
+
+    </view>
+    <view class="order_div">
+      <view class="order_l">
+        <view class="order_grey">
+          入住日期
+        </view>
+        <view class="order_yellow">
+          {{item.start_m}}月{{item.start_d}}日
+        </view>
+      </view>
+      <view class="order_mid order_yellow" wx:if="{{item.room_kind=='0'}}">
+        共{{item.diffday}}晚
+      </view>
+      <view class="order_mid order_yellow" wx:if="{{item.room_kind==1}}">
+        共{{item.room_time}}小时
+      </view>
+      <view class="order_r" wx:if="{{item.room_kind=='0'}}">
+        <view class="order_grey">
+          离店日期
+        </view>
+        <view class="order_yellow">
+          {{item.end_m}}月{{item.end_d}}日
+        </view>
+      </view>
+      <!-- <view class="order_left" wx:if="{{item.room_kind=='0'}}">
+
+      <dl>
+        <dd>{{item.start_m}}月{{item.start_d}}日入住，{{item.end_m}}月{{item.end_d}}日离店，共{{item.diffday}}晚</dd>
+        <dd><span>数量：{{item.roomnum}}间</span><span>{{item.breakfast}}</span><span>押金：{{item.deposit_total}}元</span></dd>
+      </dl>
+      </view>
+      <view class="order_left" wx:if="{{item.room_kind==1}}">
+      <dl>
+        <dd>{{item.start_m}}月{{item.start_d}}号入住，共{{item.room_time}}小时</dd>
+        <dd><span>数量：{{item.roomnum}}间</span><span>押金：{{item.deposit_total}}元</span></dd>
+      </dl>
+      </view> -->
+    </view>
+    <view class="order_oid">
+      <view class="order_line">
+        <view class="order_left">
+          订单编号：{{item.oid}}
+        </view>
+        <view class="order_right">
+          <view class="code" bindtap='creatCode' data-oid='{{item.oid}}'>二维码核销</view>
+        </view>
+      </view>
+    </view>
+    <view class="order_status">
+      <view class="order_line">
+        <view class="order_status_left">{{item.status_str}}</view>
+        <view class="order_status_right">
+          <view class="order_status_button" bindtap="navDetail" data-oid="{{item.id}}">查看详情</view>
+          <block wx:if="{{item.status=='0' && item.arrival!='1'}}">
+            <view class="order_status_button" bindtap="buttonClick" data-sid='pay' data-oid='{{item.oid}}' data-id='{{index}}'>
+              立即付款
+            </view>
+          </block>
+          <block wx:if="{{item.status=='0'}}">
+            <view class="order_status_button" bindtap="buttonClick" data-sid='cancel' data-oid='{{item.oid}}'>
+              取消订单
+            </view>
+          </block>
+
+          <block wx:if="{{item.status=='1' && close_refund!='1' && item.exchange!='1' && item.total !='0' }}">
+            <view class="order_status_button" bindtap="buttonClick" data-sid='refund' data-oid='{{item.oid}}' data-id='{{index}}'>
+              申请退款
+            </view>
+          </block>
+          <block wx:if="{{item.status=='5'}}">
+            <view class="order_status_button" bindtap="buttonClick">
+              退款中
+            </view>
+          </block>
+
+          <block wx:if="{{item.status=='4'}}">
+            <view class="order_status_button" bindtap="buttonClick" data-sid='{{item.status}}'>
+              已取消
+            </view>
+          </block>
+
+          <!-- <block wx:if="{{item.status=='3' && item.comment_status=='0'}}">
+            <view class="order_status_button" bindtap="navComment" data-oid='{{item.oid}}' data-hotel_name="{{item.hotel_name}}" 
+            data-sid="{{item.sid}}">
+              写评价
+            </view>
+          </block> -->
+
+          <block wx:if="{{item.status=='3' && item.comment_status=='1'}}">
+            <view class="order_status_button">
+              已评价
+            </view>
+          </block>
+
+          <block wx:if="{{item.status=='3'}}">
+            <view class="order_status_button" bindtap="buttonClick" data-sid='{{item.status}}'>
+              已完成
+            </view>
+          </block>
+        </view>
+      </view>
+      <block wx:if="{{item.status=='0'}}">
+        <view class="order_cancel">订单未付款，将于10分钟后取消，请及时处理</view>
+      </block>
+
+    </view>
+  </view>
+</view>
+
+<view class="shade {{isShow ? 'show' : 'hide'}}"></view>
+<view class="room {{isShow ? 'show' : 'hide'}}">
+  <view class='room_div'>
+    <view class='room_content_div'>
+      <image src='{{orderCode}}' class='orderCode'></image>
+      <text>请出示给商家客服人员</text>
+    </view>
+    <view class="close" bindtap="closeRoom">
+      <image mode="aspectFill" src="../../resource/images/close.svg" />
+    </view>
+  </view>
+</view>
+
+
+<!--这里是底部菜单  -->
+<view class="copyright {{blist.copyright.copyright=='' ? 'mt0' : ''}}">
+  <block wx:if="{{blist.copyright.copyright!=''}}">
+    <import src="../public/copy.wxml" />
+    <template is="copy" data="{{blist}}" />
+  </block>
+</view>
+<import src="../public/foot.wxml" />
+<template is="foot" data="{{blist}}" />
+
+
+
+<view class="shade {{isShow2 ? 'show' : 'hide'}}"></view>
+<view class="room2 {{isShow2 ? 'show' : 'hide'}}">
+  <view class='room_div2'>
+    <view class='room_content_div2'>
+      <view>
+        <image src='../../resource/images/message.png' class='orderCode' mode="widthFix"></image>
+      </view>
+      <view class="view_button"><button class='savebutton2' bindtap='getMessage'>保存至相册</button></view>
+    </view>
+    <view class="close2" bindtap="closeRoom2">
+      <image mode="aspectFill" src="../../resource/images/close.png" />
+    </view>
+  </view>
+</view>
+
+
+<view style="height: 100rpx;"></view>

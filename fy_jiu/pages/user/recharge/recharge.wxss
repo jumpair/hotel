@@ -1,0 +1,154 @@
+page{
+  color:#fff;
+  background: #eee;
+}
+.recharge_top{
+  width: 100%;
+  height: 230rpx;
+  background: white;
+  padding-top: 100rpx;
+}
+.recharge_top_info{
+  width: 200rpx;
+  margin: 0 auto;
+  text-align: center;
+}
+.recharge_top_text{
+  font-size: 16px;
+  
+}
+.recharge_top_money{
+  font-size: 24px;
+  font-weight: bold;
+}
+.user_div{
+ position: absolute;
+  top:300rpx;
+  z-index: 3;
+  width: 100%;
+}
+.user_item {
+  width: 95%;
+  background: white;
+  margin: 0 auto;
+  font-size: 14px;
+  border-radius: 5rpx;
+  z-index: 0;
+}
+.title{
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  padding-top: 20rpx;
+  font-weight: bold;
+  color:#444050;
+  padding-bottom: 20rpx;
+}
+.input_div{
+  width: 90%;
+  margin: 0 auto;
+  height: 80rpx;
+  border:1px solid #e5e5e5;
+  border-radius: 10rpx;
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.left_ico{
+  width: 20%;
+}
+.left_ico image{
+  width: 50rpx;
+  height: 50rpx;
+  margin: 15rpx 0 0 25rpx;
+}
+.right_input{
+  width: 80%;
+}
+.right_input input{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  color:#9b9a9b;
+}
+
+.recharge_give{
+  color: #eee;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+}
+.recharge_item{
+  display: flex;
+  width:45%;
+  border: 1px solid #fff;
+  height: 110rpx;
+  border-radius: 7rpx;
+  margin-bottom: 15rpx;
+  position: relative;
+}
+.recharge_item_left{
+  width: 15%;
+  height: 110rpx;
+  line-height: 110%;
+  background:white;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+}
+.recharge_item_right{
+    padding: 10rpx;
+}
+.recharge_item_right view{
+  width: 100%;
+  text-align: left;
+  text-indent: 5rpx;
+}
+.bottom_checked{
+  position: absolute;
+  bottom:0px;
+  right: 0px;
+  width: 28px;
+  height: 24px;
+}
+.bottom_checked image{
+  width: 28px;
+  height: 24px;
+}
+.give_text{
+  margin-top: 5rpx;
+  font-size: 14px;
+  color: #4d4c4d;
+}
+.give_info{
+  font-size: 12px;
+  color: #a7a7a7
+}
+
+.submit_btn{
+  width: 100%;
+  margin-top: 10rpx;
+  position: relative;
+}
+.submit_btn .submit_btn_div{
+  width: 80%;
+  margin: 0 auto;
+}
+.submit_btn button{
+  background: #ffffff;
+  border: 0px;
+  color: white;
+  border-radius: 70rpx;
+  z-index: 3;
+  height: 90rpx;
+}
+.btn_bg{
+  position: absolute;
+  top:50rpx;
+  background: #eee;
+  width: 100%;
+  height: 40rpx;
+  z-index: 1;
+}

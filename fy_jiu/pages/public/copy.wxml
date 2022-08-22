@@ -1,0 +1,6 @@
+<template name="copy">
+  <view class="copyright" bindtap='copy_action'>
+    <view wx:if="{{blist.copyright.copy_img}}"><image src='{{blist.copyright.copy_img}}'/></view>
+    <view class='copyright_text'>{{blist.copyright.copyright}}</view>
+  </view>
+</template>

@@ -1,0 +1,145 @@
+<!-- 分类栏 -->
+<!-- <view class='HZL_classify'>
+  <view class='son' wx:for='{{HZL_categories}}' wx:key='id'>
+    <view class='HZL_categories' bindtap='HZL_categories' data-index='{{index}}'>
+      <text class="{{index === HZL_swiper_ID ? 'HZL_categories_text' : ''}}">{{item}}</text>
+    </view>
+  </view>
+</view> -->
+<!-- 分类栏 -->
+
+
+<!-- 左右滑动 -->
+<swiper class='HZL_swiper' style='height:{{HZL_height1}}px' bindchange="HZL_swiperchange" current="{{HZL_swiper_ID}}" class="layout">
+  <swiper-item wx:for='{{HZL_categories}}' wx:key='id'>
+    <view wx:if='{{index == HZL_swiper_ID}}' style='height:{{HZL_height1}}px'>
+
+      <!-- 菜单 -->
+      <view wx:if='{{HZL_swiper_ID == 0}}' class='HZL_menu' style='height:{{HZL_height1}}px'>
+
+        <!-- 左右联动 -->
+        <view class='HZL_scroll'>
+          <!-- 左 具体分类 -->
+          <scroll-view class='HZL_scroll_left' scroll-with-animation="true" scroll-y="true" style="height:{{HZL_height}}px" scroll-top="{{HZL_leftToTop}}" >
+            <view class='left' style="padding-bottom: 50rpx;width:100%">
+
+              <view  wx:for="{{category}}" wx:key="id" bindtap="left" data-id="{{item.id}}" data-cid="{{item.id}}" class='{{item.id == HZL_currentLeftSelect ?"HZL_scroll_left_text_active":"HZL_scroll_left_text"}}'>
+                <view class='huang' style=''></view>
+                <view class='huang1' id="{{item.id}}">
+                  {{item.name}}
+                </view>
+
+              </view>
+            </view>
+          </scroll-view>
+          <!-- 左 具体分类 -->
+
+          <!-- 右 商品列表-->
+          <scroll-view 
+            scroll-with-animation="true" 
+            scroll-y="true" 
+            style="height:{{HZL_height}}px" 
+            bindscroll="right" 
+            scroll-into-view="{{HZL_toView}}"  
+            class='HZL_scroll_right'>
+            <view id="idtop"></view>
+            <!-- 商品列表 -->
+              <!-- 分类名称 -->
+        
+              
+              <view class="HZL_scroll_right_view" wx:for="{{lists[tid]}}" wx:key="category_id">
+                    <view class="pro_left"><image src="{{item.thumb}}"></image></view>
+                    <view class="pro_right">
+                        <view class="pro_title"> {{item.name}} </view>
+                        <view class="pro_desc"> {{item.prodesc}}</view>
+                        <view class="pro_price"> ￥{{item.mprice}} </view>
+                    </view>
+                    <view class="handle_num">
+                      <view class="HZL_son1">
+                        <view class='HZL_Grandson'></view>
+                        <view class='HZL_Grandson1'>
+                          <view wx:if='{{item.number == 0}}' class='HZL_num'></view>
+                          <view wx:if='{{item.number == 0}}' class='HZL_num'></view>
+
+                          
+                          <!-- 减号 -->
+                          <view wx:if='{{item.number > 0}}' class='HZL_jian' bindtap='HZL_jian' data-parentIndex='{{tid}}' data-index='{{index}}'>-</view>
+                          <!-- 减号 -->
+
+                          <!-- 数量 -->
+                          <view wx:if='{{item.number > 0}}' class='HZL_num'>{{item.number}}</view>
+                          <!-- 数量 -->
+
+                          <!-- 加号 -->
+                          <view class='HZL_jia' bindtap='HZL_jia' data-parentIndex='{{tid}}' data-index='{{index}}'>+</view>
+                          <!-- 加号 -->
+
+                        </view>
+                      </view>
+
+                    </view>
+              </view>
+
+          </scroll-view>
+          <!-- 右 商品列表-->
+
+        </view>
+
+      </view>
+
+
+
+    </view>
+  </swiper-item>
+</swiper>
+<!-- 左右滑动 -->
+
+<!-- 下面的购物车 -->
+<view wx:if='{{HZL_isCat > 0}}' class='HZL_cat_bottom' bindtap='HZL_isCat_close'></view>
+<!-- 下面的购物车 -->
+
+<view wx:if='{{HZL_isCat > 0}}' class='HZL_cat_bottom1'>
+  <view class='HZL_cat_bottom1_view'>
+    <view style='margin-left: 30rpx;'>购物车</view>
+    <view style='margin-right: 30rpx;' bindtap='HZL_zero'>清空</view>
+  </view>
+ 
+
+  <!-- 购物车内容 -->
+  <scroll-view class='HZL_cat_scroll' scroll-y='true'>
+    <!-- 购物车列表 -->
+    <view class='HZL_cat_scrollView' wx:for='{{HZL_my_cat}}' wx:key='HZL_my_cat'>
+      <view class='HZL_cat_scrollView_text'>{{item.name}}</view>
+      <view class='HZL_cat_scrollView_view'>
+      <view class='pprice'>￥{{item.total}}</view>
+        <view wx:if='{{item.number == 0}}' class='HZL_num'></view>
+        <view wx:if='{{item.number == 0}}' class='HZL_num'></view>
+        <view wx:if='{{item.number > 0}}' class='HZL_jian' bindtap='HZL_jian1' data-parentIndex='{{item.parentIndex}}' data-index='{{item.index}}'>-</view>
+        <view wx:if='{{item.number > 0}}' class='HZL_num'>{{item.number}}</view>
+        <view class='HZL_jia' bindtap='HZL_jia1' data-parentIndex='{{item.parentIndex}}' data-index='{{item.index}}'>+</view>
+      </view>
+    </view>
+    <!-- 购物车列表 -->
+
+  </scroll-view>
+  <!-- 购物车内容 -->
+</view>
+
+
+<!-- 购物车 -->
+<view wx:if='{{HZL_swiper_ID == 0}}' class='HZL_cat' style="">
+  <view class='HZL_cat_img_view' style='background-color:#fff' bindtap='HZL_isCat'>
+    <image src='../../resource/images/shop-cat-on1.png' class='HZL_cat_img'></image>
+    <view class='HZL_cat_num' wx:if='{{HZL_num > 0}}'>{{HZL_num}}</view>
+  </view>
+  <view class='total-all'>
+  <view class='total'>￥{{totalprice}}</view>
+  <view class='HZL_cat_text' bindtap='bindCheckout'>去结算</view>
+  
+  </view>
+</view>
+<!-- 购物车 -->
+
+
+<import src="../public/foot.wxml" />
+<template is="foot" data="{{blist}}" />

@@ -1,0 +1,84 @@
+<view class="member-box">
+  <image src="../../resource/images/manager_bg.png"></image>
+  <view class="nav2">
+    <view class="fixed_" style="height: {{jnInfo.top+jnInfo.height+4}}px;">
+      <view style="height: {{jnInfo.top}}px;"></view>
+      <view class="index_h1" style="line-height: {{jnInfo.height}}px;height: {{jnInfo.height}}px;">会员中心
+        <view class="img" bindtap="navBack">
+          <image src="../../resource/images/back_white.svg"></image>
+        </view>
+      </view>
+    </view>
+    <view class="user">
+      <view class="userinfo">
+        <view class="userinfo-avatar">
+          <image src="{{shop.thumb}}"></image>
+        </view>
+      </view>
+      <view class="name">
+        <view>
+          {{shop.title}}
+        </view>
+      </view>
+      <view class="time">
+        <text>{{shop.datestr}}</text>
+      </view>
+      <!-- <view class="lab">
+          <view>{{shop.nickname}}</view>
+        </view> -->
+    </view>
+  </view>
+</view>
+
+
+<view class="cont_">
+  <view class="minute">
+    <view bindtap="mycoupon" class="item">
+      <view class="val">
+        <view>{{statistics.ordertotal}}</view>
+      </view>
+      <view class="name">今日订单</view>
+    </view>
+    <view class="item">
+      <view class="val">
+        <view>{{statistics.daytotal}}</view>
+      </view>
+      <view class="name">今日销售额</view>
+    </view>
+    <view bindtap="myscore" class="item">
+      <view class="val">
+        <view>{{statistics.lastquota}}</view>
+      </view>
+      <view class="name">剩余名额</view>
+    </view>
+  </view>
+  <view class="member-box2">
+    <view class="nav">
+      <view class="title">
+        <view>功能菜单</view>
+      </view>
+      <view class="btn">
+        <view bindtap='man'>
+          <image src="../../resource/images/0001.svg" mode="widthFix"></image>
+          <text>订单管理</text>
+        </view>
+        <!-- <view bindtap='getScancode'>
+          <image src="../../resource/images/0002.svg" mode="widthFix"></image>
+          <text>核销订单</text>
+        </view> -->
+        <view bindtap='navRoom'>
+          <image src="../../resource/images/0003.svg" mode="widthFix"></image>
+          <text>房型管理</text>
+        </view>
+        <view bindtap='hotelums'>
+          <image src="../../resource/images/0004.svg" mode="widthFix"></image>
+          <text>提现信息</text>
+        </view>
+        <!-- <view bindtap='myscore'>
+				<image src="{{iconArr.score}}" mode="widthFix"></image>
+				<text>我的积分</text>
+			</view> -->
+      </view>
+    </view>
+  </view>
+</view>

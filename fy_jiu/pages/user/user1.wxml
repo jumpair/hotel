@@ -1,0 +1,170 @@
+
+
+
+<!-- 会员中心背景图 -->
+<!-- <image class="background-img" src="../../resource/images/beijing.png" mode="aspectFill"></image> -->
+<view class="bgpo" style="background-color:{{blist.tcolor}}"></view>
+<view class="member-box">
+
+
+<!-- 背景 -->
+<view class='header_banner'>
+  <view class='header_banner_1'>
+    <block wx:if="{{userinfo.avatarUrl}}">
+     <open-data style='border-radius:50%;overflow:hidden;display:block;height:150rpx;width:150rpx;' type="userAvatarUrl"></open-data>
+    </block>
+    <view class='header_name'>
+      <view class='header_name_sex' bindtap='navUserinfo'>
+          <open-data type="userNickName"></open-data>
+      </view>
+      <view class='header_name_word'>
+        <view class='header_name_word_icon'>
+          <image class='header_name_word_icon_1' src='../../resource/images/biaozhi.png'></image>
+      
+          <view class='header_name_word_wo'  >
+            <text class="header_name_word_wo_name" bindtap='navUserinfo'>{{levelName}}</text>
+          </view>
+        </view>
+        <!-- <view class='header_name_word_left' bindtap='navRecharge'>
+          <image class='header_name_word_left_icon' src='../../resource/images/chongzhi.png'></image>
+          <view>充值</view>
+        </view> -->
+      </view>
+    </view>
+  </view>
+  <view class='header_banner_bottom'>
+    <view class='header_banner_bottom_balance'>
+      <view class='header_banner_bottom_balance_num'>{{balance}}</view>
+      <view class='header_banner_bottom_balance_name'>余额</view>
+    </view>
+    <view class='header_banner_bottom_balance'>
+      <view class='header_banner_bottom_balance_num'>{{score}}</view>
+      <view class='header_banner_bottom_balance_name'>积分</view>
+    </view>
+  </view>
+</view>
+<!-- 背景 -->
+
+
+<!-- 常用菜单 -->
+<view class='content_order'>
+    <view class='content_order_often'>常用菜单  <span style="margin-left:410rpx;color:{{blist.tcolor}}" bindtap='navAdmin' wx:if="{{isadmin=='1'}}"> 管理入口</span></view>
+    <view class='content_order_often_nav'>
+      <view class='content_order_often_nav_icon' bindtap='man'>
+        <image class='order_nav1_icon' src='{{iconArr.order}}'></image>
+        <view class='order_nav1_name_1'>酒店订单</view>
+      </view>
+      <view class='content_order_often_nav_icon' bindtap='navShopOrder' wx:if="{{showShop}}">
+        <image class='order_nav1_icon' src='{{iconArr.shop}}'></image>
+        <view class='order_nav1_name_1'>商城订单</view>
+      </view>
+      <view class='content_order_often_nav_icon' bindtap='navRecharge'>
+        <image class='order_nav1_icon' src='{{iconArr.recharge}}'></image>
+        <view class='order_nav1_name_1'>在线充值</view>
+      </view>
+      <view class='content_order_often_nav_icon' bindtap='myscore'>
+        <image class='order_nav1_icon' src='{{iconArr.score}}'></image>
+        <view class='order_nav1_name_1'>我的积分</view>
+      </view>
+    </view>
+    <view class='content_order_often_nav'>
+      <view class='content_order_often_nav_icon' bindtap='coupon'>
+        <image class='order_nav1_icon' src='{{iconArr.coupon}}'></image>
+        <view class='order_nav1_name_1'>领取优惠券</view>
+      </view>
+      <view class='content_order_often_nav_icon' bindtap='mycoupon'>
+        <image class='order_nav1_icon' src='{{iconArr.mycoupon}}'></image>
+        <view class='order_nav1_name_1'>我的优惠券</view>
+      </view>
+      <view class='content_order_often_nav_icon' bindtap="calling">
+        <image class='order_nav1_icon' src='{{iconArr.customer}}'></image>
+        <view class='order_nav1_name_1'>酒店客服电话</view>
+      </view>
+      <view class='content_order_often_nav_icon'>
+        <image class='order_nav1_icon' src='{{iconArr.phone}}'></image>
+        <view class='order_nav1_name_1'>在线客服
+          <button open-type="contact" class='contact'>1 </button>
+        </view>
+      </view>
+    </view>
+
+    <!-- ****** -->
+    <view class='content_order_often_nav' wx:if="{{hide_retail=='0'}}">
+      <view class='content_order_often_nav_icon' bindtap="creatCode"  >
+        <image class='order_nav1_icon' src='{{iconArr.orcode}}'></image>
+        <view class='order_nav1_name_1'>我的推广码</view>
+      </view>
+      <view class='content_order_often_nav_icon' bindtap="lowerTap"  >
+        <image class='order_nav1_icon' src='{{iconArr.downlevel}}'></image>
+        <view class='order_nav1_name_1'>我的下级</view>
+      </view>
+      <view class='content_order_often_nav_icon' bindtap="rebateOnTap"  >
+        <image class='order_nav1_icon' src='{{iconArr.caseback}}'></image>
+        <view class='order_nav1_name_1'>返利记录</view>
+      </view>
+      <view class='content_order_often_nav_icon' bindtap="myCashRecords"  >
+        <image class='order_nav1_icon' src='{{iconArr.tixian}}'></image>
+        <view class='order_nav1_name_1'>提现记录</view>
+      </view>    
+    </view>
+    <!-- ****** -->
+
+    <!-- ****** -->
+    <!-- <view class='content_order_often_nav'>
+      <view class='content_order_often_nav_icon' bindtap="CashApply"  >
+        <image class='order_nav1_icon' src='../../resource/images/cash.png'></image>
+        <view class='order_nav1_name_1'>提现申请</view>
+      </view>
+      <view class='content_order_often_nav_icon' bindtap="cashout"  >
+        <image class='order_nav1_icon' src='../../resource/images/score.png'></image>
+        <view class='order_nav1_name_1'>copyright</view>
+      </view>
+    </view> -->
+    <!-- ****** -->
+    
+</view>
+<!-- 常用菜单 -->
+</view>
+
+
+
+<!--这里是底部菜单  -->
+<view class="copyright {{blist.copyright.copyright=='' ? 'mt0' : ''}}">
+  <block wx:if="{{blist.copyright.copyright!=''}}">
+    <import src="../public/copy.wxml" />
+    <template is="copy" data="{{blist}}" />
+  </block>
+</view>
+<import src="../public/foot.wxml" />
+<template is="foot" data="{{blist}}" />
+<!--这里是底部菜单  -->
+
+
+
+<!-- 允许获取昵称和头像 ******* -->
+<view class="banner" wx:if="{{nonickname}}">
+  <view class='main'>  
+      <view class="gain-button ">
+          <button class="gain-header-info" size="default" open-type="getUserInfo" bindgetuserinfo="updateUserInfo">允许获取昵称和头像</button>
+      </view>
+
+  </view>
+</view>
+<!-- 允许获取昵称和头像 ******* -->
+
+
+<!-- 推广码 ***************************** -->
+<view class="shade {{isShow ? 'show' : 'hide'}}"></view>
+<view class="room {{isShow ? 'show' : 'hide'}}">
+  <view class='room_div'>
+    <view class='room_content_div'>
+      <image src='{{orderCode}}' class='orderCode'></image>
+      <text>通过该二维码进入小程序的客户将永远成为你的下级。他的每笔订单你将获得{{rebate}}%的返利</text>
+    </view>
+    <view class="close" bindtap="closeRoom">
+      <image mode="aspectFill" src="../../resource/images/close.png" />
+    </view>
+     <button class='savebutton' bindtap='saveImgAction' style='background:{{blist.style.tcolor}}'>保存至相册</button>
+  </view>
+</view>
+<!-- 推广码 ***************************** -->

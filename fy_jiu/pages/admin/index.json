@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "手机管理中心",
+  "enablePullDownRefresh": true,
+  "navigationBarTextStyle": "black",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationStyle": "custom"
+}

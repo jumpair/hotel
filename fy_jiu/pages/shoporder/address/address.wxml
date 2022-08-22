@@ -1,0 +1,28 @@
+<view  wx:for="{{list}}" style="background:white; margin-bottom:15rpx;" wx:for-index="id">
+    <view class='address_div' bindtap='choiceAddress' data-id="{{id}}">
+      <view class='address_info'>
+          <view class='address_info_top'>
+              <view class='address_info_top_username'>姓名：{{item.username}}   {{item.phone}}</view>
+          </view>
+          <view class='address_info_bottom'>
+              地址：{{item.province}}{{item.city}}{{item.county}}{{item.address}}
+          </view>
+      </view>
+      <view class='address_ico'> <image src="../../../resource/images/choice.png"/></view>
+    </view>
+    <view class='address_edit'>
+          <view class='address_edit_view' bindtap='defaultAction' data-id="{{id}}" data-op="default" wx:if="{{item.moren=='0'}}">
+             <view class='address_edit_img'><image src="../../../resource/images/set.png"/></view>
+            <view>设为默认</view>  
+          </view>
+           <view class='address_edit_view' bindtap='defaultAction' data-op="del" data-id="{{id}}">
+             <view class='address_edit_img'><image src="../../../resource/images/del.png"/></view>
+            <view>删除</view>  
+          </view>
+    </view>
+</view>
+
+
+<view class="bottom">
+    <button bindtap='getAddress'>一键获取微信地址</button>
+</view>

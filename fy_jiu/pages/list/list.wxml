@@ -1,0 +1,80 @@
+<view class="header">
+    <view class="select_01">
+        <view class="container">
+            <view class="header_rz" bindtap="navCity">{{city}}</view>
+            <view class="header_info" bindtap="navCale">
+                <view class="header_info_tit">
+                    <text>入住</text>
+                    <text>离店</text>
+                </view>
+                <view class="header_info_time">
+                    <text>{{newInDate}}</text>
+                    <text>{{newOutDate}}</text>
+                </view>
+            </view>
+            <view class="keyword">
+                <image src="../../resource/images/search_black.svg"></image>
+                <input type="text" placeholder="请输入酒店名称" confirm-type="search" bindinput="changeKeyword"	bindconfirm="keywordSearch"/>
+            </view>
+        </view>
+    </view>
+    <view class="h_" style="height: 20rpx;background-color: #F9F9F9;"></view>
+    <view class="select_02">
+        <!-- 多条件筛选 -->
+        <component-tag-name dropDownMenuTitle='{{dropDownMenuTitle}}' dropDownMenuFourthData='{{dropDownMenuFourthData}}' dropDownMenuFirstData='{{dropDownMenuFirstData}}' dropDownMenuSecondData='{{dropDownMenuSecondData}}' dropDownMenuThirdData='{{dropDownMenuThirdData}}' bind:selectedItem='selectedFourth' />
+    </view>
+    <!-- <view class="back_page" bindtap="navBack"><image src="../../resource/images/23.png"></image></view> -->
+
+
+</view>
+
+<view class="list_">
+    <view class="h_" style="height: 20rpx;background-color: #F9F9F9;"></view>
+    <view class="browse" wx:key="unique" wx:for="{{list}}" bindtap="navHotel" data-id="{{item.id}}" wx:if="{{item.isshow==1}}">
+        <view class="browse_img">
+            <image mode="aspectFill" src="{{item.thumb}}"></image>
+            <!-- <view><image src="../../images/25.png"></image>最近预览</view> -->
+            <view class="recommended_list_top_read">
+				<view class="l_">
+					<image src="../../resource/images/eye.svg"></image>
+					<text>{{item.readnum}}</text>
+				</view>
+				<view class="r_">剩余配额：{{item.quota}}</view>
+			</view>
+        </view>
+        <view class="browse_con">
+            <view class="browse_con_tit">{{item.title}}</view>
+            <view class="browse_con_fen">
+                <text>综合评分：{{item.comment_array['comment_score']}}分</text>
+                <text>{{item.hotel_kind_desc}}</text>
+                <image src="../../resource/images/more_right.svg"></image>
+            </view>
+            <!-- <view class="browse_con_dz">距您直线距离{{item.distance}}km</view> -->
+            <view class="browse_con_tab">
+                <view wx:for="{{item.label}}" wx:key="unique1">{{item}}</view>
+            </view>
+            <!-- <view class="browse_con_txt">
+                “{{item.comment_say}}”
+                <view>￥{{item.lowest_price}}<text>起</text></view>
+                <text>￥{{item.market_price}}</text>
+            </view> -->
+        </view>
+
+    </view>
+    <view wx:if="{{list&&list.length == 0}}" class="nodata">
+      <image src="../../resource/images/nodata.png"></image>
+    </view>
+</view>
+
+
+
+
+<view class="copyright {{blist.copyright.copyright=='' ? 'mt0' : ''}}">
+    <block wx:if="{{blist.copyright.copyright!=''}}">
+        <import src="../public/copy.wxml" />
+        <template is="copy" data="{{blist}}" />
+    </block>
+</view>
+<view style="height: 50rpx;"></view>
+<import src="../public/foot.wxml" />
+<template is="foot" data="{{blist}}" />

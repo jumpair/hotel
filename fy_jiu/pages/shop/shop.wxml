@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="cate">
+    <scroll-view scroll-x class='scroll_view'>
+    <block wx:for="{{cats}}" wx:key="unique" wx:for-index="catkey">
+      <view class="cate-item {{currentTabsIndex==item.id ?'hover':''}}" 
+        style="{{currentTabsIndex==item.id ?'border-color:'+blist.tcolor+';color:'+blist.tcolor:''}}" bindtap="catClick" data-cid='{{item.id}}' data-fid='{{item.fid}}' data-catkey='{{catkey}}'> {{item.name}} </view>
+    </block>
+    </scroll-view>
+  </view>
+  <view class="case-bg">
+    <view class="case-div" style="background:#f6f5f3">
+      <view class="case-item" wx:for="{{list}}" wx:key="{{index1}}" >
+        <navigator url="../product/detail?productId={{item.id}}&sid={{sid}}" >
+          <view class="case-img">
+            <image src="{{item.thumb}}"></image>
+          </view>
+          <view class="case-text"> {{item.name}} </view>
+            <view class="service-item-price price" >
+                <text>¥ {{item.mprice}}</text>
+                <text class='yishou'>已售{{item.yishou}}件</text>
+            </view>
+        </navigator>
+      </view>
+  
+    </view>
+    <view wx:if="{{show_more=='1'}}" class="loadMore" bindtap="loadMore" data-lastid='{{lastid}}'>加载更多</view>
+   
+  </view>
+</view>
+<!--这里是底部菜单  -->
+<view class="copyright {{blist.copyright.copyright=='' ? 'mt0' : ''}}">
+  <block wx:if="{{blist.copyright.copyright!=''}}">
+    <import src="../public/copy.wxml" />
+    <template is="copy" data="{{blist}}" /></block>
+</view>
+<import src="../public/foot.wxml" />
+<template is="foot" data="{{blist}}" />

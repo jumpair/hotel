@@ -1,0 +1,174 @@
+<view class="base_view">
+	<view class="order_top">
+		<view class="order_infor">
+			<block wx:if="{{list.status=='0'}}">
+				<view>未支付</view>
+				<view class="order_red">订单将于{{leavetime.minute}}:{{leavetime.sec}}后取消</view>
+				<!-- <button style="width: 240px" bindtap="getSystemInfo">wx.getSystemInfo</button> -->
+			</block>
+		</view>
+		<view class="order_white">
+			<view class="product_info">
+				<image src="{{store.thumb}}"></image>
+				<view class="product_info_con">
+					<view class="product_info_con_tit">{{store.title}}</view>
+					<view class="product_info_con_txt">
+						<view>{{store.score}}<text>分</text></view>
+						<view class="order_assess">很好</view>
+						<view class="order_tel" bindtap="call">
+							<image src="../../resource/images/order/tel.svg"></image>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="address">
+				<view class="address_info">
+					<image src="../../resource/images/order/address.svg"></image>
+					<view>{{store.address}}</view>
+				</view>
+				<view class="address_list" bindtap="goToAddress">
+					<image src="../../resource/images/order/add_menu.svg"></image>
+					<view>导航</view>
+				</view>
+				<view class="address_bg">
+					<image src="../../resource/images/order/map.jpg"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="room">
+		<view class="room_infor">
+			<view class="room_tit" wx:if="{{list.room_kind=='0'}}">
+				{{list.roomname}}
+				<view>共<text>{{list.roomnum}}</text>间</view>
+			</view>
+			<view class="room_tit" wx:if="{{list.room_kind==1}}">
+				钟点房
+				<view>共<text>{{list.room_time}}</text>小时</view>
+			</view>
+			<view class="room_date" wx:if="{{list.room_kind=='0'}}">
+				<view class="order_l">
+					<view class="order_grey">
+						入住日期
+					</view>
+					<view class="order_blank">
+						{{list.start_m}}月{{list.start_d}}日
+					</view>
+				</view>
+				<view class="order_mid order_blank">
+					共{{list.diffday}}晚
+				</view>
+				<view class="order_r">
+					<view class="order_grey">
+						离店日期
+					</view>
+					<view class="order_blank">
+						{{list.end_m}}月{{list.end_d}}日
+					</view>
+				</view>
+			</view>
+			<view class="room_tit" wx:if="{{list.room_kind=='0'}}">
+				餐食：
+				<text>{{list.breakfast}}</text>
+			</view>
+		</view>
+		<view class="room_infor mt16">
+			<view class="room_tit2">入住信息</view>
+			<!-- loop -->
+			<!-- <view class="infor_list" wx:for="{{list}}" wx:key="{{index}}"> -->
+			<view class="infor_list" wx:for="{{personlist}}" wx:key="{{index}}">
+				<view class="infor_name">
+					<view class="order_left infor_sub">
+						入住人{{index+1}}
+					</view>
+					<view class="order_right order_price">
+						￥{{item.price}}
+					</view>
+				</view>
+				<view class="infor_line infor_cont">
+					<view>
+						入住人
+					</view>
+					<view>
+						{{item.uname}}
+					</view>
+				</view>
+				<view class="infor_line infor_cont">
+					<view>
+						身份证号
+					</view>
+					<view>
+						{{item.card}}
+					</view>
+				</view>
+			</view>
+			<!-- end -->
+			<view class="infor_line infor_cont">
+				<view>
+					预计到店
+				</view>
+				<view>{{store.enter_time}}</view>
+			</view>
+			<view class="infor_line infor_cont">
+				<view>
+					优惠券：
+				</view>
+				<view>{{list.yhshow}}</view>
+			</view>
+			<!-- <view class="stay">
+			<view class="stay_list">
+				<view>入住人</view>
+				<view>联系电话</view>
+				<view>订单号</view>
+				<view>订单状态</view>
+				<view>订单金额</view>
+				<view>押金</view>
+			</view>
+			<view class="stay_list">
+				<view>{{list.username}}</view>
+				<view>{{list.phone}}</view>
+				<view>{{list.oid}}</view>
+				<view>{{list.status_str}}</view>
+				<view>{{list.total}}元</view>
+				<view>{{list.deposit_total}}元</view>
+			</view>
+			<view class="stay_list">
+				<view></view>
+				<view></view>
+			</view>
+			
+		</view> -->
+		</view>
+	</view>
+
+	<!-- <view class="btn">
+		<view bindtap="goback">返回</view>
+		<view bindtap="call">酒店热线</view>
+		<view bindtap="goToAddress">一键导航</view>
+</view> -->
+
+</view>
+
+<view style="height: 120rpx;">
+</view>
+<view class="order_fixed">
+	<view class="order_status">{{list.status_str}}</view>
+	<view class="order_statu_r">
+		<block wx:if="{{list.status=='0' && list.arrival!='1'}}">
+			<view class="order_status_button" bindtap="buttonClick" data-sid='pay' data-oid='{{list.oid}}' data-id='{{index}}'>
+				立即付款
+			</view>
+		</block>
+		<block wx:if="{{list.status=='0'}}">
+			<view class="order_status_button" bindtap="buttonClick" data-sid='cancel' data-oid='{{list.oid}}'>
+				取消订单
+			</view>
+		</block>
+		<block wx:if="{{list.status=='3' && list.comment_status=='0'}}">
+			<view class="order_status_button" bindtap="navComment" data-oid='{{list.oid}}' data-hotel_name="{{list.hotel_name}}" data-sid="{{list.sid}}">
+				评价
+			</view>
+		</block>
+	</view>
+</view>

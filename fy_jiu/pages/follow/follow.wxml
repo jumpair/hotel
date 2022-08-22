@@ -1,0 +1,33 @@
+<block wx:if="{{!full}}">
+<view class="browse" wx:key="unique" wx:for="{{list}}" bindtap="navHotel" data-id="{{item.id}}">
+    <view class="product_info">
+        <image src="{{item.thumb}}"></image>
+        <view class="product_info_con">
+            <view class="collect_title">{{item.title}}</view>
+            <view class="collect_grade">综合评分：<text>{{item.comment_array['comment_score']}}分</text></view>
+            <view class="browse_con_tab">
+                <view class="blue" wx:for="{{item.label}}" wx:key="unique1">{{item}}</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="collect_con">
+        <view class="browse_con_dz">距您直线距离{{item.distance}}km</view>
+    </view>
+</view>
+</block>
+
+<block wx:if="{{full}}">
+	<view class='nodata'>
+		<image src="../../resource/images/nodata.png"/>
+	</view>
+</block>
+
+<view class="copyright {{blist.copyright.copyright=='' ? 'mt0' : ''}}">
+	<block wx:if="{{blist.copyright.copyright!=''}}">
+		<import src="../public/copy.wxml" />
+		<template is="copy" data="{{blist}}" />
+	</block>
+</view>
+<import src="../public/foot.wxml" />
+<template is="foot" data="{{blist}}" />

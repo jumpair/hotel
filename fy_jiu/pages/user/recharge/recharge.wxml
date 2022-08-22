@@ -1,0 +1,44 @@
+<view class='recharge_top'  style=" background:{{blist.tcolor}};">
+  <view class='recharge_top_info'>
+      <view class='recharge_top_text'>余额(元)</view>
+      <view class='recharge_top_money'>{{money}}</view>
+  </view>
+</view>
+<view class='user_div' >
+  <view class="user_item">
+      <view class='title'>会员充值</view>
+      <view class='input_div'>
+          <view class='left_ico'><image src='../../../resource/images/money.png'></image></view>
+          <view class='right_input'><input type='text' name="username" 
+          placeholder="手动输入金额" bindinput='chargeAction' value=''/>
+          </view>
+      </view>
+      
+    <view class='recharge_give' >
+      <view class='recharge_item' style='border-color:{{blist.tcolor}};' wx:for="{{list}}" data-check="0" bindtap='clickCharge' wx:for-index="fidx" wx:key="{{fid}}" data-lid="{{fidx}}">
+          <view class='recharge_item_left' style=" background:{{blist.tcolor}};">
+            {{item.name}}
+          </view>
+           <view class='recharge_item_right'>
+              <view class='give_text'>充{{item.money}}送{{item.givemoney}}</view>
+              <view class='give_info' wx:if="{{item.gid!=0}}">赠{{item.name}}享{{item.sale}}折</view>
+              
+          </view>
+          <view class='bottom_checked' wx:if="{{item.checked=='1'}}"><image src='../../../resource/images/checked.png'></image> </view>
+      </view>
+
+      
+
+    
+    </view>
+
+     <view class='submit_btn'>
+        <view class='submit_btn_div'><button bindtap='submitAction' style=" background:{{blist.tcolor}};">提交</button></view>
+        <view class='btn_bg'> </view>
+     </view>
+  </view>
+ <view style="color:#999;padding:10px 0 0 12px;"> {{recharge_desc}}</view>
+</view>
+
+
+

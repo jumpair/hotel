@@ -1,0 +1,61 @@
+<block wx:if="{{isnull=='0'}}">
+  <view class="coupons_list_all coupons_list_all2">
+    <view class="coupons_list" wx:for="{{list}}" wx:key="{{index}}">
+        <view class="coupons_list_top">
+            <view class="coupons_list_top_price"><block wx:if="{{item.type=='0'}}">￥</block><text>{{item.showsale}}</text>
+              <text style="font-size:26rpx; margin-left:5rpx;"  wx:if="{{item.type=='1'}}">折</text>
+            </view>
+            <view class="coupons_list_top_con">
+                <view class="coupons_list_top_con_tit"> {{item.title}}</view>
+                <view class="coupons_list_top_con_txt">{{item.condition}}</view>
+                <view class="coupons_list_top_con_txt">每人最多领取{{item.receive_num}}张</view>
+            </view>
+        </view>
+        <view class="coupons_list_bottom">
+            <view class="coupons_list_bottom_sygz">有效日期：{{item.active_starttime}}至{{item.active_endtime}}
+            </view>
+            <view class="coupons_list_bottom_btn" bindtap='receive_btn' data-cid='{{item.id}}' wx:if="{{item.score=='0'}}">领取</view>
+            <view class="coupons_list_bottom_btn" bindtap='receive_btn' data-cid='{{item.id}}' wx:else>兑换</view>
+        </view>
+    </view>
+</view>
+<!-- <view class='layout'>
+<view class="coupon_div" wx:for="{{list}}" wx:key="{{index}}">
+  <view class='coupon_backimg'>
+    <image src='../../resource/images/coupon_bg.png' mode='widthfill'></image>
+  </view>
+  <view class='coupon_item'>
+    <view class='coupon_top'>
+      <view class='coupon_left'>
+        <view class='coupon_money'>
+          {{item.title}}</view>
+        <view class='coupon_condition'> {{item.condition}} </view>
+      </view>
+      <view class='coupon_right'>
+        <view class='coupon_receive' bindtap='receive_btn' data-cid='{{item.id}}' wx:if="{{item.score=='0'}}"> 领取 </view>
+        <view class='coupon_receive' bindtap='receive_btn' data-cid='{{item.id}}' wx:else> 兑换 </view>
+      </view>
+    </view>
+    <view class='coupon_bottom'>
+      <view class='coupon_bottom_left'> 有效日期：{{item.active_starttime}}至{{item.active_endtime}}</view>
+      <view class='coupon_bottom_right'> </view>
+    </view>
+  </view>
+</view>
+</view> -->
+</block>
+<block wx:if="{{isnull=='1'}}">
+<view class='nodata'>
+  <image src="../../resource/images/nodata.png"/>
+</view>
+</block>
+
+
+<!--这里是底部菜单  -->
+<view class="copyright {{blist.copyright.copyright=='' ? 'mt0' : ''}}">
+  <block wx:if="{{blist.copyright.copyright!=''}}">
+    <import src="../public/copy.wxml" />
+    <template is="copy" data="{{blist}}" /></block>
+</view>
+<import src="../public/foot.wxml" />
+<template is="foot" data="{{blist}}" />

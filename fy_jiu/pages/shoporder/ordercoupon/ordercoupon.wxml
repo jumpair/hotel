@@ -1,0 +1,32 @@
+<block wx:if="{{isnull=='0'}}">
+  <view class="coupons_list_all coupons_list_all2" style="padding-bottom:120rpx;">
+    <view class="coupons_list" wx:for="{{list}}" wx:key="{{index}}"  wx:for-index="id">
+        <view class="coupons_list_top">
+            <view class="coupons_list_top_price"><block wx:if="{{item.type=='0'}}">￥</block><text>{{item.showsale}}</text>
+              <text style="font-size:26rpx; margin-left:5rpx;"  wx:if="{{item.type=='1'}}">折</text>
+            </view>
+            <view class="coupons_list_top_con">
+                <view class="coupons_list_top_con_tit"> {{item.title}}</view>
+                <view class="coupons_list_top_con_txt">{{item.info}}</view>
+            </view>
+        </view>
+        <view class="coupons_list_bottom">
+            <view class="coupons_list_bottom_sygz">有效日期：{{item.active_starttime}}至{{item.active_endtime}}
+            </view>
+            <view class="coupons_list_bottom_btn" bindtap='receive_btn' data-id='{{id}}' data-isuse='{{item.isuse}}'> {{item.status}} </view>
+        </view>
+    </view>
+</view>
+
+
+
+
+<view class="price_div" bindtap='receive_btn' data-isuse='cancel'>
+    不使用优惠券
+</view>
+</block>
+<block wx:if="{{isnull=='1'}}">
+<view class='nodata'>
+  <image src="../../../resource/images/nodata.png"/>
+</view>
+</block>

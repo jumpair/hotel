@@ -1,0 +1,75 @@
+<view class="container">
+	<view class="map">
+		<map bindmarkertap="poitap" id="map" latitude="{{lat}}" longitude="{{long}}" markers="{{markers}}" scale="15" style="width: 100%; height: 760rpx;"></map>
+		<view class="catalog">
+			<view bindtap="getKeyword" class="item {{currentInd==index?'active':''}}" data-index="{{index}}" wx:for="{{aroundType}}" wx:key="index">
+				{{item.text}}
+			</view>
+		</view>
+		<view class="map_bottom">
+			<view class="map_title">{{title}}</view>
+			<view class="map_desc">{{address}}</view>
+		</view>
+		<view class="map_button" bindtap="gotoHouse">
+			<image src="../../resource/images/icon_driver.png"></image>
+		</view>
+		<view class="swiper-tab">
+			<view bindtap="clickTab" class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0">
+				<!-- <image class="tabImg" src="../../resource/images/icon_jiaotong.png"></image> -->
+				<view class="tabWz">交通</view>
+			</view>
+			<view bindtap="clickTab" class="swiper-tab-item {{currentTab==4?'active':''}}" data-current="4">
+				<!-- <image class="tabImg" src="../../resource/images/icon_canyin.png"></image> -->
+				<view class="tabWz">餐饮</view>
+			</view>
+			<view bindtap="clickTab" class="swiper-tab-item {{currentTab==3?'active':''}}" data-current="3">
+				<!-- <image class="tabImg" src="../../resource/images/icon_gouwu.png"></image> -->
+				<view class="tabWz">购物</view>
+			</view>
+			<view bindtap="clickTab" class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1">
+				<!-- <image class="tabImg" src="../../resource/images/icon_xuexiao.png"></image> -->
+				<view class="tabWz">教育</view>
+			</view>
+			<view bindtap="clickTab" class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2">
+				<!-- <image class="tabImg" src="../../resource/images/icon_yiliao.png"></image> -->
+				<view class="tabWz">医疗</view>
+			</view>
+
+
+		</view>
+		<scroll-view class="swiperItemList" scrollY="true">
+			<view class="swiperItem" wx:if="{{currentTab==0}}" wx:for="{{traffic_list}}" wx:key="{{index}}">
+				<view bindtap="gotoHere" data-lat="{{item.location.lat}}" data-long="{{item.location.lng}}">
+					<text class="dian"></text>{{item.title}}</view>
+				<image bindtap="gotoHere" bindtap="gotoHere" data-lat="{{item.location.lat}}" data-long="{{item.location.lng}}" src="{{index==indexs?'../../resource/images/'+indName+'@2x.png':'../../resource/images/icon_place@2x.png'}}"></image>
+				<text bindtap="gotoHere" bindtap="gotoHere" data-lat="{{item.location.lat}}" data-long="{{item.location.lng}}" class="juli">距离约{{item._distance}}</text>
+			</view>
+			<view class="swiperItem" wx:if="{{currentTab==4}}" wx:for="{{food_list}}" wx:key="{{index}}">
+				<view bindtap="gotoHere" data-lat="{{item.location.lat}}" data-long="{{item.location.lng}}">
+					<text class="dian"></text>{{item.title}}</view>
+				<image bindtap="gotoHere" data-lat="{{item.location.lat}}" data-long="{{item.location.lng}}" src="{{index==indexs?'../../resource/images/'+indName+'@2x.png':'../../resource/images/icon_place@2x.png'}}"></image>
+				<text bindtap="gotoHere" data-lat="{{item.location.lat}}" data-long="{{item.location.lng}}" class="juli">距离约{{item._distance}}</text>
+			</view>
+			<view class="swiperItem" wx:if="{{currentTab==3}}" wx:for="{{bus_list}}" wx:key="{{index}}">
+				<view bindtap="gotoHere" data-lat="{{item.location.lat}}" data-long="{{item.location.lng}}">
+					<text class="dian"></text>{{item.title}}</view>
+				<image bindtap="gotoHere" data-lat="{{item.location.lat}}" data-long="{{item.location.lng}}" src="{{index==indexs?'../../resource/images/'+indName+'@2x.png':'../../resource/images/icon_place@2x.png'}}"></image>
+				<text bindtap="gotoHere" data-lat="{{item.location.lat}}" data-long="{{item.location.lng}}" class="juli">距离约{{item._distance}}</text>
+			</view>
+			<view class="swiperItem" wx:if="{{currentTab==1}}" wx:for="{{learn_list}}" wx:key="{{index}}">
+				<view bindtap="gotoHere" data-lat="{{item.location.lat}}" data-long="{{item.location.lng}}">
+					<text class="dian"></text>{{item.title}}</view>
+				<image bindtap="gotoHere" data-lat="{{item.location.lat}}" data-long="{{item.location.lng}}" src="{{index==indexs?'../../resource/images/'+indName+'@2x.png':'../../resource/images/icon_place@2x.png'}}"></image>
+				<text bindtap="gotoHere" data-lat="{{item.location.lat}}" data-long="{{item.location.lng}}" class="juli">距离约{{item._distance}}</text>
+			</view>
+			<view class="swiperItem" wx:if="{{currentTab==2}}" wx:for="{{medical_list}}" wx:key="{{index}}">
+				<view bindtap="gotoHere" data-lat="{{item.location.lat}}" data-long="{{item.location.lng}}">
+					<text class="dian"></text>{{item.title}}</view>
+				<image bindtap="gotoHere" data-lat="{{item.location.lat}}" data-long="{{item.location.lng}}" src="{{index==indexs?'../../resource/images/'+indName+'@2x.png':'../../resource/images/icon_place@2x.png'}}"></image>
+				<text bindtap="gotoHere" data-lat="{{item.location.lat}}" data-long="{{item.location.lng}}" class="juli">距离约{{item._distance}}</text>
+			</view>
+
+
+		</scroll-view>
+	</view>
+</view>

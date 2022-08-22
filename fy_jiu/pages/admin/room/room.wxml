@@ -1,0 +1,22 @@
+<view class='new_item' wx:for="{{list}}" wx:key="index">
+  <view class='new-image' >
+    <image src='{{item.thumb}}'> </image>
+  </view>
+  <view class='new-info'>
+    <view class='new-title'>{{item.name}}</view>
+    <view class='new-breakfast'>
+      <view >今天共:{{item.nums1}}间</view>
+      <view >剩余:{{item.nums}}间</view>
+    </view>
+    <view class='new-price'>
+      <view class="bus-price1">
+        <text>¥</text>
+        <view>{{item.showmprice ? item.showmprice : item.mprice}}</view>
+      </view>
+      <view class='new-btn'>
+        <view  class="reserve" bindtap="manRoom" data-id="{{item.id}}">管理
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

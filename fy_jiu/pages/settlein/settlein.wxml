@@ -1,0 +1,99 @@
+<view class="process">
+  <view class="item {{status=='0' ? 'on' :''}}">
+    <view>
+      1
+    </view>
+    <text>填写信息</text>
+  </view>
+  <view class="item {{status=='1' ? 'on' :''}}">
+    <view>2</view>
+    <text>等待审核</text>
+  </view>
+  <view class="item {{status=='2' || status=='3' ? 'on' :''}}">
+    <view>3</view>
+    <text wx:if="{{status!='3'}}">确认入驻</text>
+    <text wx:if="{{status=='3'}}">已被拒绝</text>
+  </view>
+
+
+</view>
+<view class="form" wx:if="{{start_settlein=='1'}}">
+  <!-- <view class="title">
+    <view class="txt">
+      <view>入驻说明：</view>
+    </view>
+  </view> -->
+  <view class="item">
+    <view class="name">姓名</view>
+    <view class="val"><input type="text" value="{{username}}" bindchange="usernameInput" placeholder="请输入姓名"></input></view>
+  </view>
+  <view class="item">
+    <view class="name">手机号码</view>
+    <view class="val"><input type="text" value="{{phone}}" bindchange="phoneInput" placeholder="请输入手机号"></input></view>
+  </view>
+  <view class="item">
+    <view class="name">身份证号码</view>
+    <view class="val"><input type="text" value="{{card}}" bindchange="cardInput" placeholder="请输入身份证号"></input></view>
+  </view>
+  <view class="item">
+    <view class="name">微信号</view>
+    <view class="val"><input type="text" value="{{wechat}}" bindchange="wechatInput" placeholder="请输入微信号"></input></view>
+  </view>
+  <view class="item">
+    <view class="name">酒店名称</view>
+    <view class="val"><input type="text" value="{{hotelname}}" bindchange="hotelnameInput" placeholder="请输入酒店名称"></input></view>
+  </view>
+  <view class="item">
+    <view class="name">酒店地址</view>
+    <view class="val"><input type="text" value="{{hoteladdress}}" bindchange="hoteladdressInput" placeholder="请输入酒店地址"></input></view>
+  </view>
+  <view class="item">
+    <view class="name">酒店类型</view>
+    <view class="val"><input type="text" value="{{hotelkind}}" bindchange="hotelkindInput" placeholder="可以写经济型、轻奢型"></input></view>
+  </view>
+  <view class="item" style="height:180rpx;">
+    <view class="name">特种经营许可证</view>
+    <view class="val">
+      <view class="add_pic">
+        <view class="commentview">
+          <image src="{{thumb1}}" wx:if="{{thumb1!=''}}"></image>
+          <view bindtap="del" data-id="1" class="delView" wx:if="{{thumb1!=''}}">
+            <image src="../../resource/images/del.png"></image>
+          </view>
+          <image src="../../resource/images/add_pic.png" wx:else bindtap="uploadAction" data-id='1'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="item" style="height:180rpx;">
+    <view class="name">消防验收许可证</view>
+    <view class="val">
+      <view class="add_pic">
+        <view class="commentview">
+          <image src="{{thumb2}}" wx:if="{{thumb2!=''}}"></image>
+          <view bindtap="del" data-id="1" class="delView" wx:if="{{thumb2!=''}}">
+            <image src="../../resource/images/del.png"></image>
+          </view>
+          <image src="../../resource/images/add_pic.png" wx:else bindtap="uploadAction" data-id='2'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="item" style="height:180rpx;">
+    <view class="name">营业执照</view>
+    <view class="val">
+      <view class="add_pic">
+        <view class="commentview">
+          <image src="{{thumb3}}" wx:if="{{thumb3!=''}}"></image>
+          <view bindtap="del" data-id="1" class="delView" wx:if="{{thumb3!=''}}">
+            <image src="../../resource/images/del.png"></image>
+          </view>
+          <image src="../../resource/images/add_pic.png" wx:else bindtap="uploadAction" data-id='3'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="footer_btn" bindtap="submitAction" bindtap="submit">提交</view>
+
+</view>
+<view style="height: 100rpx;"></view>

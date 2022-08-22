@@ -1,0 +1,38 @@
+<block wx:if="{{isnull=='0'}}">
+<view class='item' wx:for="{{list}}" wx:key="{{index}}">
+  <view class='item-layout'>
+    <view class='item-left' wx:if="{{item.exchange=='0'}}">
+      <block wx:if="{{item.mode=='1'}}">
+        <view class='item-left-img1'><image src="../../../resource/images/coupon_shop.png"/></view>
+        <view class='item-left-text' >
+          <view class='title'>商城订单</view>
+          <view class='date'>{{item.addtime}}</view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class='item-left-img'><image src="{{item.thumb}}"/></view>
+        <view class='item-left-text' >
+          <view class='title'>{{item.title}}</view>
+          <view class='date'>{{item.addtime}}</view>
+        </view>
+      </block>
+    </view>
+
+    <view class='item-left' wx:else>
+      <view class='item-left-img'><image src="../../../resource/images/coupon_user.png"/></view>
+      <view class='item-left-text'>
+        <view class='title'>兑换优惠券</view>
+        <view class='date'>{{item.addtime}}</view>
+      </view>
+    </view>
+
+    <view class='item-right red' wx:if="{{item.exchange=='1'}}">-{{item.score}}</view>
+    <view class='item-right' wx:else>+{{item.score}}</view>
+  </view>
+</view>
+</block>
+<block wx:if="{{isnull=='1'}}">
+<view class='nodata'>
+  <image src="../../../resource/images/nodata.png"/>
+</view>
+</block>

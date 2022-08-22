@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "日期选择",
+  "usingComponents": {
+    "component-tag-name": "../../components/toast/toast"
+  }
+}

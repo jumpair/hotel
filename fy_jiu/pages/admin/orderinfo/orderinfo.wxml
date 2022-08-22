@@ -1,0 +1,110 @@
+<view class="box_">
+  <view class="title">入住信息</view>
+  <view class="item bt">
+    <view>房间类型</view>
+    <text>{{row.roomname}}-{{row.roomnum}}间</text>
+  </view>
+  <view class="item bt" wx:if="{{row.room_kind==0}}">
+    <view>预定时间</view>
+    <text>{{row.starttime}} 到 {{row.endtime}} 共{{row.diffday}}天</text>
+  </view>
+  <view class="item bt" wx:if="{{row.room_kind==1}}">
+    <view>预定时间</view>
+    <text>{{row.starttime}}号{{row.cometime}}入住，共{{row.room_time}}小时</text>
+  </view>
+  <view class="rzr_item" wx:for="{{perlist}}" wx:key="index">
+    <view class="rzr_title">
+      <view>入住人1</view>
+      <text>￥{{item.total}}</text>
+    </view>
+    <view class="item fl">
+      <view>入住人</view>
+      <text>{{item.username}}</text>
+    </view>
+    <view class="item fl">
+      <view>身份证号</view>
+      <text>{{item.card}}</text>
+    </view>
+    <view class="item fl" wx:if="{{index == 0}}">
+      <view>联系电话</view>
+      <text>{{row.phone}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="box_">
+  <view class="title">付款信息</view>
+  <view class="item bt">
+    <view>优惠券抵用</view>
+    <text>{{row.couponstr}}</text>
+  </view>
+  <view class="item bt">
+    <view>会员折扣</view>
+    <text>{{row.sale}}折</text>
+  </view>
+  <view class="item bt">
+    <view>实付金额</view>
+    <text>{{row.total}}元</text>
+  </view>
+  <view class="item bt">
+    <view>支付方式</view>
+    <text>{{row.pay_kind}}</text>
+  </view>
+  <view class="item bt">
+    <view>订单状态</view>
+    <text>{{row.status_str}}</text>
+  </view>
+  <view class='item bt' wx:if="{{row.status=='5' || row.status=='6'}}">
+    <view>申请退款时间</view>
+    <text>{{row.refund_time}}</text>
+  </view>
+
+  <view class="btn_box" wx:if="{{row.status=='0'}}">
+    <view class="btn" bindtap="updateStatus" data-status="1">确认支付</view>
+    <view class="btn" bindtap="updateStatus" data-status="6">取消订单</view>
+  </view>
+
+  <view class="btn_box" wx:if="{{row.status=='1'}}">
+    <view class="btn" bindtap="updateStatus" data-status="2">确认已入住</view>
+  </view>
+
+
+  <block wx:if="{{row.status=='2'}}">
+    <view class='btn_box' >
+      <!-- <button class="fb-btn" bindtap="reFund" data-status="3" >离店退还押金</button> -->
+      <button class="btn" bindtap="updateStatus" data-status="3">离店</button>
+    </view>
+  </block>
+
+  <block wx:if="{{row.status=='5'}}">
+      <view class='item bt'>
+        <view>在线退款</view>
+        <view class='input_box'><input type='text' class='input' value='{{row.total}}' bindinput="t1"> </input> <text>元</text></view>
+      </view>
+    <view class='btn_box' wx:if="{{row.status=='5'}}">
+      <button class="btn" bindtap="reFund" data-status="6">退款</button>
+    </view>
+  </block>
+
+
+</view>
+
+<view style="height: 100rpx;"></view>
+
+
+<!-- <view class="info_bg" style='margin-top:15rpx;'>
+
+  
+
+  <block wx:if="{{row.status=='5'}}">
+    <view class='btn2' >
+      <view class='item'>
+        <view class='left' >在线退款</view>
+        <view class='right'><input type='text' class='input' value='{{row.total}}' bindinput="t1"> </input> <text>元</text></view>
+      </view>
+    </view>
+    <view class='btn' wx:if="{{row.status=='5'}}">
+      <button class="fb-btn" bindtap="reFund" data-status="6" >退款</button>
+    </view>
+  </block>
+</view> -->

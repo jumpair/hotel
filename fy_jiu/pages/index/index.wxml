@@ -1,0 +1,161 @@
+<view class="index_top">
+	<view style="height: {{jnInfo.top+jnInfo.height+4}}px;"></view>
+	<view class="fixed_" style="height: {{jnInfo.top+jnInfo.height+4}}px;">
+		<view style="height: {{jnInfo.top}}px;"></view>
+		<view class="index_h1" style="line-height: {{jnInfo.height}}px;height: {{jnInfo.height}}px;">{{index_h1}}</view>
+	</view>
+</view>
+<view class="banner">
+	<swiper bindchange="swiper">
+		<swiper-item wx:for="{{banner}}" wx:key="index">
+			<image mode="aspectFill" src="{{item.images}}" bindtap='navApp' data-appid="{{item.appid}}"
+				data-pageaddress="{{item.pageaddress}}"></image>
+		</swiper-item>
+	</swiper>
+	<!-- <view class="dots">
+		<view class="{{current==index?'on':''}}" wx:for="{{banner}}" wx:key="index"></view>
+	</view> -->
+</view>
+<view class="box">
+	<view class="location">
+		<view class="city">
+			<view>{{city}}</view>
+			<text bindtap="navCity">[切换]</text>
+		</view>
+		<view class="search" bindtap="rePosition">
+			<image mode="widthFix" src="../../resource/images/position.svg"></image>
+			<view>重新定位</view>
+		</view>
+	</view>
+	<view class="date" bindtap="navCalc">
+		<view class="left__">
+			<view class="item">
+				<view>入住日期</view>
+				<text>{{inDate2}}</text>
+			</view>
+			<view class="h_"></view>
+			<view class="item">
+				<view>离店日期</view>
+				<text>{{outDate2}}</text>
+			</view>
+			<view class="img">
+				<image src="../../resource/images/rili.svg"></image>
+			</view>
+		</view>
+		<view class="count">共{{diffDay}}晚</view>
+	</view>
+	<view class="keyword">
+		<input type="text" placeholder="输入关键词/酒店名称" confirm-type="done" bindinput="searchInputChange"/>
+	</view>
+	<view class="btn" bindtap="navHotelList">
+		<image mode="widthFix" src="../../resource/images/search.svg"></image>
+		<text>查找商家</text>
+	</view>
+	<view class="tip">
+		<view class="img">
+			<image mode="widthFix" src="../../resource/images/news.svg"></image>
+		</view>
+		<view class="news_box">
+			<swiper
+				indicator-dots="{{false}}"
+				autoplay="{{true}}"
+				interval="5000"
+				duration="400"
+				vertical="{{true}}"
+			>
+				<swiper-item wx:for="{{bulletinlist}}" wx:key="index" data-id="{{item.id}}">
+					<text>{{item.content}}</text>
+				</swiper-item>
+			</swiper>
+		</view>
+	</view>
+</view>
+
+<view style="height: 40rpx;width: 100%;"></view>
+
+<view class="title10">
+	<view class="h_"></view>
+	<view class="title_tit">{{index_name}}</view>
+	<view class="h_"></view>
+</view>
+
+<view class="recommended" wx:if="{{list.length>0 && list_style=='0'}}" >
+	<view class="recommended_list" wx:for="{{list}}" wx:key="unique" bindtap="navHotelDetail" data-id="{{item.id}}">
+		<view class="recommended_list_top">
+			<image mode="aspectFill" src="{{item.thumb}}"></image>
+			<view class="recommended_list_top_read">
+				<view class="l_">
+					<image src="../../resource/images/eye.svg"></image>
+					<text>{{item.readnum}}</text>
+				</view>
+				<view class="r_">剩余配额：{{item.quota}}</view>
+			</view>
+		</view>
+		<view class="recommended_list_bottom">
+			<view class="recommended_list_name">{{item.title}}</view>
+			<!-- <view class="recommended_list_m">{{item.price}}</view> -->
+			<view class="recommended_list_tab">
+				<text wx:for="{{item.label}}" wx:for-item="item2" wx:key="uniaci">{{item2}}</text>
+			</view>
+		</view>
+	</view>
+</view>
+
+
+<view class="store_list" wx:if="{{list.length>0  && list_style=='1'}}" >
+	<view class="store_item" wx:for="{{list}}" wx:key="unique" bindtap="navHotelDetail" data-id="{{item.id}}">
+			<view class="store_img">
+				<image mode="aspectFill" src="{{item.thumb}}"></image>
+				<view class="recommended_list_top_read">
+					<view class="l_">
+						<image src="../../resource/images/eye.svg"></image>
+						<text>{{item.readnum}}</text>
+					</view>
+					<view class="r_">剩余配额：{{item.quota}}</view>
+				</view>
+			</view>
+			<view class="sore_bottom">
+				<view class="store_title">
+					{{item.title}}
+				</view>
+				<view class="browse_con_tab">
+					<view wx:for="{{item.label}}" wx:for-item="item2" wx:key="uniaci">{{item2}}</view>
+				</view>
+			</view>
+			<!-- 
+			<view class="store_layout">
+				<view class="store_price">
+					<text class="store_price_icon">¥</text>
+					<view class="store_price_num">{{item.lowest_price}}</view>
+					<text class="store_price_icon">{{item.fen}}</text>
+					<text class="store_price_other">起</text>
+				</view>
+				<view class="store_order">已预订{{item.sub_people}}人</view>
+			</view> -->
+	</view>
+</view>
+
+<view style="width:100%;height:10rpx;clear:both;"></view>
+<view class="title10" wx:if="{{hotCityList.length>0}}">
+	<view class="h_"></view>
+	<view class="title_tit">热门城市</view>
+	<view class="h_"></view>
+</view>
+<view class="hot_city">
+	<view class="list_">
+		<view wx:for="{{hotCityList}}" wx:key="index" class="hot_city_item" bindtap="clickCity" 
+		data-index="{{index}}">
+				<image src="{{item.thumb}}" />
+				<text>{{item.city}}</text>
+		</view>
+	</view>
+</view>
+<view class="copyright {{blist.copyright.copyright=='' ? 'mt0' : ''}}">
+	<block wx:if="{{blist.copyright.copyright!=''}}">
+		<import src="../public/copy.wxml" />
+		<template is="copy" data="{{blist}}" />
+	</block>
+</view>
+<view style="width:100%;height:50rpx;clear:both;"></view>
+<import src="../public/foot.wxml" />
+<template is="foot" data="{{blist}}" />

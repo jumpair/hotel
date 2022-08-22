@@ -1,0 +1,571 @@
+
+
+<view class='header'>
+	<view class="header_dw" bindtap="powerDrawer2" data-statu="open"
+		style="width:{{start_fenxiao=='1' ? '90rpx' : '90rpx'}}">
+		<image mode="widthFix" src="../../resource/images/share.png"></image>
+		{{start_fenxiao=='1' ? '分享' : '分享'}}
+	</view>
+</view>
+
+<view class="hotel_pic">
+	<image src="{{slide[0]}}"></image>
+	<view class="hotel_pic_num" bindtap="showImg">
+		<image src="../../resource/images/icon_img.png"></image>
+		<text>{{slideTotal}}</text>
+	</view>
+	<view class="index_top">
+		<view class="fixed_" style="height: {{jnInfo.top+jnInfo.height+4}}px;">
+		<view style="height: {{jnInfo.top}}px;"></view>
+		<view style="height: {{jnInfo.height}}px;position: relative;" bindtap="navBack">
+			<image style="width: 60rpx;" src="../../resource/images/back.svg"></image>
+		</view>
+		</view>
+	</view>
+</view>
+<view class="hotel_all">
+	<view class="hotel_info">
+		<view class="hotel_info_txt">
+			<view class="hotel_info_txt_tit">{{hotel.title}}</view>
+			<view class="hotel_info_txt_tab">
+				<view wx:for="{{hotel.label}}" wx:key="unique1">{{item}}</view>
+
+			</view>
+		</view>
+		<view class="hotel_intr" bindtap="call">
+			<image src="../../resource/images/tel.svg"></image>
+			<text>电话</text>
+		</view>
+	</view>
+	<view class="score">
+		<view>
+			<view class="up_">
+				<view class="score_num" bindtap="navComment">{{score}}分</view>
+				<view class="score_info_img">
+					<block wx:for="{{scoreList}}" wx:for-item="item2" wx:key="uniaci" wx:for-index="nid">
+						<image src="../../resource/images/xing01.svg" wx:if="{{nid+1<=starNum}}"></image>
+					</block>
+				</view>
+			</view>
+			<view class="score_info" bindtap="navComment">
+				<view class="score_info_txt">
+					<view>{{commentTotal}}条点评 ></view>
+					<text>“{{hotel.comment_say}}”</text>
+				</view>
+			</view>
+		</view>
+		<view class="score_lx">
+			<image wx:if="{{!follow}}" src='../../resource/images/xing02.svg' bindtap="follow" data-op='add'></image>
+			<image wx:if="{{follow}}" src='../../resource/images/xing01.svg' bindtap="follow" data-op='cancel'></image>
+			<view>收藏本店</view>
+		</view>
+	</view>
+
+	<view class="address" bindtap="goToAddress">
+		<image src="../../resource/images/baidumap.png"></image>
+		<view class="address_tit">
+			<image src="../../resource/images/address.svg"></image>{{hotel.address}}
+		</view>
+		<view class="address_txt">距您{{hotel.distance}}km</view>
+		<view class="daohang">
+			<image src="../../resource/images/daohang.svg"></image>
+			<text>导航</text>
+		</view>
+	</view>
+
+
+	<view class='dview' bindtap='navCalc'>
+		<view class="left__">
+			<view class='dview_item'>
+				<view>入住日期</view>
+				<view class="item_date">
+					<text>{{inDate2}}</text></view>
+			</view>
+			<view class="h_"></view>
+			<view class='dview_item'>
+				<view>离店日期</view>
+				<view class="item_date">
+					<text>{{outDate2}}</text></view>
+			</view>
+			<view class="img">
+				<image src="../../resource/images/rili_white.svg"></image>
+			</view>
+		</view>
+		<view class="count">共{{diffDay}}晚</view>
+	</view>
+
+
+
+
+	<view class="hotel_list_all">
+		<view class="store_list">
+			<view class="store_item" wx:for="{{list}}" wx:key="index"
+				wx:if="{{item.roomkind=='0' && hotel.list_style=='1'}}">
+				<view class="store_detail">
+					<!-- <view class="detail_img" bindtap="powerDrawer" data-statu="open" data-id="{{index}}">
+						<image src="../../resource/images/detail.png"></image>
+					</view> -->
+					<view class="store_img" bindtap="powerDrawer" data-statu="open" data-id="{{index}}">
+						<image src="{{item.thumb}}"></image>
+						<view class="text__">
+							<view class="store_title">
+								<view>{{item.name}}</view>
+								<text>剩余{{item.nums}}间</text>
+							</view>
+							<view class="more__">
+								<text>详情</text>
+								<image src="../../resource/images/drop_white.svg"></image>
+							</view>
+						</view>
+					</view>
+					
+					<!-- <view class="store_desc">
+						{{item.desc}}
+					</view> -->
+					<view class="store_layout">
+						<view class='new-breakfast'>
+							<view>{{item.breakfast_str}}早</view>
+							<view>{{item.area}}m²</view>
+							<!-- <view wx:if="{{show_roomnum=='1'}}">剩余:{{item.nums}}间</view> -->
+						</view>
+						<view class="store_price">
+							<text class="store_price_icon">¥ {{item.showmprice ? item.showmprice : item.mprice}}</text>
+							<view class="lineprice" wx:if="{{show_lineprice=='1'}}">
+								<view>门市价</view>
+								<text>{{item.price}}</text>
+							</view>
+						</view>
+						<view class="store_order">
+							<view wx:if="{{item.nums!='0'}}" class="reserve" bindtap="clickOrder" data-id="{{index}}" data-isquota="{{item.isquota}}">在线预订
+							</view>
+							<view wx:else class="reserve reserve1" data-id="{{index}}">今日已满房</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view class='new_item' wx:for="{{list}}" wx:key="index" wx:if="{{item.roomkind=='0' && hotel.list_style=='0'}}">
+			<view class='new-image' bindtap="powerDrawer" data-statu="open" data-id="{{index}}">
+				<image src='{{item.thumb}}'> </image>
+				<view class="biaoqian">详情</view>
+				<view class="shengyu">剩余{{item.nums}}间</view>
+			</view>
+			<view class='new-info'>
+				<view class='new-title'>{{item.name}}</view>
+				<view class='new-breakfast' style="margin-top: 10rpx;">
+					<view>{{item.breakfast_str}}早</view>
+					<view>{{item.area}}m²</view>
+					<!-- <view wx:if="{{show_roomnum=='1'}}">剩余:{{item.nums}}间</view> -->
+				</view>
+				<view class='new-price'>
+					<view class="bus-price1">
+						<view class="lineprice" wx:if="{{show_lineprice=='1'}}">¥{{item.price}}</view>
+						<text>¥{{item.showmprice ? item.showmprice : item.mprice}}</text>
+					</view>
+					<view class='new-btn'>
+						<view wx:if="{{item.nums!='0'}}" class="reserve" bindtap="clickOrder" data-id="{{index}}" data-isquota="{{item.isquota}}">在线预订
+						</view>
+						<view wx:else class="reserve reserve1" bindtap="clickOrder" data-id="{{index}}">今日已满房</view>
+					</view>
+				</view>
+			</view>
+
+		</view>
+
+
+<!-- 钟点房开始 -->
+		<view class='hour_title2' wx:if="{{hotel.start_hour=='1'}}">
+			<view>钟点房</view>
+		</view>
+		<view class="store_list">
+			<view class="store_item" wx:for="{{list}}" wx:key="index"
+				wx:if="{{item.roomkind=='1' && hotel.list_style=='1'}}">
+				<view class="store_detail">
+					<view class="store_img" bindtap="powerDrawer" data-statu="open" data-id="{{index}}">
+						<image src="{{item.thumb}}"></image>
+						<view class="text__">
+							<view class="store_title">
+								<view>{{item.name}}</view>
+								<text>剩余{{item.nums}}间</text>
+							</view>
+							<view class="more__">
+								<text>详情</text>
+								<image src="../../resource/images/drop_white.svg"></image>
+							</view>
+						</view>
+					</view>
+					<view class="store_layout">
+						<view class='new-breakfast'>
+							<view>预约时间 {{item.hour_start}}至{{item.hour_end}}</view>
+							<!-- <view>{{item.area}}m²</view> -->
+							<!-- <view wx:if="{{show_roomnum=='1'}}">剩余:{{item.nums}}间</view> -->
+						</view>
+						<view class="store_price">
+							<text class="store_price_icon">¥ {{item.showmprice ? item.showmprice : item.mprice}}</text>
+							<view class="lineprice" wx:if="{{show_lineprice=='1'}}">
+								<view>门市价</view>
+								<text>{{item.price}}</text>
+							</view>
+						</view>
+						<view class="store_order">
+							<view wx:if="{{item.nums!='0'}}" class="reserve" bindtap="clickOrder" data-id="{{index}}" data-isquota="{{item.isquota}}">在线预订
+							</view>
+							<view wx:else class="reserve reserve1"  data-id="{{index}}">今日已满房</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class='new_item' wx:for="{{list}}" wx:key="index"
+			wx:if="{{item.roomkind=='1' && hotel.list_style=='0' }}">
+			<view class='new-image' bindtap="powerDrawer" data-statu="open" data-id="{{index}}">
+				<image src='{{item.thumb}}'> </image>
+				<view class="biaoqian">详情</view>
+				<view class="shengyu">剩余{{item.nums}}间</view>
+			</view>
+			<view class='new-info'>
+				<view class='new-title'>{{item.name}}</view>
+				<view class='new-breakfast' style="margin-top: 10rpx;">
+					<view>预约时间 {{item.hour_start}}至{{item.hour_end}}</view>
+					<!-- <view wx:if="{{show_roomnum=='1'}}">剩余:{{item.nums}}间</view> -->
+				</view>
+				<view class='new-price'>
+					<view class="bus-price1">
+						<view class="lineprice" wx:if="{{show_lineprice=='1'}}">¥{{item.price}}</view>
+						<text>¥{{item.showmprice ? item.showmprice : item.mprice}}</text>
+					</view>
+					<view class='new-btn'>
+						<view wx:if="{{item.nums!='0'}}" class="reserve" bindtap="clickOrder" data-id="{{index}}" data-isquota="{{item.isquota}}">在线预订
+						</view>
+						<view wx:else class="reserve reserve1"  data-id="{{index}}">今日已满房</view>
+					</view>
+				</view>
+			</view>
+		</view>
+<!-- 钟点房结束 -->
+
+<!-- 长租房开始 -->
+		<view class='hour_title2' wx:if="{{hotel.start_longterm=='1'}}">
+			<view>长租房</view>
+		</view>
+		<view class="store_list">
+			<view class="store_item" wx:for="{{list}}" wx:key="index"
+				wx:if="{{item.roomkind=='2' && hotel.list_style=='1'}}">
+				<view class="store_detail">
+					<view class="store_img" bindtap="powerDrawer" data-statu="open" data-id="{{index}}">
+						<image src="{{item.thumb}}"></image>
+						<view class="text__">
+							<view class="store_title">
+								<view>{{item.name}}</view>
+								<text>剩余{{item.nums}}间</text>
+							</view>
+							<view class="more__">
+								<text>详情</text>
+								<image src="../../resource/images/drop_white.svg"></image>
+							</view>
+						</view>
+					</view>
+					<view class="store_layout">
+						<view class='new-breakfast'>
+							<view>最少预订{{item.termdays}}天</view>
+							<view>{{item.area}}m²</view>
+							<!-- <view wx:if="{{show_roomnum=='1'}}">剩余:{{item.nums}}间</view> -->
+						</view>
+						<view class="store_price">
+							<text class="store_price_icon">¥ {{item.showmprice ? item.showmprice : item.mprice}}</text>
+							<view class="lineprice" wx:if="{{show_lineprice=='1'}}">
+								<view>门市价</view>
+								<text>{{item.price}}</text>
+							</view>
+						</view>
+						<view class="store_order">
+							<view wx:if="{{item.nums!='0'}}" class="reserve" bindtap="clickOrder" data-id="{{index}}" data-isquota="{{item.isquota}}">在线预订
+							</view>
+							<view wx:else class="reserve reserve1"  data-id="{{index}}">今日已满房</view>
+						</view>
+					</view>		
+
+				</view>
+			</view>
+		</view>
+		<view class='new_item' wx:for="{{list}}" wx:key="index"
+			wx:if="{{item.roomkind=='2' && hotel.list_style=='0' }}">
+			<view class='new-image' bindtap="powerDrawer" data-statu="open" data-id="{{index}}">
+				<image src='{{item.thumb}}'> </image>
+				<view class="biaoqian">详情</view>
+				<view class="shengyu">剩余{{item.nums}}间</view>
+			</view>
+			<view class='new-info'>
+				<view class='new-title'>{{item.name}}</view>
+				<view class='new-breakfast' style="margin-top: 10rpx;">
+					<view>最少预订{{item.termdays}}天</view>
+					<view>{{item.area}}m²</view>
+					<!-- <view wx:if="{{show_roomnum=='1'}}">剩余:{{item.nums}}间</view> -->
+				</view>
+				<view class='new-price'>
+					<view class="bus-price1">
+						<view class="lineprice" wx:if="{{show_lineprice=='1'}}">¥{{item.price}}</view>
+						<text>¥{{item.showmprice ? item.showmprice : item.mprice}}</text>
+					</view>
+					<view class='new-btn'>
+						<view wx:if="{{item.nums!='0'}}" class="reserve" bindtap="clickOrder" data-id="{{index}}" data-isquota="{{item.isquota}}">在线预订
+						</view>
+						<view wx:else class="reserve reserve1" data-id="{{index}}">今日已满房</view>
+					</view>
+				</view>
+			</view>
+		</view>
+<!-- 长租房结束 -->
+
+
+
+
+	</view>
+	<!-- <view class="hot">
+		<image class="hot_img" src="../../resource/images/41.png"></image>
+		酒店热卖!查看其他1个已订满的房型
+		<image class="hot_down" src="../../resource/images/29.png"></image>
+	</view> -->
+</view>
+<view class="policy">
+	<view class="policy_tit">
+		<view class="policy_tit_name">入驻政策</view>
+		<view class="policy_tit_look" bindtap="navHotelDetail">
+			<text>查看全部</text>
+			<image src="../../resource/images/more_right.svg"></image>
+		</view>
+	</view>
+	<view class="policy_con">
+		<view class="policy_con_tit">入离时间</view>
+		<view class="policy_con_list">
+			<view>
+				<image src="../../resource/images/enter_img.svg"></image>
+				{{hotel.enter_time}}以后可入住
+			</view>
+			<view>
+				<image src="../../resource/images/leave_img.svg"></image>
+				{{hotel.leave_time}}之前需退房
+			</view>
+		</view>
+		<view class="policy_con_tit">入住政策</view>
+		<view class="policy_con_txt">{{hotel.enter_desc}}</view>
+	</view>
+</view>
+<!-- <view class="comments">
+	<view class="comments_tit">
+		<view class="comments_tit_name">商家点评</view>
+		<view class="comments_tit_dp" bindtap="navComment">
+			{{commentTotal}}条点评
+			<image src="../../resource/images/42.png"></image>
+		</view>
+	</view>
+	<view class="comments_list_all">
+		<view class="comments_list" wx:for="{{commentList}}" wx:key="unique" wx:for-index="kid">
+			<view class="comments_list_num">
+				{{item.score}}.0
+				<block wx:for="{{scoreList}}" wx:for-item="item2" wx:key="uniaci" wx:for-index="nid">
+					<image src="../../resource/images/xing.png" wx:if="{{nid+1<=item.score}}" mode="widthFix"></image>
+				</block>
+
+			</view>
+			<view class="comments_list_name">
+				<image src="{{item.avatar}}"></image>
+				{{item.nickname}}
+			</view>
+			<view class="comments_list_txt">{{item.content}}</view>
+			<view class="comments_list_pic">
+				<image src="{{item.thumb1}}" wx:if="{{item.thumb1!=''}}" data-src="{{item.thumb1}}" bindtap="showCommentImg"
+					data-id="{{kid}}"></image>
+				<image src="{{item.thumb2}}" wx:if="{{item.thumb2!=''}}" data-src="{{item.thumb2}}" bindtap="showCommentImg"
+					data-id="{{kid}}"></image>
+			</view>
+		</view>
+	</view>
+</view> -->
+<view class="vip_tele" bindtap="call">会员专属热线: {{hotel.phone}}</view>
+<view class="footer" style="height:{{blist.bottomHeight}};">
+	<view class="footer_list" bindtap="navIndex">
+		<image src="../../resource/images/back_home.svg"></image>
+		<view>回到首页</view>
+	</view>
+	<view class="footer_list" bindtap="navShop" data-sid="{{sid}}" wx:if="{{hotel.start_shop=='1' && start_shop=='1'}}">
+		<image src="../../resource/images/sc.svg"></image>
+		<view>商城</view>
+	</view>
+	<view class="footer_list" bindtap="navOrderingFood" wx:if="{{hotel.start_food=='1' && start_food=='1'}}">
+		<image src="../../resource/images/dc.svg"></image>
+		<view>点餐</view>
+	</view>
+	<view class="footer_list" bindtap="navCoupon" wx:if="{{hotel.start_discount=='1' && start_discount=='1'}}">
+		<image src="../../resource/images/yhq.svg"></image>
+		<view>优惠券</view>
+	</view>
+	<view class="footer_list" bindtap="navHotelDetail">
+		<image src="../../resource/images/sjjs.svg"></image>
+		<view>商家介绍</view>
+	</view>
+	<!-- <view class="footer_list" bindtap="shareAction">
+		<image src="../../resource/images/36.png"></image>
+		<view>分享商家</view>
+		<button open-type="share">11</button>
+	</view>
+	<view class="footer_list" bindtap="creatBillAction">
+		<image src="../../resource/images/37.png"></image>
+		<view>生成海报</view>
+	</view> -->
+
+</view>
+
+
+<!-- 海报开始 -->
+<view class="shade {{isShow2 ? 'show' : 'hide'}}"></view>
+<view class="room2 {{isShow2 ? 'show' : 'hide'}}">
+	<view class='room_div2'>
+		<view class='room_content_div2'>
+			<image src='{{code}}' class='orderCode' mode="widthFix"></image>
+			<button class='savebutton' bindtap='saveImgAction'>保存至相册</button>
+		</view>
+		<view class="close2" bindtap="closeRoom2">
+			<image mode="aspectFill" src="../../resource/images/close.svg" />
+		</view>
+	</view>
+</view>
+<!-- 海报结束 -->
+
+<!--mask-->
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+	<!--drawer content-->
+	<view class="drawer_content">
+		<view class="mask">
+			<view class="mask_con">
+				<view class="mask_title">
+					<view>{{currentRoom.name}}</view>
+					<view class="closeview" bindtap="powerDrawer" data-statu="close">	<image src="../../resource/images/close.svg" ></image></view>
+				</view>
+	
+				<view class="swiper_con" wx:if="{{currentRoom.video_src!=''}}">
+					<!-- 视频和幻灯片切换样式开始 -->
+					<view class="details_swiper" > 
+						<view class="video_show {{currentTab == 0 ? 'show':'hidden'}}">
+							<video controls="true" autoplay="false" src="{{currentRoom.video_src}}" wx:if="{{currentRoom.show_video=='1'}}"></video>
+							<!-- <txv-video  width="100%" height="100%"  vid="{{currentRoom.video_src}}" playerid=""  wx:if="{{currentRoom.show_video=='1'}}"></txv-video> -->
+							<image hidden="{{flag}}" class="cover_img" src="{{currentRoom.video_thumb}}"></image>
+							<image hidden="{{flag}}" bindtap="hide" class="play_img" src="../../resource/images/play.png"></image>
+						</view>
+						<view class="index_swiper {{currentTab == 1 ? 'show':'hidden'}}">
+							<swiper circular='true' indicator-dots="true" autoplay="true" interval="5000" duration="500"
+								indicator-color="rgba(0,0,0,0)" indicator-active-color="rgba(0,0,0,0)" bindchange="swiper1">
+								<block wx:for="{{currentRoom.roomimg}}">
+									<swiper-item>
+										<image src="{{item}}" class="slide-image" />
+									</swiper-item>
+								</block>
+							</swiper>
+							<view class="swiper_pages1"><text>{{current1}}</text>/{{currentRoom.roomimg.length}}</view>
+						</view>
+						<view class="swiper_tab">
+							<view class="{{currentTab==0?'on':''}}" data-current="0" bindtap="clickTab">
+								<image src="../../resource/images/sj.png"></image>视频
+							</view>
+							<view class="{{currentTab==1?'on':''}}" data-current="1" bindtap="clickTab">图片</view>
+						</view>
+						<view class="vr" wx:if="{{currentRoom.vr_src!=''}}" bindtap="navVr">VR</view>
+					</view>
+					<!-- 视频和幻灯片切换样式结束 -->	
+				</view>	
+				
+				<view class="swiper_con" wx:if="{{currentRoom.video_src==''}}">
+					<swiper class="mask_swiper" bindchange="swiper" autoplay="{{true}}" wx:if="{{currentRoom.video_src==''}}">
+							<swiper-item wx:for="{{currentRoom.roomimg}}">
+								<image src="{{item}}" class="slide-image" />
+								<view class="swiper_label">
+									<text wx:for="{{currentRoom.label}}">{{item}}</text>
+
+								</view>
+							</swiper-item>
+						</swiper>
+						<view class="swiper_pages">
+							<text>{{current}}</text>
+							/ {{currentRoom.roomimg.length}}
+						</view>
+						<view class="vr" wx:if="{{currentRoom.vr_src!=''}}" bindtap="navVr">VR</view>
+				</view>	
+				<view class="mast_tit">房型信息</view>
+				<view class="mask_info">
+					<view class="mask_info_list">
+						<image src="../../resource/images/mianji.svg"></image>
+						<view>面积{{currentRoom.area}}m²</view>
+					</view>
+					<view class="mask_info_list">
+						<image src="../../resource/images/kezhu.svg"></image>
+						<view>可住{{currentRoom.persons}}人</view>
+					</view>
+					<view class="mask_info_list">
+						<image src="../../resource/images/dachuang.svg"></image>
+						<view>{{currentRoom.bed}}</view>
+					</view>
+				</view>
+				<view class="mask_txt">
+					<view>{{currentRoom.bedadd}}</view>
+					<view>{{currentRoom.wifi}}</view>
+					<view>{{currentRoom.floor}}楼</view>
+					<view>{{currentRoom.smoke}}</view>
+
+				</view>
+				<view class="mast_tit">设施服务</view>
+				<view class="mask_fw">
+					<view class="mask_fw_list" wx:for="{{currentRoom.hards}}">
+						<image src="{{item.thumb}}"></image>
+						<view>{{item.title}}</view>
+					</view>
+				</view>
+			</view>
+			<!-- <view class="mask_btn">
+				<view>立即预定</view>
+			</view> -->
+		</view>
+	</view>
+</view>
+
+
+
+
+<!-- 海报和分享好友的弹窗开始 -->
+<view class="drawer_screen" bindtap="powerDrawer2" data-statu="close" wx:if="{{showModalStatus2}}"></view>
+<view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus2}}">
+	<!--drawer content-->
+	<view class="drawer_content drawer_content2">
+		<!-- <view class="close_bill" bindtap="powerDrawer2" data-statu="close">
+			<image src="../../resource/images/icon_close.png"></image>
+		</view> -->
+
+		<!-- <view class="bill_title" wx:if="{{start_fenxiao=='0'}}">限时低价，分享给你的好友吧</view>
+		<view class="bill_title" wx:if="{{start_fenxiao=='1'}}">{{fenxiao_desc}}</view> -->
+		<view class="bill_view">
+			<view class="bill_img">
+				<button class="billBtn" open-type="share">1</button>
+				<view>
+					<image src="../../resource/images/webchat.jpg"></image>
+				</view>
+				<view> 分享给好友</view>
+			</view>
+			<view class="bill_img" bindtap="creatBillAction">
+				<view>
+					<image src="../../resource/images/bill.jpg"></image>
+				</view>
+				<view>生成海报</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+
+
+
+<button bindtap="updateUserInfo" class='loginBox' wx:if="{{getUserNickname}}">
+	登录获取更多专属特权
+</button>

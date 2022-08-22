@@ -1,0 +1,225 @@
+<view class="member-box">
+	<image src="../../resource/images/user_bg.jpg"></image>
+	<view class="nav2">
+		<view class="fixed_" style="height: {{jnInfo.top+jnInfo.height+4}}px;">
+			<view style="height: {{jnInfo.top}}px;"></view>
+			<view class="index_h1" style="line-height: {{jnInfo.height}}px;height: {{jnInfo.height}}px;">会员中心
+				<view class="img"  bindtap="navBack">
+					<image src="../../resource/images/back_white.svg"></image>
+				</view>
+			</view>
+		</view>
+		<view class="user">
+			<view class="userinfo">
+				<view class="userinfo-avatar">
+					<open-data type="userAvatarUrl" wx:if="{{getUserNickname}}"></open-data>
+					<image bindtap="bindViewTap"  src="{{userinfo.avatarUrl}}" background-size="cover" wx:if="{{!getUserNickname}}"></image>
+				</view>
+			</view>
+			<view class="info">
+				<view class="l_">
+					<view class="name">
+						<view wx:if="{{getUserNickname}}">
+							<open-data type="userNickName"></open-data>
+						</view>
+						<view wx:if="{{!getUserNickname}}">
+							{{userinfo.nickName}}
+						</view>
+					</view>
+					<view class="lab">
+						<image mode="widthFix" src="../../resource/images/level.svg"></image>
+						<view>{{levelName}}</view>
+					</view>
+				</view>
+				<view class="r_">
+					<block class="">
+						<view bindtap="navUserinfo" class="name name1">
+							<text>修改名称</text>
+							<image src="../../resource/images/more_white.svg"></image>
+						</view>
+					</block>
+					
+					<block>
+						<block wx:if="{{true||isadmin=='1'}}">
+							<view bindtap="navAdmin" class="name admin name1">
+								<text>管理入口</text>
+								<image src="../../resource/images/more_white.svg"></image>
+							</view>
+						</block>
+					</block>
+				</view>
+			</view>
+		</view>
+		<!-- <view class="minute">
+			<view bindtap="mycoupon" class="item">
+				<view class="val">
+					<view>{{coupon_total}}</view>
+				
+				</view>
+				<view class="name">优惠券</view>
+			</view>
+			<view class="item">
+				<view class="val">
+					<view>{{balance}}</view>
+		
+				</view>
+				<view class="name">余额</view>
+			</view>
+			<view bindtap="myscore" class="item">
+				<view class="val">
+					<view>{{score}}</view>
+			
+				</view>
+				<view class="name">积分</view>
+			</view>
+		</view> -->
+	</view>
+</view>
+<view style="position: relative;top: -60rpx;">
+	<view class="member-box1">
+		<image src="../../resource/images/huiyuan_bg.png"></image>
+		<view class="discount">
+			<view class="info">
+				<view wx:if="{{userlevel == 1}}">{{levelName}}</view>
+				<view wx:if="{{userlevel == 2}}">{{levelName}}</view>
+				<view wx:if="{{userlevel == 4}}">{{levelName}}</view>
+				<text wx:if="{{userlevel == 1}}">不能平台下单</text>
+				<text wx:if="{{userlevel == 2}}">享受下单优惠</text>
+				<text wx:if="{{userlevel == 4}}">享受下单优惠</text>
+			</view>
+			<view bindtap="checkmember" class="btn"  wx:if="{{userlevel == 2}}">查看</view>
+			<view bindtap="upgrade" class="btn" wx:if="{{userlevel == 1}}">会员升级</view>
+
+      <!-- <view bindtap="levelfc" class="btn">升级分成</view> -->
+		</view>
+	</view>
+	<view class="member-box2">
+		<view class="nav">
+			<view class="title">
+				<view>我的订单</view>
+			</view>
+			<view class="btn">
+				<view bindtap='man' data-sid='0'>
+					<image src="{{iconArr.pendingpay}}" mode="widthFix"></image>
+					<text>待付款</text>
+				</view>
+				<view bindtap='man' data-sid='2'>
+					<image src="{{iconArr.checked}}" mode="widthFix"></image>
+					<text>已入住</text>
+				</view>
+				<view bindtap='man' data-sid='5'>
+					<image src="{{iconArr.pendingrefund}}" mode="widthFix"></image>
+					<text>待退款</text>
+				</view>
+				<view bindtap='man' data-sid='3'>
+					<image src="{{iconArr.completed}}" mode="widthFix"></image>
+					<text>已完成</text>
+				</view>
+				<!-- <view bindtap='man'>
+					<image src="{{iconArr.order}}" mode="widthFix"></image>
+					<text>酒店订单</text>
+				</view>
+				<view bindtap='navShopOrder'  wx:if="{{iconArr.shop!=''}}">
+					<image src="{{iconArr.shop}}" mode="widthFix"></image>
+					<text>商城订单</text>
+				</view>
+				<view bindtap='navRecharge' wx:if="{{start_recharge=='1'}}">
+					<image src="{{iconArr.recharge}}" mode="widthFix"></image>
+					<text>在线充值</text>
+				</view>
+				<view bindtap='myscore'>
+					<image src="{{iconArr.score}}" mode="widthFix"></image>
+					<text>我的积分</text>
+				</view> -->
+			</view>
+		</view>
+	</view>
+	<view class="member-box3">
+		<view class="nav">
+			<view class="title">
+				<view>其他服务</view>
+			</view>
+			<view class="btn">
+				<!-- <view bindtap='coupon'>
+					<image src="{{iconArr.coupon}}" mode="widthFix"></image>
+					<text>领取优惠券</text>
+				</view> -->
+				<view bindtap='mycoupon' wx:if="{{start_discount == 1}}">
+					<image src="{{iconArr.mycoupon}}" mode="widthFix"></image>
+					<text>我的优惠券</text>
+				</view>
+				<view bindtap="calling">
+					<image src="{{iconArr.phone}}" mode="widthFix"></image>
+					<text>客服电话</text>
+				</view>
+				<view class="customer">
+					<image src="{{iconArr.customer}}" mode="widthFix"></image>
+					<text>在线客服</text>
+					<button open-type="contact" class='contact'>1 </button>
+				</view>
+				<view bindtap="lowerTap" wx:if="{{start_fenxiao=='1'}}">
+					<image src="{{iconArr.downlevel}}" mode="widthFix"></image>
+					<text>我的推荐</text>
+				</view>
+				<view bindtap="creatCode" wx:if="{{hide_retail=='0' && start_fenxiao == '1'}}">
+					<image src="{{iconArr.poster}}" mode="widthFix"></image>
+					<text>推荐海报</text>
+				</view>
+				<view bindtap="rebateOnTap" wx:if="{{hide_retail=='0' && start_fenxiao == '1'}}">
+					<image src="{{iconArr.caseback}}" mode="widthFix"></image>
+					<text>推荐奖励</text>
+				</view>
+				<view bindtap='navSettlein'  wx:if="{{iconArr.settlein!='' && start_settlein == '1'}}">
+					<image src="{{iconArr.settlein}}" mode="widthFix"></image>
+					<text>酒店入驻</text>
+				</view>
+				<view bindtap="aboutUs">
+					<image src="{{iconArr.introduction}}" mode="widthFix"></image>
+					<text>平台介绍</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+
+
+
+<!--这里是底部菜单  -->
+<view class="copyright {{blist.copyright.copyright=='' ? 'mt0' : ''}}">
+	<block wx:if="{{blist.copyright.copyright!=''}}">
+		<import src="../public/copy.wxml" />
+		<template is="copy" data="{{blist}}" />
+	</block>
+</view>
+<import src="../public/foot.wxml" />
+<template is="foot" data="{{blist}}" />
+<!--这里是底部菜单  -->
+
+
+
+<!-- 允许获取昵称和头像 ******* -->
+<button bindtap="updateUserInfo" class='loginBox' wx:if="{{getUserNickname}}">
+	登录获取更多专属特权
+</button>
+<!-- 允许获取昵称和头像 ******* -->
+
+
+<!-- 推广码 ***************************** -->
+<view class="shade {{isShow ? 'show' : 'hide'}}"></view>
+<view class="room {{isShow ? 'show' : 'hide'}}">
+	<view class='room_div'>
+		<view class='room_content_div'>
+			<image mode="heightFix" src='{{orderCode}}' class='orderCode'></image>
+			<!-- <text>通过该二维码进入小程序的客户将永远成为你的下级。他的每笔订单你将获得{{rebate}}%的返利</text> -->
+		</view>
+		<view class="close" bindtap="closeRoom">
+			<image mode="aspectFill" src="../../resource/images/close.svg" />
+		</view>
+		<button class='savebutton' bindtap='saveImgAction' style='background:{{blist.style.tcolor}}'>保存至相册</button>
+	</view>
+</view>
+<!-- 推广码 ***************************** -->
+
+
+<view style="height: 100rpx;"></view>

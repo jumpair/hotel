@@ -1,0 +1,100 @@
+<view class="top">
+  <view class="top_bg">
+    <image src="../../../resource/images/user_bg.jpg"></image>
+    <view class="fixed_" style="height: {{jnInfo.top+jnInfo.height+4}}px;">
+      <view style="height: {{jnInfo.top}}px;"></view>
+      <view class="index_h1" style="line-height: {{jnInfo.height}}px;height: {{jnInfo.height}}px;">会员中心
+        <view class="img" bindtap="navBack">
+          <image src="../../../resource/images/back_white.svg"></image>
+        </view>
+      </view>
+    </view>
+    <view class="user">
+      <view class="userinfo">
+        <view class="userinfo-avatar">
+          
+          <image bindtap="bindViewTap" src="{{userinfo.avatar}}"style="width:100%;height:100%;"></image>
+        </view>
+      </view>
+      <view class="info">
+        <view class="l_">
+          <view class="name">
+           
+              {{userinfo.nickname}}
+
+          </view>
+          <view class="lab">
+            <image mode="widthFix" src="../../../resource/images/level.svg"></image>
+            <view>{{levelName1}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- <block wx:if="{{blist.tcolor!=''}}">
+    <view class="top_bc" style="background: {{blist.tcolor}}; opacity: 0.7;"> </view>
+  </block> -->
+</view>
+<view class='user_div'>
+  <view class="user_item">
+    <view class='title'>修改信息</view>
+    <view class='input_div'>
+      <view class='left_ico'>
+        <image src='../../../resource/images/001.svg'></image>
+      </view>
+      <view class='right_input'><input type='text' name="username" placeholder="{{username=='' ? '请输入您的姓名' : username}}" bindinput='usernameAction' disabled="{{changeuser}}"/>
+      </view>
+    </view>
+    <view class='input_div'>
+      <view class='left_ico'>
+        <image src='../../../resource/images/002.svg'></image>
+      </view>
+      <view class='right_input'><input type='text' name="cardnum" placeholder="{{cardnum=='' ? '请输入您的身份证号' : cardnum}}" bindinput='cardChange' disabled="{{changeuser}}"/>
+      </view>
+    </view>
+    <view class='input_div'>
+      <view class='left_ico'>
+        <image src='../../../resource/images/003.svg'></image>
+      </view>
+      <view class='right_input'><input type='text' name="phone" placeholder="{{phone=='' ? '请输入您的手机号' : phone}}" bindinput='phoneAction' disabled="{{changeuser}}"/></view>
+    </view>
+  </view>
+  <view style="color: #666666;font-size: 24rpx;line-height: 60rpx;padding-top: 20rpx;">
+    <checkbox-group bindchange="checkboxChange">
+    <checkbox checked="{{confirm}}"/>我已阅读<text bindtap="tanchutishi" style="color: blue;">隐私声明</text>
+    </checkbox-group>
+  </view>
+  <view class='submit_btn'>
+    <view><button class="{{changeuser == 'disabled'?'no':''}}" bindtap='submitAction' disabled="{{changeuser}}">提交</button></view>
+  </view>
+</view>
+
+
+
+<!-- <view class="title1">
+  <view>会员等级</view>
+
+</view>
+<view class='level_div'>
+  <view class='level_item' wx:for="{{levelList}}">
+
+    <view class="left_div {{levelName==item.name ? 'blue' : ''}}">
+      <view class='level_left_name'>{{item.name}}</view>
+      <view class='level_middle_condition'>消费需满{{item.condition}}元</view>
+    </view>
+
+    <view class="level_right_sale {{levelName==item.name ? 'blue' : ''}}">{{item.sale}}折</view>
+  </view>
+
+</view> -->
+<view wx:if="{{privacy}}" style="position: fixed;left: 0;top: 0;right: 0;bottom: 0;z-index: 999;background-color: rgba(0,0,0,.4);">
+  <view style="width: 96%;height: 60%;background-color: #ffffff;border-radius: 12rpx;position: absolute;left: 2%;top: 20%;overflow: hidden;padding-top: 100rpx;">
+    <view style="padding: 0 20rpx; display: flex;align-items: center;justify-content: space-between;height: 100rpx;position: absolute;left: 0;right: 0;top: 0;">
+      <text>隐私声明</text>
+      <image bindtap="closeyc" src="../../../resource/images/close.svg" style="width: 20px;height: 20px;"></image>
+    </view>
+    <view style="padding: 20rpx;overflow-y: auto;height: 100%;box-sizing: border-box;">
+      <rich-text  nodes="{{privacycon}}"></rich-text>
+    </view>
+  </view>
+</view>

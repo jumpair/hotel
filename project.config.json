@@ -1,0 +1,254 @@
+{
+  "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": true,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "disableUseStrict": false,
+    "minifyWXML": true,
+    "showES6CompileOption": false,
+    "useCompilerPlugins": false,
+    "useStaticServer": true,
+    "ignoreUploadUnusedFiles": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.16.0",
+  "appid": "wx98509a457803ca85",
+  "projectname": "%E5%A4%9A%E5%B9%B3%E5%8F%B0%E9%85%92%E5%BA%97",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "city",
+          "pathName": "fy_jiu/pages/city/city",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "list",
+          "pathName": "fy_jiu/pages/list/list",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 2,
+          "name": "hotel",
+          "pathName": "fy_jiu/pages/hotel/hotel",
+          "query": "id=5",
+          "scene": null
+        },
+        {
+          "id": 3,
+          "name": "hotel_detail",
+          "pathName": "fy_jiu/pages/hotel/hotel_detail/hotel_detail",
+          "query": "id=5",
+          "scene": null
+        },
+        {
+          "id": 4,
+          "name": "fy_jiu/pages/order/order",
+          "pathName": "fy_jiu/pages/order/order",
+          "query": "start=2020-07-31&end=2020-08-1&diffDay=1&rid=12&sid=5",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "user",
+          "pathName": "fy_jiu/pages/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "man",
+          "pathName": "fy_jiu/pages/man/man",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "recharge",
+          "pathName": "fy_jiu/pages/user/recharge/recharge",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "userinfo",
+          "pathName": "fy_jiu/pages/user/userinfo/userinfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 9,
+          "name": "upcomment",
+          "pathName": "fy_jiu/pages/man/upcomment/upcomment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "comment",
+          "pathName": "fy_jiu/pages/comment/comment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "follow",
+          "pathName": "fy_jiu/pages/follow/follow",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "calendar",
+          "pathName": "fy_jiu/pages/calendar/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 13,
+          "name": "shop",
+          "pathName": "fy_jiu/pages/shop/shop",
+          "query": "sid=5",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "detail",
+          "pathName": "fy_jiu/pages/product/detail",
+          "query": "productId=4",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "detail",
+          "pathName": "fy_jiu/pages/product/detail",
+          "query": "productId=3&sid=5",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "shopman",
+          "pathName": "fy_jiu/pages/shopman/shopman",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "admin",
+          "pathName": "fy_jiu/pages/admin/admin",
+          "query": "sid=5",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "test",
+          "pathName": "fy_jiu/pages/test/test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "lower",
+          "pathName": "fy_jiu/pages/lower/lower",
+          "query": "id=5",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "records",
+          "pathName": "fy_jiu/pages/records/records",
+          "query": "id=5",
+          "scene": null
+        },
+        {
+          "name": "orderingfood",
+          "pathName": "fy_jiu/pages/orderingfood/orderingfood",
+          "query": "sid=5",
+          "scene": null
+        },
+        {
+          "name": "settlein",
+          "pathName": "fy_jiu/pages/settlein/settlein",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "manDetail",
+          "pathName": "fy_jiu/pages/man/man_detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "calendar",
+          "pathName": "fy_jiu/pages/calendar/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "mycoupon",
+          "pathName": "fy_jiu/pages/mycoupon/mycoupon",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "coupon",
+          "pathName": "fy_jiu/pages/coupon/coupon",
+          "query": "sid=5",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

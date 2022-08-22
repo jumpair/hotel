@@ -1,0 +1,55 @@
+<view class="score">
+  <view class="name">
+    <image class="img" src="{{hotelUrl}}" mode="aspectFit"></image>
+    <view class="right">
+      <view class="name_text">{{hotelName}}</view>
+      <view class="score_info_xx">
+        <block wx:for="{{stars}}">
+          <image class="star-image" style="left: {{item*6}}rpx" src="{{key > item ?(key-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
+            <view class="item" style="left:0rpx" data-key="{{item+1}}" bindtap="selectLeft"></view>
+            <view class="item" style="left:20rpx" data-key="{{item+1}}" bindtap="selectRight"></view>
+          </image>
+        </block>
+        <text>{{manyi}}</text>
+      </view>
+    </view>
+  </view>
+
+
+
+	
+
+	
+	<view class="share">
+		<textarea placeholder="请输入您的评价" bindinput="contentChange"></textarea>
+		<view class="add_pic">
+			<view class="commentview">
+				<image src="{{thumb1}}" wx:if="{{thumb1!=''}}"></image>
+				<view bindtap="del" data-id="1" class="delView" wx:if="{{thumb1!=''}}">
+					<image src="../../../resource/images/del.png"></image>
+				</view>
+				<image src="../../../resource/images/add_pic.png" wx:else bindtap="uploadAction" data-id='1'></image>
+			</view>
+
+			<view class="commentview">
+				<image src="{{thumb2}}" wx:if="{{thumb2!=''}}"></image>
+				<view bindtap="del" data-id="2" class="delView" wx:if="{{thumb2!=''}}">
+					<image src="../../../resource/images/del.png"></image>
+				</view>
+				<image src="../../../resource/images/add_pic.png" wx:else bindtap="uploadAction" data-id='2'></image>
+			</view>
+
+			<view class="commentview">
+				<image src="{{thumb3}}" wx:if="{{thumb3!=''}}"></image>
+				<view bindtap="del" data-id="3" class="delView" wx:if="{{thumb3!=''}}">
+					<image src="../../../resource/images/del.png"></image>
+				</view>
+				<image src="../../../resource/images/add_pic.png" wx:else bindtap="uploadAction" data-id='3'></image>
+			</view>
+
+		</view>
+	</view>
+  <view class="footer_btn">
+    <view bindtap="submitAction">提交</view>
+  </view>
+</view>

@@ -1,0 +1,413 @@
+page {
+  background-color: #f5f5f5;
+}
+
+.base_view {
+  width: 100%;
+}
+
+.product_info {
+  display: flex;
+  padding: 0 0 20rpx 0;
+}
+
+.product_info>image {
+  width: 254rpx;
+  height: 156rpx;
+  border-radius: 12rpx;
+  margin-right: 20rpx;
+}
+
+.product_info_con {
+  flex: 1;
+  display: grid;
+}
+
+.product_info_con_tit {
+  font-size: 24rpx;
+  line-height: 36rpx;
+  color: #2a2a2c;
+  height: 68rpx;
+}
+
+.product_info_con_txt {
+  font-size: 24rpx;
+  line-height: 48rpx;
+  color: #BE9C58;
+  display: flex;
+  align-items: center;
+}
+
+.product_info_con_txt view {
+  margin-right: 16rpx;
+}
+
+.product_info_con_txt view text {
+  font-weight: normal;
+}
+
+.address {
+  background-color: #F5F5F5;
+  padding: 0 32rpx;
+}
+
+.address {
+  border-radius: 12rpx;
+  height: 120rpx;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.address_bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.address_bg image {
+  width: 100%;
+  height: 100%;
+}
+.address_info {
+  float: left;
+  font-size: 24rpx;
+  line-height: 36rpx;
+  color: #333333;
+  display: flex;
+  flex: 1;
+  padding-right: 10rpx;
+}
+
+.address_info image {
+  width: 22rpx;
+  height: 28rpx;
+  margin-right: 8rpx;
+  margin-top: 5rpx;
+}
+
+.address_info view {
+  flex: 1;
+}
+
+.address_copy {
+  float: left;
+  font-size: 22rpx;
+  line-height: 104rpx;
+  color: #78797b;
+  margin-left: 30rpx;
+}
+
+.address_list {
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 128rpx;
+  height: 44rpx;
+  background: #29AF28;
+  border-radius: 30rpx;
+
+}
+
+.address_list image {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.address_list view {
+  font-size: 20rpx;
+  color: #ffffff;
+}
+
+.room_tit {
+  font-size: 28rpx;
+  line-height: 60rpx;
+  color: #000000;
+}
+
+.room_tit view {
+  float: right;
+  font-weight: normal;
+}
+
+.room_tit>text {
+  font-size: 24rpx;
+  color: #666666;
+  font-weight: normal;
+}
+
+.room_date {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10rpx;
+  background: #F5F0E6;
+  border-radius: 12rpx;
+  padding: 36rpx 36rpx 32rpx 36rpx;
+  overflow: hidden;
+}
+
+.room_date_list {
+  margin-right: 30rpx;
+}
+
+.room_date_list>view {
+  font-size: 26rpx;
+  line-height: 44rpx;
+  color: #1e212a;
+  font-weight: bold;
+}
+
+.room_date_list>view text {
+  display: inline-block;
+  font-size: 22rpx;
+  line-height: 28rpx;
+  color: #28282a;
+  border-radius: 100rpx;
+  border: 1rpx solid #aaa;
+  width: 80rpx;
+  text-align: center;
+  margin-left: 30rpx;
+  font-weight: normal;
+}
+
+.room_date_list>text {
+  display: block;
+  font-size: 22rpx;
+  line-height: 40rpx;
+  color: #8d8f8e;
+}
+
+.stay {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stay_list {
+  width: 25%;
+}
+
+.stay_list view {
+  font-size: 22rpx;
+  line-height: 42rpx;
+  height: 42rpx;
+  color: #767678;
+}
+
+.stay_list view image {
+  display: inline-block;
+  width: 24rpx;
+  height: 14rpx;
+  margin-left: 8rpx;
+}
+
+.stay_list:nth-child(2) view {
+  color: #383838;
+}
+
+.btn {
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx 0;
+}
+
+.btn view {
+  width: 198rpx;
+  border-radius: 100rpx;
+  text-align: center;
+  font-size: 26rpx;
+  line-height: 46rpx;
+  color: #2ab78c;
+  font-weight: bold;
+  border: 1rpx solid #2ab78c;
+}
+
+/* new */
+.order_fixed {
+  width: 100%;
+  position: fixed;
+  height: 120rpx;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #BE9C58;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+}
+.order_status {
+  font-size: 28rpx;
+color: #FFFFFF;
+}
+.order_statu_r{
+  display: flex;
+}
+.order_status_button {
+  width: 140rpx;
+height: 52rpx;
+line-height: 52rpx;
+text-align: center;
+background: #FFFFFF;
+border-radius: 12rpx;
+margin-left: 16rpx;
+font-size: 24rpx;
+color: #000000;
+}
+.order_tel image {
+  width: 28rpx;
+  height: 28rpx;
+  display: block;
+}
+
+.order_top {
+  background: linear-gradient(180deg, #F5F0E6 0%, rgba(245, 240, 230, 0) 100%);
+  box-sizing: border-box;
+  padding: 0 32rpx;
+}
+
+.order_white {
+  width: 100%;
+  background: #FFFFFF;
+  box-shadow: 0px 8rpx 8rpx 0px rgba(176, 176, 176, 0.1500);
+  border-radius: 12rpx;
+  overflow: hidden;
+  padding: 32rpx 20rpx;
+  box-sizing: border-box;
+}
+
+.order_infor {
+  padding: 36rpx 0 30rpx 0;
+  text-align: center;
+  font-size: 36rpx;
+  color: #000000;
+}
+
+.order_red {
+  font-size: 24rpx;
+  color: #FF0000;
+}
+
+.order_assess {
+  color: #000000;
+}
+
+.order_tel {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 12rpx;
+}
+
+.order_tel:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -12rpx;
+  width: 1px;
+  height: 24rpx;
+  background-color: #CCCCCC;
+}
+
+.room {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 24rpx 32rpx 32rpx 32rpx;
+}
+
+.room_infor {
+  padding: 30rpx 36rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px 0px rgba(176, 176, 176, 0.1500);
+  border-radius: 12px;
+}
+
+.order_l,
+.order_r {
+  width: 35%;
+  font-size: 28rpx;
+}
+
+.order_r {
+  text-align: right;
+}
+
+.order_mid {
+  width: 30%;
+  font-size: 24rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.order_grey {
+  font-size: 20rpx;
+  color: #999999;
+}
+
+.order_blank {
+  color: #333333;
+}
+.mt16 {
+  margin-top: 32rpx;
+}
+.room_tit2 {
+  font-size: 32rpx;
+  line-height: 48rpx;
+  color: #000000;
+  font-weight: bold;
+}
+.infor_list {
+  background: #F9F9F9;
+border-radius: 12rpx;
+border: 2rpx solid #EEEEEE;
+overflow: hidden;
+padding: 30rpx;
+margin-top: 24rpx;
+}
+.infor_name {
+  overflow: hidden;
+  font-size: 28rpx;
+}
+.order_left {
+  float: left;
+}
+.order_right {
+  float: right;
+}
+.infor_sub {
+  
+font-weight: bold;
+color: #000000;
+}
+.order_price {
+color: #BE9C58;
+}
+.infor_line {
+  
+border-bottom: 2rpx solid #EEEEEE;
+}
+.infor_cont {
+  line-height: 76rpx;
+  display: flex;
+}
+.infor_cont view {
+  font-size: 24rpx;
+  float: left;
+}
+.infor_cont view:first-child {
+  color: #666666;
+  width: 112rpx;
+}
+.infor_cont view:nth-child(2) {
+padding-left: 40rpx;
+  color: #333333;
+  width: calc(100% - 112rpx);
+
+}
