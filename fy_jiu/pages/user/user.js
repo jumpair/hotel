@@ -144,6 +144,8 @@ Page({
             start_discount:res.data.data.start_discount,
             start_settlein:res.data.data.start_settlein,
             getUserNickname: res.data.data.getUserNickname,
+            dfknum: res.data.data.dfknum,
+            dtknum: res.data.data.dtknum,
             userlevel:res.data.data.userlevel
           })
         }
@@ -158,6 +160,11 @@ Page({
     // this.setData({
     //   userinfo: wx.getStorageSync('userinfo')
     // })
+  },
+  allorder:function(){
+    wx.navigateTo({
+      url: '../man/man?sid=10',
+    })
   },
   updateUserInfo: function() {
     var that = this;
@@ -297,7 +304,7 @@ Page({
   },
   //处理付款信息
   handlePay: function (gid, chargeMoney){
-
+    
     var that=this;
     var uniacid = app.siteInfo.uniacid;
     app.util.request({

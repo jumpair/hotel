@@ -276,7 +276,14 @@ Page({
   },
   del:function(event){
     let id = event.currentTarget.dataset.id;
-    this.setData({ thumb1:'' })
+    if(id == 1){
+      this.setData({ thumb1:'' })
+    }else if(id == 2){
+      this.setData({ thumb2:'' })
+    }else if(id ==3){
+      this.setData({ thumb3:'' })
+    }
+    
   },
   notice: function (str) {
     wx.showModal({

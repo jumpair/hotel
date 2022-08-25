@@ -77,4 +77,3 @@
 </view>
 <view style="height: 50rpx;"></view>
 <import src="../public/foot.wxml" />
-<template is="foot" data="{{blist}}" />

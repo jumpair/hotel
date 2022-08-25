@@ -25,7 +25,7 @@
           </view>
           <view class="lab">
             <image mode="widthFix" src="../../../resource/images/level.svg"></image>
-            <view>{{levelName1}}</view>
+            <view>{{levelName}}</view>
           </view>
         </view>
       </view>

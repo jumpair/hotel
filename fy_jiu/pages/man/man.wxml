@@ -1,4 +1,4 @@
-<view class="cate_bg" style='background-color:#ffffff'></view>
+<!-- <view class="cate_bg" style='background-color:#ffffff'></view> -->
 <!-- <view class="cate_bg" style='background-color:{{blist.tcolor}}'></view> -->
 <view class="cate">
   <view class="cate-item {{currentTabsIndex==10?'hover':''}}" bindtap="catClick" data-sid='10'>
@@ -18,10 +18,15 @@
   </view>
 </view>
 
-<view class='blank'></view>
-<view class="order" wx:for="{{list}}" wx:key="{{index}}">
+<!-- <view class='blank'></view> -->
+<block wx:if="{{!list.length}}">
+	<view class='nodata'>
+		<image src="../../resource/images/nodata.png"/>
+	</view>
+</block>
+<view class="order" wx:for="{{list}}" wx:key="{{index}}" wx:if="{{list.length}}">
   <view class="order_item">
-    <view class="order_n_up">
+    <view class="order_n_up" bindtap="navDetail" data-oid="{{item.id}}">
       <view class="order_left">
         <view class="room_name">{{item.roomname}}</view>
         <view class="hotel_name">{{item.hotel_name}}</view>

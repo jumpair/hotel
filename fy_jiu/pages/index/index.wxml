@@ -6,7 +6,7 @@
 	</view>
 </view>
 <view class="banner">
-	<swiper bindchange="swiper">
+	<swiper bindchange="swiper" autoplay="{{true}}">
 		<swiper-item wx:for="{{banner}}" wx:key="index">
 			<image mode="aspectFill" src="{{item.images}}" bindtap='navApp' data-appid="{{item.appid}}"
 				data-pageaddress="{{item.pageaddress}}"></image>
@@ -73,7 +73,7 @@
 
 <view style="height: 40rpx;width: 100%;"></view>
 
-<view class="title10">
+<view class="title10" wx:if="{{list.length>0}}">
 	<view class="h_"></view>
 	<view class="title_tit">{{index_name}}</view>
 	<view class="h_"></view>

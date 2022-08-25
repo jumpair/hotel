@@ -4,7 +4,9 @@ page {
   color: #333;
   position: relative;
 }
-
+.nodata{
+  min-height: calc(100vh - 360rpx);
+}
 .order {
   background: #FFFFFF;
   box-shadow: 0px 4px 4px 0px rgba(176, 176, 176, 0.1500);
@@ -91,14 +93,14 @@ page {
   background: white;
   flex-wrap: wrap;
   color: #666;
-  position: absolute;
-  top: 20rpx;
   width: 100%;
   left: 0;
   justify-content: space-between;
   padding-left: 30rpx;
   padding-right: 30rpx;
   box-sizing: border-box;
+  position: sticky;
+  top: 0rpx;
 }
 
 .cate-item {

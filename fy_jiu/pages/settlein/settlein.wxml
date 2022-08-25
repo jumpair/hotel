@@ -71,7 +71,7 @@
       <view class="add_pic">
         <view class="commentview">
           <image src="{{thumb2}}" wx:if="{{thumb2!=''}}"></image>
-          <view bindtap="del" data-id="1" class="delView" wx:if="{{thumb2!=''}}">
+          <view bindtap="del" data-id="2" class="delView" wx:if="{{thumb2!=''}}">
             <image src="../../resource/images/del.png"></image>
           </view>
           <image src="../../resource/images/add_pic.png" wx:else bindtap="uploadAction" data-id='2'></image>
@@ -85,7 +85,7 @@
       <view class="add_pic">
         <view class="commentview">
           <image src="{{thumb3}}" wx:if="{{thumb3!=''}}"></image>
-          <view bindtap="del" data-id="1" class="delView" wx:if="{{thumb3!=''}}">
+          <view bindtap="del" data-id="3" class="delView" wx:if="{{thumb3!=''}}">
             <image src="../../resource/images/del.png"></image>
           </view>
           <image src="../../resource/images/add_pic.png" wx:else bindtap="uploadAction" data-id='3'></image>

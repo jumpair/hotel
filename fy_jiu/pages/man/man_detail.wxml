@@ -108,7 +108,7 @@
 				<view>
 					预计到店
 				</view>
-				<view>{{store.enter_time}}</view>
+				<view>{{list.cometime}}</view>
 			</view>
 			<view class="infor_line infor_cont">
 				<view>

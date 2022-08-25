@@ -140,6 +140,7 @@
   width: 100%;
   box-sizing: border-box;
   height: 100%;
+  border-radius: 12rpx;
 }
 .head image{
   border-radius: 50%;

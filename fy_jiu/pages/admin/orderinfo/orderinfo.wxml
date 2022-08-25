@@ -54,6 +54,10 @@
     <view>订单状态</view>
     <text>{{row.status_str}}</text>
   </view>
+  <view class="item bt">
+    <view>下单时间</view>
+    <text>{{row.addtime}}</text>
+  </view>
   <view class='item bt' wx:if="{{row.status=='5' || row.status=='6'}}">
     <view>申请退款时间</view>
     <text>{{row.refund_time}}</text>

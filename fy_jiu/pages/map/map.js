@@ -50,13 +50,16 @@ Page({
     })
     let that=this;
     let loc=this.data.lat+','+this.data.long;
+   
     var qqmapsdk = new QQMapWX({
       key: this.data.map_key // 必填
     });
+    // console.log(res);return;
     qqmapsdk.search({
       keyword: '交通',
       location: loc,
       success: function (res) {
+        
         that.setData({
           traffic_list:res.data
         })

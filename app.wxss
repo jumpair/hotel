@@ -319,4 +319,16 @@ width: 100%;
   text-align: center;
   padding-top: 50rpx;
 }
+.nodata{
+  width: 100%;
+  min-height: calc(100vh - 260rpx);
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0;
+  text-align: center;
+  padding-top: 100px;
+}
+.nodata image{
+  margin: 0 auto;
+}
 /* 新版优惠券样式结束 */

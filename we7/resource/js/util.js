@@ -210,9 +210,35 @@ util.handelCopyAction = function () {
 	var copy = blist.copyright
 	if (copy.copy_kind == '1') {
 		var phone = copy.copy_phone
-		wx.makePhoneCall({
-			phoneNumber: phone,
-		})
+		let type = false
+    wx.getSystemInfo({
+      success: res => {
+        let modelmes = res.model;
+        if (modelmes.search('iPhone') != -1 ) {
+          type =  true;
+        }
+      }
+    })
+    if(type){
+      wx.makePhoneCall({
+        phoneNumber: phone,
+      })
+    }else{
+      wx.showModal({
+        title:'提示',
+        content:'拨打'+phone+'?',
+        success(res){
+          if (res.confirm) {
+            // console.log('用户点击确定')
+            wx.makePhoneCall({
+              phoneNumber: phone,
+            })
+          } else if (res.cancel) {
+            // console.log('用户点击取消')
+          }
+        }
+      })
+    }
 	}
 	if (copy.copy_kind == '2') {
 		var appid = copy.copy_appid;

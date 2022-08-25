@@ -178,16 +178,14 @@ Page({
                                   cachetime: 0,
                                   success: function(res) {
                                     wx.setStorageSync('ordersn', ordersn);
-                                    if(that.data.templet_id1=='' && that.data.templet_id2==''){
+                                    
                                       wx.showToast({
                                         title: '支付成功',
                                         icon: 'success',
                                         duration: 1000
                                       })
                                       that.loadData(that.data.currentTabsIndex);
-                                    }else{
-                                      that.checkSub();
-                                    }
+                                   
                                   }
                                 });
                                 

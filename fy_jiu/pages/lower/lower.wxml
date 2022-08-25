@@ -13,10 +13,10 @@
             电话：{{item.phone}}
           </view>
 
-          <view class='info-next' bindtap='tanext' data-id="{{item.openid}}">
+          <!-- <view class='info-next' bindtap='tanext' data-id="{{item.openid}}">
             <view>他的下级</view>
             <image src="../../resource/images/more_right.svg"></image>
-          </view>
+          </view> -->
         
         </view>
       </view>

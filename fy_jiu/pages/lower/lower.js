@@ -52,7 +52,7 @@ Page({
     console.info('用户数据',e);
     console.info('用户数据', e.target.dataset.id);
 
-    var openid = e.target.dataset.id;
+    var openid = e.currentTarget.dataset.id;
 
     wx.navigateTo({ url: '../next/next?openid=' + openid});
 

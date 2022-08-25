@@ -74,6 +74,7 @@ page{
   border: 1rpx solid #FFFFFF;
   white-space: nowrap; 
   padding: 0 18rpx;
+  min-width: 110rpx;
 }
 
 .top_bg .user .info .lab image {

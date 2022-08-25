@@ -556,11 +556,16 @@ Page({
                         }else{
                           that.checkSub();
                         }
-                      }
+                      },
+                    
                     });
                   
+                  },
+                  fail: function(err) {
+                    wx.navigateTo({
+                      url: '../man/man?sid=0',
+                    })
                   }
-                
                 })
               }
             })             

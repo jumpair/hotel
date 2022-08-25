@@ -152,7 +152,9 @@
 				<view class="shengyu">剩余{{item.nums}}间</view>
 			</view>
 			<view class='new-info'>
-				<view class='new-title'>{{item.name}}</view>
+				<view class='new-title'>{{item.name}}
+          <image wx:if="{{item.isquota == '1'}}" src="/fy_jiu/resource/images/123123.svg"></image>
+        </view>
 				<view class='new-breakfast' style="margin-top: 10rpx;">
 					<view>{{item.breakfast_str}}早</view>
 					<view>{{item.area}}m²</view>
@@ -166,7 +168,7 @@
 					<view class='new-btn'>
 						<view wx:if="{{item.nums!='0'}}" class="reserve" bindtap="clickOrder" data-id="{{index}}" data-isquota="{{item.isquota}}">在线预订
 						</view>
-						<view wx:else class="reserve reserve1" bindtap="clickOrder" data-id="{{index}}">今日已满房</view>
+						<view wx:else class="reserve reserve1" data-id="{{index}}">今日已满房</view>
 					</view>
 				</view>
 			</view>
@@ -225,7 +227,7 @@
 				<view class="shengyu">剩余{{item.nums}}间</view>
 			</view>
 			<view class='new-info'>
-				<view class='new-title'>{{item.name}}</view>
+				<view class='new-title'>{{item.name}}<image wx:if="{{item.isquota == '1'}}" src="/fy_jiu/resource/images/123123.svg"></image></view>
 				<view class='new-breakfast' style="margin-top: 10rpx;">
 					<view>预约时间 {{item.hour_start}}至{{item.hour_end}}</view>
 					<!-- <view wx:if="{{show_roomnum=='1'}}">剩余:{{item.nums}}间</view> -->
@@ -297,7 +299,7 @@
 				<view class="shengyu">剩余{{item.nums}}间</view>
 			</view>
 			<view class='new-info'>
-				<view class='new-title'>{{item.name}}</view>
+				<view class='new-title'>{{item.name}}<image wx:if="{{item.isquota == '1'}}" src="/fy_jiu/resource/images/123123.svg"></image></view>
 				<view class='new-breakfast' style="margin-top: 10rpx;">
 					<view>最少预订{{item.termdays}}天</view>
 					<view>{{item.area}}m²</view>

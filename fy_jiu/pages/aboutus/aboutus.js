@@ -23,6 +23,7 @@ Page({
         uniacid
       },
       success: function (res) {
+        console.log(res);
         that.setData({
           content:res.data.data.ptcontent
         })

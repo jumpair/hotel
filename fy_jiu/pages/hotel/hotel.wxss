@@ -1060,6 +1060,14 @@ image{
   font-weight: 400;
   color: #333333;
   line-height: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.new-title image{
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 10rpx;
 }
 .new-breakfast{
   display: flex;
@@ -1542,6 +1550,9 @@ image{
   height: 110rpx;
   padding-bottom: 10rpx;
   margin-left: 10rpx;
+}
+.bill_img view{
+  white-space: nowrap;
 }
 
 

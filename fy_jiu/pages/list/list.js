@@ -167,7 +167,7 @@ Page({
   },
 
   navCale() {
-    app.util.nav('../calendar/index?checkInDate=' + this.data.inDate + '&outDate=' + this.data.outDate)
+    app.util.nav('../calendar/index?checkInDate=' + this.data.inDate + '&checkOutDate=' + this.data.outDate)
   },
   //处理版权点击动作
   copy_action: function () {

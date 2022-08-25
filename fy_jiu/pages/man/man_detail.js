@@ -5,6 +5,7 @@ Page({
     list: [],
     store: [],
     personlist: [],
+    currentTabsIndex: 10,
     leavetime: {
       "minute":"00",
       "sec":"00"
@@ -30,6 +31,7 @@ Page({
         list: res.data.list,
         store: res.data.store,
         personlist: res.data.list.info,
+        rid:res.data.list.rid,
         timespart
       })
       if(timespart<0||!timespart){
@@ -176,109 +178,129 @@ Page({
   //   })
   // },
 
-  buttonClick: function (event) {
+  buttonClick: function(event){
     var id = event.currentTarget.dataset.id;
     var sid = event.currentTarget.dataset.sid;
     var oid = event.currentTarget.dataset.oid;
     var uniacid = this.data.uniacid
     var openid = wx.getStorageSync('openid');
     var that = this;
-    if (sid == 'pay') {
-      var list = this.data.list;
-
-      //先检查房间数量
-      app.util.request({
-        url: 'entry/wxapp/CheckRoomNums',
-        data: {
-          m: 'fy_jiu',
-          rid: list.rid,
-          oid: list.oid
-        },
-        cachetime: 0,
-        success: function (res) {
-          if (!res.data.errno) {
-            var test = Date.now().toString();
-            var ordersn = oid + test.substr(-4);
-            //由于二次支付，退款时需要一个新的订单号，这里先提交数据库更改订单号
-            app.util.request({
-              url: 'entry/wxapp/UpdateOrder',
-              data: {
-                m: 'fy_jiu',
-                uniacid: uniacid,
-                openid: openid,
-                ordersn: ordersn,
-                oid: oid
-              },
-              cachetime: 0,
-              success: function (res) {
-                if (!res.data.errno) {
-                  var url = app.siteInfo.siteroot;
-                  url = url.split('/app')[0];
-                  var url1 = url;
-                  url = url + '/addons/fy_jiu/pay' + uniacid + '/example/jsapi.php';
-                  var notifyUrl = url1 + '/addons/fy_jiu/pay' + uniacid + '/example/test.php';
-                  wx.request({
-                    url: url,
-                    data: {
-                      openid: openid,
-                      price: list.total,
-                      roomname: '房间名称：' + list.roomname + '    房间数量：' + list.roomnum,
-                      ordersn: ordersn,
-                      notifyUrl: notifyUrl
-                    },
-                    header: {
-                      'content-type': 'application/json'
-                    },
-                    success: function (res) {
-                      var data = res.data;
-                      if ((data instanceof Object) == false) {
-                        that.notice('微信支付失败!');
-                        return false;
-                      }
-                      var pack = data.package.split('=')[1];
-                      wx.requestPayment({
-                        'timeStamp': data.timeStamp,
-                        'nonceStr': data.nonceStr,
-                        'package': data.package,
-                        'signType': 'MD5',
-                        'paySign': data.paySign,
-                        'success': function (res) {
-                          wx.setStorageSync('ordersn', ordersn);
-                          if (that.data.templet_id1 == '' && that.data.templet_id2 == '') {
-                            wx.showToast({
-                              title: '支付成功',
-                              icon: 'success',
-                              duration: 1000
-                            })
-                            that.loadData(that.data.myoid);
-                          } else {
-                            that.checkSub();
-                          }
-                        },
-                        'fail': function (res) {}
+    if (sid =='pay'){
+        var item = this.data.list;
+        //先检查房间数量
+        app.util.request({
+          url: 'entry/wxapp/CheckRoomNums',
+          data: {
+            m: 'fy_jiu',
+            rid: item.rid,
+            oid:item.oid
+          },
+          cachetime: 0,
+          success: function (res) {
+            if (!res.data.errno) {
+              var test = Date.now().toString();
+              var ordersn = oid + test.substr(-4);
+              //由于二次支付，退款时需要一个新的订单号，这里先提交数据库更改订单号
+              app.util.request({
+                url: 'entry/wxapp/UpdateOrder',
+                data: {
+                  m: 'fy_jiu',
+                  uniacid: uniacid,
+                  openid: openid,
+                  ordersn:ordersn,
+                  oid:oid
+                },
+                cachetime: 0,
+                success: function (res) {
+                  if (!res.data.errno) {
+                    if(res.data.erron == -1){
+                      wx.showToast({
+                        title: res.data.message,
                       })
-                    },
-                    fail: function (res) {
-                      that.notice('微信支付失败！');
+                      return false;
+                    }else{
+
+                        var url = app.siteInfo.siteroot;
+                        url = url.split('/app')[0];
+                        var url1 = url;
+                        url = url + '/addons/fy_jiu/pay' + app.siteInfo.uniacid + '/example/chinaums.php';
+                        var notifyUrl = url1 + '/addons/fy_jiu/pay' + app.siteInfo.uniacid + '/example/chinaumsnotify.php';
+                        // url = url + '/addons/fy_jiu/pay' + uniacid + '/example/jsapi.php';
+                        // var notifyUrl = url1 + '/addons/fy_jiu/pay' + uniacid + '/example/test.php';
+                        wx.request({
+                          url: url,
+                          data: {
+                            openid: openid,
+                            price: item.total,
+                            roomname: '房间名称：' + item.roomname + '    房间数量：' + item.roomnum,
+                            ordersn: ordersn,
+                            notifyUrl: notifyUrl
+                          },
+                          header: {
+                            'content-type': 'application/json'
+                          },
+                          success: function (res) {
+                            var data = res.data;
+                            if ((data instanceof Object) == false) { that.notice('微信支付失败!'); return false; }
+                            var pack = data.package.split('=')[1];
+                            wx.requestPayment({
+                              'timeStamp': data.timeStamp,
+                              'nonceStr': data.nonceStr,
+                              'package': data.package,
+                              'signType': data.signType,
+                              'paySign': data.paySign,
+                              'success': function (res) {
+                                app.util.request({
+                                  url: 'entry/wxapp/newpayorder',
+                                  data: {
+                                    m: 'fy_jiu',
+                                    openid: wx.getStorageSync('openid'),
+                                    uniacid: app.siteInfo.uniacid,
+                                    merOrderId: data.merOrderId,
+                                    ordersn:ordersn
+                                  },
+                                  cachetime: 0,
+                                  success: function(res) {
+                                    wx.setStorageSync('ordersn', ordersn);
+                                   
+                                      wx.showToast({
+                                        title: '支付成功',
+                                        icon: 'success',
+                                        duration: 1000
+                                      })
+                                      // that.loadData(ordersn);
+                                    
+                                  }
+                                });
+                                
+                              },
+                              'fail': function (res) {
+                              }
+                            })
+                          },
+                          fail: function (res) {
+                            that.notice('微信支付失败！');
+                          }
+                        })
                     }
-                  })
+                  }
                 }
-              }
-            });
+              });
 
-
-          } else {
-            wx.showModal({
-              title: res.data.message,
-              content: 11,
-              success: function (res) {}
-            })
-            return false;
+              
+            }else{
+              wx.showModal({
+                title: res.data.message,
+                content: 11,
+                success: function (res) {
+                }
+              })
+              return false;  
+            }
           }
-        }
-      });
+        });
 
-
+        
     }
 
     //退款

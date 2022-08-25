@@ -40,7 +40,7 @@
 					</block>
 					
 					<block>
-						<block wx:if="{{true||isadmin=='1'}}">
+						<block wx:if="{{isadmin=='1'}}">
 							<view bindtap="navAdmin" class="name admin name1">
 								<text>管理入口</text>
 								<image src="../../resource/images/more_white.svg"></image>
@@ -97,9 +97,14 @@
 		<view class="nav">
 			<view class="title">
 				<view>我的订单</view>
+        <view class="more" bindtap="allorder">
+          <text>全部</text>
+          <image src="/fy_jiu/resource/images/address_right.png"></image>
+        </view>
 			</view>
 			<view class="btn">
 				<view bindtap='man' data-sid='0'>
+          <view class="icon" wx:if="{{dfknum != 0}}">{{dfknum}}</view>
 					<image src="{{iconArr.pendingpay}}" mode="widthFix"></image>
 					<text>待付款</text>
 				</view>
@@ -108,6 +113,7 @@
 					<text>已入住</text>
 				</view>
 				<view bindtap='man' data-sid='5'>
+          <view class="icon" wx:if="{{dtknum != 0}}">{{dtknum}}</view>
 					<image src="{{iconArr.pendingrefund}}" mode="widthFix"></image>
 					<text>待退款</text>
 				</view>
@@ -169,7 +175,7 @@
 					<image src="{{iconArr.caseback}}" mode="widthFix"></image>
 					<text>推荐奖励</text>
 				</view>
-				<view bindtap='navSettlein'  wx:if="{{iconArr.settlein!='' && start_settlein == '1'}}">
+				<view bindtap='navSettlein'  wx:if="{{start_settlein == '1'}}">
 					<image src="{{iconArr.settlein}}" mode="widthFix"></image>
 					<text>酒店入驻</text>
 				</view>

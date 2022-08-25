@@ -40,6 +40,8 @@ Page({
   },
 
   onShow:function(){
+    var that = this
+    console.log(that)
     var options=this.data.loadOptions;
      //判断是从首页带日期过来的还是通过分享过来的
      var scene = options.scene;
@@ -100,7 +102,26 @@ Page({
           }else{
               this.getContent(position);
           }
+
+          
      }
+
+     
+     app.util.request({
+      url: 'entry/wxapp/getuser',
+      data: {
+        m: 'fy_jiu',
+        openid: wx.getStorageSync('openid'),
+        uniacid: app.siteInfo.uniacid,
+      },
+      cachetime: 0,
+      success: function(res) {
+        console.log(res)
+          that.setData({
+            user:res.data.data.user
+          })
+      }
+    });
   },
 
   onLoad: function (options) {
@@ -324,10 +345,39 @@ Page({
   },
   //酒店拨打电话
   call:function(){
+
     let phone=this.data.hotel.phone;
-    wx.makePhoneCall({
-      phoneNumber: phone,
+    let type = false
+    wx.getSystemInfo({
+      success: res => {
+        let modelmes = res.model;
+        if (modelmes.search('iPhone') != -1 ) {
+          type =  true;
+        }
+      }
     })
+    if(type){
+      wx.makePhoneCall({
+        phoneNumber: phone,
+      })
+    }else{
+      wx.showModal({
+        title:'提示',
+        content:'拨打'+phone+'?',
+        success(res){
+          if (res.confirm) {
+            // console.log('用户点击确定')
+            wx.makePhoneCall({
+              phoneNumber: phone,
+            })
+          } else if (res.cancel) {
+            // console.log('用户点击取消')
+          }
+        }
+      })
+    }
+    
+   
   },
   //去酒店地址
   goToAddress:function(){
@@ -490,6 +540,7 @@ Page({
       });
     }
   },
+  
   navBack:function(){
     if(this.data.enterMode==1){
        wx.reLaunch({

@@ -20,7 +20,7 @@
             <view>共{{item.diffday}}晚</view>
           </view>
           <view>
-            <text>入住日期</text>
+            <text>离店日期</text>
             <view>{{item.end_m}}月{{item.end_d}}日</view>
           </view>
         </view>

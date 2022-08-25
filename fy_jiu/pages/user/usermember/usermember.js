@@ -81,7 +81,7 @@ Page({
     },
     //处理付款信息
     handlePay: function (gid, chargeMoney) {
-
+      
         var that = this;
         var uniacid = app.siteInfo.uniacid;
         app.util.request({

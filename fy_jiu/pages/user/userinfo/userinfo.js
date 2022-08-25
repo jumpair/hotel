@@ -130,6 +130,7 @@ Page({
           
         }
       })
+      return false;
     }
     
     var uniacid = app.siteInfo.uniacid;
@@ -157,7 +158,11 @@ Page({
             title: '',
             content: '修改成功',
           });
-         
+          setTimeout(item => {
+            wx.navigateBack({
+              delta: 1 //返回上一级页面
+            })
+          },2000)
         }
       }
     });
