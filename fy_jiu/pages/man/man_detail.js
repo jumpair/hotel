@@ -355,7 +355,10 @@ Page({
             cachetime: 0,
             success: function (res) {
               if (!res.data.errno) {
-                that.loadData(that.data.myoid);
+                // that.loadData(that.data.myoid);
+                wx.reLaunch({
+                  url: '/fy_jiu/pages/user/user',
+                })
               }
             }
           });

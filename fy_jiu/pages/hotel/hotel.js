@@ -156,6 +156,14 @@ Page({
   },
   clickOrder: function (event){
     
+    if(this.data.getUserNickname == 1){
+      wx.showModal({
+        title:'提示信息',
+        content:'请先登录，再进行下面操作哦',
+
+      })
+      return false
+    }
     if(this.data.diffDay>2 && this.data.hotelfree==0 && event.currentTarget.dataset.isquota == 1){
       wx.showModal({
         title:'最多订两晚',

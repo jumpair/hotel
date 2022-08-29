@@ -106,10 +106,10 @@ Page({
     var phone=this.data.phone
     var username=this.data.username
    
-    if(phone=='' || username==''){
+    if(phone=='' || username=='' || this.data.cardnum){
      wx.showModal({
        title: '',
-       content: '姓名和手机号不能为空',
+       content: '姓名、身份证号码、手机号不能为空',
      });
      return false;
     }

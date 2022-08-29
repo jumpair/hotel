@@ -75,20 +75,30 @@
 		</view> -->
 	</view>
 </view>
-<view style="position: relative;top: -60rpx;">
+<view style="position: relative;top: -60rpx;z-index: 10;">
 	<view class="member-box1">
 		<image src="../../resource/images/huiyuan_bg.png"></image>
 		<view class="discount">
 			<view class="info">
-				<view wx:if="{{userlevel == 1}}">{{levelName}}</view>
-				<view wx:if="{{userlevel == 2}}">{{levelName}}</view>
-				<view wx:if="{{userlevel == 4}}">{{levelName}}</view>
-				<text wx:if="{{userlevel == 1}}">不能平台下单</text>
+        <view wx:if="{{getUserNickname}}">登录获得更多专享特权</view>
+				<view wx:if="{{userlevel == 1}}">
+          <text>{{levelName}}</text>
+          <image src="/fy_jiu/resource/images/wenhao.svg"  bindtap="goJieshao"></image>
+        </view>
+				<view wx:if="{{userlevel == 2}}">
+          <text>{{levelName}}</text>
+          <image src="/fy_jiu/resource/images/wenhao.svg" bindtap="goJieshao"></image>
+        </view>
+				<view wx:if="{{userlevel == 4}}">
+          <text>{{levelName}}</text>
+          <image src="/fy_jiu/resource/images/wenhao.svg" bindtap="goJieshao"></image>
+        </view>
+				<text wx:if="{{userlevel == 1}}">成为会员配额房间免费入住</text>
 				<text wx:if="{{userlevel == 2}}">享受下单优惠</text>
 				<text wx:if="{{userlevel == 4}}">享受下单优惠</text>
 			</view>
 			<view bindtap="checkmember" class="btn"  wx:if="{{userlevel == 2}}">查看</view>
-			<view bindtap="upgrade" class="btn" wx:if="{{userlevel == 1}}">会员升级</view>
+			<view bindtap="upgrade" class="btn" wx:if="{{userlevel == 1}}">开通</view>
 
       <!-- <view bindtap="levelfc" class="btn">升级分成</view> -->
 		</view>

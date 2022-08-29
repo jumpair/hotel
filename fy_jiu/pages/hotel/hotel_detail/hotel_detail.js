@@ -16,7 +16,8 @@ Page({
         score: 0, //门店分数
         commentTotal: 0, //评论总数
         commentList: [],
-        follow: 0
+        follow: 0,
+        toView:"id01"
     },
     onLoad: function (options) {
         let id = options.id; //酒店主键id
@@ -47,7 +48,40 @@ Page({
             }
 
         })
+        
     },
+    onReady: function (e) {
+      var that = this
+      var query = wx.createSelectorQuery()
+      query.select('#id01').boundingClientRect(function (res) {
+         that.setData({
+           id01:res.top
+         })
+      }).exec();
+
+
+      query.select('#id02').boundingClientRect(function (res) {
+         that.setData({
+           id02:res.top
+         })
+      }).exec();
+      query.select('#id03').boundingClientRect(function (res) {
+         that.setData({
+           id03:res.top
+         })
+      }).exec();
+      query.select('#id04').boundingClientRect(function (res) {
+         that.setData({
+           id04:res.top
+         })
+      }).exec();
+      query.select('#id05').boundingClientRect(function (res) {
+         that.setData({
+           id05:res.top
+         })
+      }).exec();
+  },
+
     //关注本店
     follow: function (event) {
         let id = this.data.hotel.id;
@@ -83,49 +117,50 @@ Page({
         })
         if (e.currentTarget.dataset.index == 1) {
             this.setData({
-                top: 0
+              toView: 'id01'
             })
         }
         if (e.currentTarget.dataset.index == 2) {
             this.setData({
-                top: 120
+              toView: 'id02'
             })
         }
         if (e.currentTarget.dataset.index == 3) {
             this.setData({
-                top: 240
+              toView: 'id03'
             })
         }
         if (e.currentTarget.dataset.index == 4) {
             this.setData({
-                top: 400
+              toView: 'id04'
             })
         }
-        if (e.currentTarget.dataset.index == 4) {
+        if (e.currentTarget.dataset.index == 5) {
             this.setData({
-                top: 600
+              toView: 'id05'
             })
         }
     },
     scrollchange: function (e) {
-        if (e.detail.scrollTop > 1 && e.detail.scrollTop < 110) {
+      var item = this.data
+        if (e.detail.scrollTop > 1 && e.detail.scrollTop < this.data.id02) {
             this.setData({
                 current: 1
             })
         }
-        if (e.detail.scrollTop > 120 && e.detail.scrollTop < 230) {
+        if (e.detail.scrollTop > this.data.id02 && e.detail.scrollTop < this.data.id03) {
             this.setData({
                 current: 2
             })
         }
-        if (e.detail.scrollTop > 240 && e.detail.scrollTop < 390) {
+        if (e.detail.scrollTop > this.data.id03 && e.detail.scrollTop < this.data.id04) {
             this.setData({
                 current: 3
             })
         }
-        if (e.detail.scrollTop > 400 && e.detail.scrollTop < 590) {
+        if (e.detail.scrollTop > this.data.id04 && e.detail.scrollTop < this.data.id05) {
             this.setData({
-                current: 3
+                current: 4
             })
         }
         if (e.detail.scrollTop > 600) {

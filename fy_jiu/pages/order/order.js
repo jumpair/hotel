@@ -494,7 +494,7 @@ Page({
                 content: '预定成功',
                 success: function (res) {
                   wx.navigateTo({
-                    url: '../man/man?sid=0',
+                    url: '../man/man?sid=10',
                   })
                 }
               })

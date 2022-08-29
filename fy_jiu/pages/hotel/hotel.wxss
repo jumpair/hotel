@@ -1545,11 +1545,14 @@ image{
   opacity: 0;
   z-index: 99;
 }
+.billBtn::after{
+  border: 1px solid red;
+}
 .bill_img image{
   width: 110rpx;
   height: 110rpx;
   padding-bottom: 10rpx;
-  margin-left: 10rpx;
+  margin: 0 auto;
 }
 .bill_img view{
   white-space: nowrap;

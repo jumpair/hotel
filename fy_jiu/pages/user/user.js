@@ -101,6 +101,12 @@ Page({
 
 
   },
+  //去平台介绍
+  goJieshao(){
+    wx.navigateTo({
+      url: '/fy_jiu/pages/aboutus/aboutus',
+    })
+  },
   navBack(){
     wx.navigateBack({
       delta: 0,
@@ -199,6 +205,7 @@ Page({
             wx.showToast({
               title: '登录成功！',
             })
+            this.loadData();
           }
         });
       }
@@ -418,11 +425,11 @@ Page({
   
   },
   aboutUs:function(){
-    if(this.checkGetUser()){
+    // if(this.checkGetUser()){
       wx.navigateTo({
         url: '../aboutus/aboutus',
       })
-    }
+    // }
   
   },
 
@@ -543,6 +550,7 @@ Page({
 
   /***********************生成推广码**********************/
   creatCode: function (event) {
+    if(this.checkGetUser()){
     var that = this;
     var uniacid = app.siteInfo.uniacid;
     var openid = wx.getStorageSync('openid');
@@ -574,7 +582,7 @@ Page({
         }
       }
     });
-
+}
 
   },
   closeRoom: function () {
@@ -615,9 +623,11 @@ Page({
 
   /***********************我的下级**********************/
   lowerTap: function () {
-    wx.navigateTo({
-      url: '../lower/lower',
-    })
+    if(this.checkGetUser()){
+      wx.navigateTo({
+        url: '../lower/lower',
+      })
+    }
   },
   /***********************我的下级**********************/
 

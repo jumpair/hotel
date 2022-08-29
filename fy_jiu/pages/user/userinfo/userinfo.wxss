@@ -71,10 +71,9 @@ page{
   height: 40rpx;
   border-radius: 30rpx;
   opacity: 1;
-  border: 1rpx solid #FFFFFF;
+  border: 2rpx solid #FFFFFF;
   white-space: nowrap; 
-  padding: 0 18rpx;
-  min-width: 110rpx;
+  padding: 0 22rpx;
 }
 
 .top_bg .user .info .lab image {

@@ -289,7 +289,7 @@ color: #000000;
 }
 
 .order_red {
-  font-size: 24rpx;
+  font-size: 36rpx;
   color: #FF0000;
 }
 

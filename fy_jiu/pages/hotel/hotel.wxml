@@ -18,7 +18,7 @@
 		<view class="fixed_" style="height: {{jnInfo.top+jnInfo.height+4}}px;">
 		<view style="height: {{jnInfo.top}}px;"></view>
 		<view style="height: {{jnInfo.height}}px;position: relative;" bindtap="navBack">
-			<image style="width: 60rpx;" src="../../resource/images/back.svg"></image>
+			<image style="width: 38rpx;margin-left:32rpx" src="../../resource/images/back.svg"></image>
 		</view>
 		</view>
 	</view>
